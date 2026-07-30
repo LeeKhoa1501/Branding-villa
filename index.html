@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NORA Villas — Platform Đặt Biệt Thự Biển & Resort Cao Cấp</title>
+  <meta name="description" content="Bộ sưu tập biệt thự nghỉ dưỡng, villa biển riêng tư có hồ bơi vô cực hàng đầu tại Việt Nam.">
+  
+  <!-- Google Fonts: Roboto Serif + Outfit + Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,300..700;1,8..144,300..700&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="light-theme">
+  <!-- Toast Notification System Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- FLOATING QUICK CONTACT BUTTONS -->
+  <div class="floating-contact-stack">
+    <a href="tel:+842839158888" class="float-btn float-phone" title="Gọi Hotline 24/7">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+    <a href="https://zalo.me" target="_blank" class="float-btn float-zalo" title="Chat Zalo Quản Gia">
+      <span class="zalo-text">Zalo</span>
+    </a>
+    <a href="https://m.me" target="_blank" class="float-btn float-messenger" title="Messenger Chat">
+      <i class="fa-brands fa-facebook-messenger"></i>
+    </a>
+  </div>
+
+  <!-- GLOBAL NAVIGATION HEADER -->
+  <header class="site-header" id="mainHeader">
+    <div class="site-header-bar">
+    <div class="header-container">
+      
+      <!-- Left: Brand Logo -->
+      <a href="#" class="brand-logo btn-nav-route" data-route="home">
+        <span class="logo-mark-sq">J</span>
+        <div class="logo-text-wrapper">
+          <span class="logo-text">NORA Villas</span>
+          <span class="logo-subtitle">LUXURY STAYS & RESORTS</span>
+        </div>
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <nav class="main-nav">
+        
+        <!-- 1. VILLAS MEGA MENU LINK -->
+        <div class="nav-item-dropdown">
+          <a href="#villas" class="nav-link active btn-nav-route" data-route="home" id="navVillas">
+            Villas <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+          
+          <!-- Villas Mega Menu Dropdown Card -->
+          <div class="mega-menu-card mega-villas">
+            <div class="mega-grid-3col">
+              <div class="mega-col">
+                <span class="mega-col-title">BY CATEGORY</span>
+                <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="beachfront">
+                  <i class="fa-solid fa-umbrella-beach"></i>
+                  <div>
+                    <strong>Beachfront Estates</strong>
+                    <span>Dinh thự biệt thự sát biển</span>
+                  </div>
+                </a>
+                <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="pool">
+                  <i class="fa-solid fa-water"></i>
+                  <div>
+                    <strong>Private Pool Villas</strong>
+                    <span>Hồ bơi vô cực ngắm đại dương</span>
+                  </div>
+                </a>
+                <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="families">
+                  <i class="fa-solid fa-house-user"></i>
+                  <div>
+                    <strong>Family & Group Escapes</strong>
+                    <span>Dành cho gia đình 6-16 người</span>
+                  </div>
+                </a>
+                <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="quiet">
+                  <i class="fa-solid fa-tree"></i>
+                  <div>
+                    <strong>Mountain Retreats</strong>
+                    <span>Biệt thự đồi thông Đà Lạt</span>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-col">
+                <span class="mega-col-title">MINIMUM BEDROOMS</span>
+                <div class="mega-beds-pills">
+                  <button class="bed-pill active btn-mega-bed" data-beds="0">Tất cả</button>
+                  <button class="bed-pill btn-mega-bed" data-beds="3">3+ Phòng</button>
+                  <button class="bed-pill btn-mega-bed" data-beds="5">5+ Phòng</button>
+                  <button class="bed-pill btn-mega-bed" data-beds="8">8+ Phòng</button>
+                </div>
+                <hr class="mega-hr">
+                <span class="mega-col-title">BOOKING FEATURES</span>
+                <div class="mega-badge-list">
+                  <span class="badge-instant"><i class="fa-solid fa-bolt"></i> Instant Booking</span>
+                  <span class="badge-freecancel"><i class="fa-solid fa-shield-halved"></i> Free Cancellation</span>
+                </div>
+              </div>
+
+              <!-- Quick Featured Villa Preview Card -->
+              <div class="mega-col mega-preview-box">
+                <span class="mega-col-title">FEATURED OF THE MONTH</span>
+                <div class="mega-preview-card">
+                  <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Villa Azure">
+                  <div class="preview-card-info">
+                    <h4>Villa Azure Vũng Tàu</h4>
+                    <p>★ 4.9 (32) · 5 Bedrooms · Oceanview</p>
+                    <span class="preview-price">7.500.000 ₫ <span>/đêm</span></span>
+                    <button class="btn-primary-small btn-mega-book-preview" data-id="azure">Book Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. DESTINATIONS MEGA MENU LINK -->
+        <div class="nav-item-dropdown">
+          <a href="#destinations" class="nav-link btn-nav-route" data-route="home" id="navDestinations">
+            Destinations <i class="fa-solid fa-chevron-down nav-arrow"></i>
+          </a>
+
+          <!-- Destinations Mega Menu -->
+          <div class="mega-menu-card mega-destinations">
+            <div class="mega-dest-grid">
+              <div class="dest-item-chip" data-location="Vũng Tàu">
+                <span class="dest-weather">☀️ 27°C</span>
+                <h4>Vũng Tàu</h4>
+                <p>48 Villas · Cách TP.HCM 2h</p>
+              </div>
+
+              <div class="dest-item-chip" data-location="Hồ Tràm">
+                <span class="dest-weather">🏖️ 29°C</span>
+                <h4>Hồ Tràm</h4>
+                <p>23 Villas · Bãi biển riêng tư</p>
+              </div>
+
+              <div class="dest-item-chip" data-location="Đà Lạt">
+                <span class="dest-weather">🌲 18°C</span>
+                <h4>Đà Lạt</h4>
+                <p>31 Villas · View đồi thông sương mù</p>
+              </div>
+
+              <div class="dest-item-chip" data-location="Phú Quốc">
+                <span class="dest-weather">🌅 30°C</span>
+                <h4>Phú Quốc</h4>
+                <p>42 Villas · Hoàng hôn đảo ngọc</p>
+              </div>
+
+              <div class="dest-item-chip" data-location="Nha Trang">
+                <span class="dest-weather">⛵ 28°C</span>
+                <h4>Nha Trang</h4>
+                <p>19 Villas · Vịnh biển 6 sao</p>
+              </div>
+
+              <div class="dest-item-chip" data-location="Long Hải">
+                <span class="dest-weather">🌊 27°C</span>
+                <h4>Long Hải</h4>
+                <p>15 Villas · Yên bình & nguyên sơ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. RESORT AMENITIES & ONSEN -->
+        <span class="nav-sep"></span>
+        <a href="#resortAmenities" class="nav-link btn-nav-route" data-route="home">Amenities</a>
+
+        <!-- 4. DEDICATED ABOUT US PAGE ROUTE -->
+        <span class="nav-sep"></span>
+        <a href="#about" class="nav-link btn-nav-route" data-route="about" id="navStory">Our Story</a>
+
+        <!-- 5. DEDICATED JOURNAL & BLOG PAGE ROUTE -->
+        <span class="nav-sep"></span>
+        <a href="#blog" class="nav-link btn-nav-route" data-route="blog" id="navJournal">Journal</a>
+
+        <!-- 6. EXPERIENCES LINK -->
+        <span class="nav-sep"></span>
+        <a href="#experiences" class="nav-link btn-nav-route" data-route="home">Experiences</a>
+      </nav>
+
+      <!-- Right: Action Items -->
+      <div class="header-actions">
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+          <select id="currencySelect" title="Select Currency">
+            <option value="VND" selected>🇻🇳 VND</option>
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+          </select>
+        </div>
+
+        <div class="header-actions-divider"></div>
+
+        <!-- Wishlist Icon ♡ -->
+        <button class="btn-icon-action" id="btnOpenWishlist" title="Saved Wishlist">
+          <i class="fa-regular fa-heart"></i>
+          <span class="badge-count-sm" id="wishlistCount">3</span>
+        </button>
+
+        <!-- Cart Icon 🛒 -->
+        <button class="btn-icon-action" id="btnOpenCart" title="Booking Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="badge-count-sm" id="cartCount">2</span>
+        </button>
+
+        <div class="header-actions-divider"></div>
+
+        <!-- My Trips Link -->
+        <button class="nav-action-link" id="btnOpenTrips"><i class="fa-solid fa-suitcase"></i> Trips (<span id="tripsHeaderCount">3</span>)</button>
+
+        <!-- Member Sign In Button -->
+        <button class="btn-signin-pill" id="btnSignIn">Sign in</button>
+
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <span class="brand-logo"><span class="logo-mark-sq">J</span> NORA Villas</span>
+      <button class="drawer-close" id="closeDrawerBtn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#home" class="btn-nav-route" data-route="home">Home & Catalog</a>
+      <a href="#about" class="btn-nav-route" data-route="about">Our Story & About</a>
+      <a href="#blog" class="btn-nav-route" data-route="blog">Journal & Blog</a>
+      <a href="#resortAmenities" class="btn-nav-route" data-route="home">Amenities & Onsen</a>
+      <a href="#experiences" class="btn-nav-route" data-route="home">Experiences</a>
+      <hr>
+      <a href="#" id="mobileCart">Giỏ hàng (<span id="mobileCartCount">2</span>)</a>
+      <a href="#" id="mobileWishlist">Wishlist (3)</a>
+      <a href="#" id="mobileMyTrips">My Trips (3)</a>
+      <a href="#" id="mobileSignIn">Sign in</a>
+    </nav>
+  </div>
+
+  <!-- Dynamic Views Container (Single Page Application Router) -->
+  <div id="pageViewsContainer">
+    
+    <!-- ==========================================================================
+         VIEW 1: LANDING PAGE & VILLAS CATALOG (#homeView)
+         ========================================================================== -->
+    <div class="page-view active" id="homeView">
+      
+      <!-- Hero Banner -->
+      <section class="hero-section">
+        <div class="hero-slider-track" id="heroSliderTrack">
+          <div class="hero-slide active">
+            <img src="./assets/hero_slide_1.jpg" alt="Villa Resort Infinity Pool Sunset">
+          </div>
+          <div class="hero-slide">
+            <img src="./assets/hero_slide_2.jpg" alt="Cliffside Luxury Ocean Villa">
+          </div>
+          <div class="hero-slide">
+            <img src="./assets/hero_slide_3.jpg" alt="Da Lat Pine Mountain Villa">
+          </div>
+        </div>
+
+        <div class="hero-bg-overlay"></div>
+
+        <button class="hero-arrow arrow-prev" id="slidePrevBtn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="hero-arrow arrow-next" id="slideNextBtn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+        
+        <div class="hero-slider-dots" id="heroSliderDots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+          <span class="dot" data-index="2"></span>
+        </div>
+
+        <div class="hero-floating-chip chip-left">
+          <div class="chip-icon"><i class="fa-solid fa-water"></i></div>
+          <div class="chip-text">
+            <strong>Private Infinity Pools</strong>
+            <span>Oceanfront view</span>
+          </div>
+        </div>
+
+        <div class="hero-floating-chip chip-right">
+          <div class="chip-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
+          <div class="chip-text">
+            <strong>Onsen & Mineral Baths</strong>
+            <span>Wellness therapy</span>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-tag-pill">
+            <span class="sparkle">✦</span> <span>PRIVATE STAYS, BEAUTIFULLY CURATED</span>
+          </div>
+          <h1 class="hero-title">Discover a private stay <br><i>worth remembering</i></h1>
+          <p class="hero-subtext">A curated collection of premium private villas for families, friends, and unforgettable escapes across Vietnam.</p>
+
+          <div class="search-widget-card" id="searchWidget">
+            <div class="search-field">
+              <label><i class="fa-solid fa-location-dot"></i> Destination</label>
+              <select id="searchDestination">
+                <option value="all">Tất cả địa danh Việt Nam</option>
+                <option value="Vũng Tàu" selected>Vũng Tàu</option>
+                <option value="Hồ Tràm">Hồ Tràm</option>
+                <option value="Long Hải">Long Hải</option>
+                <option value="Đà Lạt">Đà Lạt</option>
+                <option value="Phú Quốc">Phú Quốc</option>
+                <option value="Nha Trang">Nha Trang</option>
+              </select>
+            </div>
+
+            <div class="search-divider"></div>
+
+            <div class="search-field">
+              <label><i class="fa-regular fa-calendar"></i> Check-in</label>
+              <input type="date" id="searchCheckIn" value="2026-08-12">
+            </div>
+
+            <div class="search-divider"></div>
+
+            <div class="search-field">
+              <label><i class="fa-regular fa-calendar-check"></i> Check-out</label>
+              <input type="date" id="searchCheckOut" value="2026-08-14">
+            </div>
+
+            <div class="search-divider"></div>
+
+            <div class="search-field">
+              <label><i class="fa-solid fa-user-group"></i> Guests & rooms</label>
+              <input type="text" id="searchGuests" value="10 guests, 5 rooms" readonly>
+            </div>
+
+            <button class="btn-search" id="btnExecuteSearch">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search villas</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Trust Strip -->
+      <section class="stats-strip">
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-number">248+</span>
+            <span class="stat-label">Premium villas</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Địa danh Việt Nam</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">4.9 ★</span>
+            <span class="stat-label">Average rating</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">15 min</span>
+            <span class="stat-label">Confirmation time</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- OVERLAPPING LUXURY RESORT SHOWCASE -->
+      <section class="resort-amenities-section" id="resortAmenities">
+        <div class="section-container">
+          <div class="section-header-clean">
+            <span class="section-eyebrow">✦ RESORT EXPERIENCES ✦</span>
+            <h2 class="section-title">Tiện Ích & Trải Nghiệm Đẳng Cấp Villa</h2>
+            <p class="section-desc">Đánh thức giác quan với nghệ thuật ẩm thực tinh tế, liệu trình ngâm khoáng trị liệu Onsen Nhật Bản và không gian giải trí đỉnh cao.</p>
+          </div>
+
+          <div class="minera-showcase-row">
+            <div class="minera-img-frame">
+              <img src="./assets/hero_slide_1.jpg" alt="Ẩm thực biệt thự BBQ">
+            </div>
+            <div class="minera-overlay-card">
+              <span class="minera-eyebrow">GOURMET CULINARY</span>
+              <h3 class="minera-title">ẨM THỰC & ĐẦU BẾP RIÊNG</h3>
+              <p class="minera-desc">Đánh thức vị giác với thực đơn hải sản tươi sống nướng BBQ và các món ăn phong cách Á-Âu chuẩn 5 sao được chế biến trực tiếp tại Villa bởi Chef chuyên nghiệp.</p>
+              <hr class="minera-line">
+              <button class="minera-btn-more btn-open-exp-modal" data-title="Ẩm Thực & Đầu Bếp Riêng" data-desc="Trải nghiệm ăn uống đẳng cấp với thực đơn tiệc BBQ hải sản bãi biển, bữa sáng floating breakfast tại hồ bơi và rượu vang tuyển chọn.">
+                TÌM HIỂU THÊM <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="minera-showcase-row reverse">
+            <div class="minera-overlay-card teal-variant">
+              <span class="minera-eyebrow">WELLNESS & ONSEN THERAPY</span>
+              <h3 class="minera-title">ONSEN & KHOÁNG NÓNG TRỊ LIỆU</h3>
+              <p class="minera-desc">Tận hưởng liệu trình ngâm suối khoáng nóng thảo mộc Nhật Bản, xông hơi Sauna Jacuzzi riêng tư giúp phục hồi năng lượng và chăm sóc sức khỏe toàn diện.</p>
+              <hr class="minera-line">
+              <button class="minera-btn-more btn-open-exp-modal" data-title="Khoáng Nóng, Onsen & Spa Trị Liệu" data-desc="Thư giãn trong bồn ngâm Jacuzzi thảo mộc thiên nhiên, liệu pháp massage aroma trị liệu thủy lực giúp cơ thể được phục hồi năng lượng tối đa.">
+                TÌM HIỂU THÊM <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+            <div class="minera-img-frame">
+              <img src="./assets/villa_serene_img_1785398944559.jpg" alt="Khoáng nóng Onsen Spa">
+            </div>
+          </div>
+
+          <div class="minera-showcase-row">
+            <div class="minera-img-frame">
+              <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Karaoke VIP & Cinema">
+            </div>
+            <div class="minera-overlay-card gold-variant">
+              <span class="minera-eyebrow">ENTERTAINMENT LOUNGE</span>
+              <h3 class="minera-title">KARAOKE VIP & PHÒNG CHIẾU PHIM</h3>
+              <p class="minera-desc">Không gian giải trí khép kín tích hợp dàn âm thanh JBL Cinema cao cấp, bàn bida lỗ nhập khẩu và phòng Karaoke gia đình để mọi khoảnh khắc vui chơi thêm trọn vẹn.</p>
+              <hr class="minera-line">
+              <button class="minera-btn-more btn-open-exp-modal" data-title="Karaoke VIP & Giải Trí Cao Cấp" data-desc="Trang bị màn hình projector 150 inch, dàn amply hi-end công suất lớn, bàn bida lỗ tiêu chuẩn quốc tế cho những buổi tiệc chill quây quần.">
+                TÌM HIỂU THÊM <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Pills Carousel -->
+      <section class="category-section">
+        <div class="section-container">
+          <div class="browse-by-label">Browse by:</div>
+          <div class="category-pills-wrapper">
+            <button class="cat-pill active" data-cat="all">All Stays</button>
+            <button class="cat-pill" data-cat="beachfront">🏖️ Beachfront</button>
+            <button class="cat-pill" data-cat="pool">🏊 Private pool</button>
+            <button class="cat-pill" data-cat="families">👨‍👩‍👧‍👦 For families</button>
+            <button class="cat-pill" data-cat="large">🎉 Large groups</button>
+            <button class="cat-pill" data-cat="pet">🐾 Pet friendly</button>
+            <button class="cat-pill" data-cat="event">🎊 Event villas</button>
+            <button class="cat-pill" data-cat="quiet">🌿 Quiet retreats</button>
+            <button class="cat-pill" data-cat="instant">⚡ Instant booking</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Private Villas Section -->
+      <section class="villas-section" id="villas">
+        <div class="section-container">
+          <div class="section-header">
+            <div>
+              <span class="section-eyebrow">Editor's pick</span>
+              <h2 class="section-title">Featured private villas</h2>
+              <p class="section-desc">Exceptional stays selected for their location, design, and guest experience.</p>
+            </div>
+            
+            <div class="filter-tab-group">
+              <button class="tab-btn active" data-filter="all">Guest favorite</button>
+              <button class="tab-btn" data-filter="beachfront">Beachfront</button>
+              <button class="tab-btn" data-filter="toprated">Top rated</button>
+              <button class="tab-btn" data-filter="luxury">★ Luxury</button>
+            </div>
+          </div>
+
+          <div class="villas-layout-wrapper">
+            <aside class="sidebar-filter-card">
+              <div class="filter-card-header">
+                <h3>Filters</h3>
+                <button class="btn-reset-all" id="btnResetSidebarFilters">Reset all</button>
+              </div>
+
+              <div class="filter-group">
+                <h4 class="filter-group-title">Price per night</h4>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="price" value="under5m" class="filter-checkbox">
+                  <span>Under 5,000,000 ₫</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="price" value="5m10m" class="filter-checkbox">
+                  <span>5M – 10M ₫</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="price" value="10m20m" class="filter-checkbox">
+                  <span>10M – 20M ₫</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="price" value="over20m" class="filter-checkbox">
+                  <span>Over 20,000,000 ₫</span>
+                </label>
+              </div>
+
+              <hr class="filter-divider">
+
+              <div class="filter-group">
+                <h4 class="filter-group-title">Minimum bedrooms</h4>
+                <div class="bedroom-pills-grid" id="bedroomPillsGroup">
+                  <button class="bed-pill active" data-beds="0">Any</button>
+                  <button class="bed-pill" data-beds="2">2+</button>
+                  <button class="bed-pill" data-beds="3">3+</button>
+                  <button class="bed-pill" data-beds="4">4+</button>
+                  <button class="bed-pill" data-beds="5">5+</button>
+                  <button class="bed-pill" data-beds="6">6+</button>
+                  <button class="bed-pill" data-beds="8">8+</button>
+                </div>
+              </div>
+
+              <hr class="filter-divider">
+
+              <div class="filter-group">
+                <h4 class="filter-group-title">Amenities</h4>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="amenity" value="pool" class="filter-checkbox">
+                  <span>Private pool</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="amenity" value="bbq" class="filter-checkbox">
+                  <span>BBQ area</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="amenity" value="karaoke" class="filter-checkbox">
+                  <span>Karaoke room</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="amenity" value="pet" class="filter-checkbox">
+                  <span>Pet friendly</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="amenity" value="event" class="filter-checkbox">
+                  <span>Event allowed</span>
+                </label>
+              </div>
+
+              <hr class="filter-divider">
+
+              <div class="filter-group">
+                <h4 class="filter-group-title">Booking type</h4>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="bookingType" value="instant" class="filter-checkbox">
+                  <span>Instant booking</span>
+                </label>
+                <label class="filter-checkbox-label">
+                  <input type="checkbox" name="bookingType" value="freeCancel" class="filter-checkbox">
+                  <span>Free cancellation</span>
+                </label>
+              </div>
+            </aside>
+
+            <main class="villas-main-content">
+              <div class="results-bar">
+                <span id="resultsCountLabel">Showing 7 premium villas</span>
+              </div>
+              <div class="villa-grid" id="villaGridContainer">
+                <!-- Dynamically injected via JS -->
+              </div>
+            </main>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Destinations Section -->
+      <section class="destinations-section" id="destinations">
+        <div class="section-container">
+          <div class="section-header">
+            <div>
+              <span class="section-eyebrow">Where to go</span>
+              <h2 class="section-title">Các địa danh Villa tại Việt Nam</h2>
+              <p class="section-desc">Vietnam's finest coastal, island and highland retreats.</p>
+            </div>
+          </div>
+
+          <div class="destinations-grid">
+            <div class="dest-card dest-large" data-location="Hồ Tràm">
+              <img src="./assets/villa_serene_img_1785398944559.jpg" alt="Hồ Tràm">
+              <div class="dest-overlay">
+                <span class="badge-curated">Biển Hồ Tràm</span>
+                <h3>Hồ Tràm, Bà Rịa</h3>
+                <p>23 villas · from 7.200.000 ₫/night</p>
+              </div>
+            </div>
+
+            <div class="dest-card" data-location="Vũng Tàu">
+              <img src="./assets/nora_hero_villa_1785398921935.jpg" alt="Vũng Tàu">
+              <div class="dest-overlay">
+                <span class="badge-curated">Phố Biển</span>
+                <h3>Vũng Tàu</h3>
+                <p>48 villas · from 3.500.000 ₫/night</p>
+              </div>
+            </div>
+
+            <div class="dest-card" data-location="Đà Lạt">
+              <img src="./assets/villa_mosaic_img_1785398954537.jpg" alt="Đà Lạt">
+              <div class="dest-overlay">
+                <span class="badge-curated">Thành Phố Sương Mù</span>
+                <h3>Đà Lạt, Lâm Đồng</h3>
+                <p>31 villas · from 3.800.000 ₫/night</p>
+              </div>
+            </div>
+
+            <div class="dest-card" data-location="Phú Quốc">
+              <img src="./assets/villa_coral_img_1785398966024.jpg" alt="Phú Quốc">
+              <div class="dest-overlay">
+                <span class="badge-curated">Đảo Ngọc Sunset</span>
+                <h3>Phú Quốc</h3>
+                <p>42 villas · from 6.500.000 ₫/night</p>
+              </div>
+            </div>
+
+            <div class="dest-card" data-location="Nha Trang">
+              <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Nha Trang">
+              <div class="dest-overlay">
+                <span class="badge-curated">Vịnh Biển Xanh</span>
+                <h3>Nha Trang, Khánh Hòa</h3>
+                <p>19 villas · from 8.900.000 ₫/night</p>
+              </div>
+            </div>
+
+            <div class="dest-card" data-location="Long Hải">
+              <img src="./assets/hero_slide_1.jpg" alt="Long Hải">
+              <div class="dest-overlay">
+                <span class="badge-curated">Biển Yên Bình</span>
+                <h3>Long Hải</h3>
+                <p>15 villas · from 4.100.000 ₫/night</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bespoke Experiences Section — UPGRADED WITH PRICING & LIVE COUNTER -->
+      <section class="experiences-section" id="experiences">
+        <div class="section-container">
+          <div class="experiences-wrapper">
+
+            <!-- LEFT: Description & Action -->
+            <div class="exp-left">
+              <span class="section-eyebrow">Bespoke experiences</span>
+              <h2 class="section-title">Cá nhân hóa từng <br>chi tiết kỳ nghỉ của bạn</h2>
+              <p class="section-desc">Đội ngũ Quản Gia Concierge của NORA Villas sẽ chuẩn bị mọi thứ trước khi bạn đến — từ bữa tiệc BBQ hải sản sát biển, trang trí sinh nhật, đến lịch trình khám phá địa phương riêng tư.</p>
+
+              <!-- Live Selection Summary Box -->
+              <div class="exp-summary-box" id="expSummaryBox">
+                <div class="exp-summary-row">
+                  <span>Dịch vụ đã chọn:</span>
+                  <strong id="expSelectedCount">0 dịch vụ</strong>
+                </div>
+                <div class="exp-summary-row" id="expTotalRow">
+                  <span>Tổng phí add-on ước tính:</span>
+                  <strong id="expTotalCost">0 ₫</strong>
+                </div>
+                <div id="expSelectedTagsRow"></div>
+              </div>
+
+              <div class="exp-action-group">
+                <button class="btn-exp-confirm" id="btnPersonalizeStay">
+                  <i class="fa-solid fa-concierge-bell"></i>
+                  Gửi Yêu Cầu Concierge
+                </button>
+                <div class="exp-response-badge">
+                  <i class="fa-solid fa-clock"></i>
+                  <span>Phản hồi trong 15 phút</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Service Grid with Prices -->
+            <div class="exp-right">
+              <div class="exp-grid-header">
+                <span>Chọn dịch vụ bổ sung mong muốn</span>
+                <button class="exp-clear-btn" id="btnClearExpSelections">Bỏ chọn tất cả</button>
+              </div>
+              <div class="exp-grid" id="expAddonGrid">
+                <div class="exp-item" data-addon="Private Chef" data-price="1500000">
+                  <span class="exp-emoji">👨‍🍳</span>
+                  <span class="exp-name">Đầu Bếp Riêng</span>
+                  <span class="exp-price">+1.500.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Villa Concierge" data-price="500000">
+                  <span class="exp-emoji">🛎️</span>
+                  <span class="exp-name">Quản Gia 24/7</span>
+                  <span class="exp-price">+500.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Airport Transfer" data-price="800000">
+                  <span class="exp-emoji">🚗</span>
+                  <span class="exp-name">Đón Sân Bay</span>
+                  <span class="exp-price">+800.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="BBQ Service" data-price="1200000">
+                  <span class="exp-emoji">🔥</span>
+                  <span class="exp-name">Tiệc Nướng BBQ</span>
+                  <span class="exp-price">+1.200.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Birthday Setup" data-price="1800000">
+                  <span class="exp-emoji">🎂</span>
+                  <span class="exp-name">Sinh Nhật VIP</span>
+                  <span class="exp-price">+1.800.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Event Decoration" data-price="2000000">
+                  <span class="exp-emoji">🎊</span>
+                  <span class="exp-name">Trang Trí Tiệc</span>
+                  <span class="exp-price">+2.000.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Early Check-in" data-price="300000">
+                  <span class="exp-emoji">🌅</span>
+                  <span class="exp-name">Check-in Sớm</span>
+                  <span class="exp-price">+300.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Late Check-out" data-price="300000">
+                  <span class="exp-emoji">🌙</span>
+                  <span class="exp-name">Check-out Muộn</span>
+                  <span class="exp-price">+300.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+                <div class="exp-item" data-addon="Personal Itinerary" data-price="700000">
+                  <span class="exp-emoji">🗺️</span>
+                  <span class="exp-name">Lịch Trình Riêng</span>
+                  <span class="exp-price">+700.000 ₫</span>
+                  <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- CONCIERGE REQUEST MODAL -->
+      <div class="modal-overlay" id="conciergeModal">
+        <div class="modal-content modal-content-sm" style="padding: 0; overflow: hidden;">
+          <div style="height: 5px; background: linear-gradient(90deg, #0F2E23, #16A34A, #D4AF37);"></div>
+          <div style="padding: 1.8rem 2rem 0.5rem; position: relative;">
+            <button class="modal-close" id="closeConciergeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+            <span class="section-eyebrow" style="color: var(--accent-gold); font-size: 0.7rem;">✦ CONCIERGE REQUEST</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-main); margin: 0.3rem 0 0.6rem;">Gửi Yêu Cầu Dịch Vụ Concierge</h3>
+          </div>
+
+          <div id="conciergeServicesList" style="padding: 0 2rem; max-height: 160px; overflow-y: auto;"></div>
+
+          <div style="padding: 1rem 2rem 2rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0.8rem;">
+              <div class="ck-form-group">
+                <label>HỌ TÊN TRƯỞNG ĐOÀN</label>
+                <input type="text" id="conciergeGuestName" placeholder="Nguyễn Văn An" value="Nguyễn Văn An">
+              </div>
+              <div class="ck-form-group">
+                <label>SỐ ĐIỆN THOẠI / ZALO</label>
+                <input type="tel" id="conciergeGuestPhone" placeholder="+84 901 234 567" value="+84 901 234 567">
+              </div>
+            </div>
+            <div class="ck-form-group" style="margin-bottom: 0.8rem;">
+              <label>TÊN VILLA ĐÃ ĐẶT / DỰ KIẾN ĐẶT</label>
+              <input type="text" id="conciergeVillaName" placeholder="Ví dụ: Villa Azure Vũng Tàu">
+            </div>
+            <div class="ck-form-group" style="margin-bottom: 1rem;">
+              <label>GHI CHÚ THÊM CHO QUẢN GIA</label>
+              <textarea id="conciergeNotes" rows="2" style="width: 100%; padding: 0.65rem; border: 1.5px solid var(--border-glass); border-radius: var(--radius-sm); font-family: inherit; font-size: 0.9rem; resize: none; outline: none;" placeholder="Ví dụ: Tiệc sinh nhật 20 người lúc 19h, cần cắm hoa và bánh kem 3 tầng..."></textarea>
+            </div>
+
+            <div style="background: #FEFCE8; border: 1px solid #FDE047; border-radius: var(--radius-md); padding: 0.8rem 1.2rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-sans); font-size: 0.88rem; color: var(--text-muted);">Tổng phí dịch vụ add-on ước tính:</span>
+              <strong id="conciergeTotalDisplay" style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--primary-emerald);">0 ₫</strong>
+            </div>
+
+            <button class="btn-primary" id="btnSubmitConciergeRequest" style="width: 100%; justify-content: center; padding: 0.85rem;">
+              <i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu Đến Quản Gia Ngay
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Google Maps Section -->
+      <section class="google-map-section" id="googleMap">
+        <div class="section-container">
+          <div class="section-header">
+            <div>
+              <span class="section-eyebrow">Interactive Map</span>
+              <h2 class="section-title">Bản đồ địa danh Villa Việt Nam</h2>
+              <p class="section-desc">Khám phá vị trí các khu biệt thự biển & nghỉ dưỡng hàng đầu tại Việt Nam.</p>
+            </div>
+
+            <div class="map-location-selector">
+              <button class="map-loc-btn active" data-lat="10.3460" data-lng="107.0843" data-name="Vũng Tàu">📍 Vũng Tàu</button>
+              <button class="map-loc-btn" data-lat="10.4633" data-lng="107.3916" data-name="Hồ Tràm">📍 Hồ Tràm</button>
+              <button class="map-loc-btn" data-lat="11.9404" data-lng="108.4583" data-name="Đà Lạt">📍 Đà Lạt</button>
+              <button class="map-loc-btn" data-lat="10.2899" data-lng="103.9840" data-name="Phú Quốc">📍 Phú Quốc</button>
+              <button class="map-loc-btn" data-lat="12.2388" data-lng="109.1967" data-name="Nha Trang">📍 Nha Trang</button>
+            </div>
+          </div>
+
+          <div class="map-card-wrapper">
+            <div class="map-iframe-box">
+              <iframe 
+                id="gmapIframe"
+                src="https://maps.google.com/maps?q=10.3460,107.0843&hl=vi&z=12&output=embed" 
+                width="100%" 
+                height="450" 
+                style="border:0; border-radius: var(--radius-lg);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <div class="map-overlay-info" id="mapOverlayCard">
+              <span class="badge-instant" id="mapLocBadge">VŨNG TÀU</span>
+              <h3 id="mapLocTitle">Biệt thự Bãi Sau & Bãi Trước Vũng Tàu</h3>
+              <p id="mapLocDesc">Gần 48 khu villa sát biển có hồ bơi vô cực, cách TP.HCM chỉ 2 giờ di chuyển.</p>
+              <div class="map-overlay-stats">
+                <span><i class="fa-solid fa-hotel"></i> 48 Villa</span>
+                <span><i class="fa-solid fa-star"></i> 4.9 Rating</span>
+              </div>
+              <button class="btn-primary-small" id="btnFilterMapCity">Xem Villa tại đây</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECENTLY VIEWED CAROUSEL -->
+      <section class="recently-viewed-section">
+        <div class="section-container">
+          <div class="section-header flex-header">
+            <div>
+              <span class="section-eyebrow">Recently viewed</span>
+              <h3 class="section-title-sm">Biệt thự bạn vừa xem gần đây</h3>
+            </div>
+            
+            <div class="carousel-nav-controls">
+              <button class="btn-carousel-arrow" id="btnRecentPrev" title="Trượt sang trái"><i class="fa-solid fa-arrow-left"></i></button>
+              <button class="btn-carousel-arrow" id="btnRecentNext" title="Trượt sang phải"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+
+          <div class="recent-villas-carousel-track" id="recentCarouselTrack">
+            <div class="recent-card-item" data-villa="azure">
+              <div class="recent-card-img">
+                <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Villa Azure">
+                <span class="badge-curated">Vũng Tàu</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Azure</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Bãi Sau, Vũng Tàu</p>
+                <span class="recent-price">from 7.500.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+
+            <div class="recent-card-item" data-villa="serene">
+              <div class="recent-card-img">
+                <img src="./assets/villa_serene_img_1785398944559.jpg" alt="Villa Serene Coast">
+                <span class="badge-curated">Hồ Tràm</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Serene Coast</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Hồ Tràm, Bà Rịa</p>
+                <span class="recent-price">from 12.500.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+
+            <div class="recent-card-item" data-villa="indigo">
+              <div class="recent-card-img">
+                <img src="./assets/hero_slide_1.jpg" alt="Villa Indigo">
+                <span class="badge-curated">Long Hải</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Indigo</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Long Hải, Bà Rịa</p>
+                <span class="recent-price">from 5.200.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+
+            <div class="recent-card-item" data-villa="mosaic">
+              <div class="recent-card-img">
+                <img src="./assets/villa_mosaic_img_1785398954537.jpg" alt="Villa Mosaic">
+                <span class="badge-curated">Đà Lạt</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Mosaic</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Đồi thông, Đà Lạt</p>
+                <span class="recent-price">from 6.800.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+
+            <div class="recent-card-item" data-villa="coral">
+              <div class="recent-card-img">
+                <img src="./assets/villa_coral_img_1785398966024.jpg" alt="Villa Coral">
+                <span class="badge-curated">Phú Quốc</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Coral Sunset</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Bãi Ông Lang, Phú Quốc</p>
+                <span class="recent-price">from 18.000.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+
+            <div class="recent-card-item" data-villa="horizon">
+              <div class="recent-card-img">
+                <img src="./assets/hero_slide_2.jpg" alt="Villa Ocean Horizon">
+                <span class="badge-curated">Nha Trang</span>
+              </div>
+              <div class="recent-card-info">
+                <h4>Villa Ocean Horizon</h4>
+                <p><i class="fa-solid fa-location-dot"></i> Bãi Dài, Nha Trang</p>
+                <span class="recent-price">from 14.500.000 ₫ <span>/đêm</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 2: DEDICATED ABOUT US & BRAND STORY PAGE (#aboutView)
+         ========================================================================== -->
+    <div class="page-view" id="aboutView">
+      
+      <!-- About Hero Banner -->
+      <section class="about-hero-section">
+        <div class="section-container text-center-clean">
+          <span class="section-eyebrow">✦ OUR STORY & VISION ✦</span>
+          <h1 class="about-hero-title">Định Nghĩa Lại Trải Nghiệm <br>Biệt Thự Biển Riêng Tư Tại Việt Nam</h1>
+          <p class="about-hero-sub">NORA Villas là White-Label Platform quản lý & kết nối các đại dinh thự biệt thự resort riêng tư 5-6 sao hàng đầu tại Vũng Tàu, Hồ Tràm, Đà Lạt, Phú Quốc & Nha Trang.</p>
+        </div>
+      </section>
+
+      <!-- Mission Grid & Philosophy -->
+      <section class="about-pillars-section">
+        <div class="section-container">
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>100% Thẩm Định Thực Tế</h3>
+              <p>Mỗi căn biệt thự trong bộ sưu tập NORA Villas đều phải trải qua 45 tiêu chí kiểm định nghiêm ngặt về độ sạch, chất lượng nước hồ bơi và độ an toàn cho trẻ nhỏ.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+              <h3>Quản Gia Cá Nhân 24/7</h3>
+              <p>Đội ngũ Butler riêng sẵn sàng hỗ trợ bạn từ khâu chuẩn bị tiệc nướng BBQ hải sản bãi biển, dọn dẹp phòng đến sắp xếp phương tiện đưa đón tận nơi.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-utensils"></i></div>
+              <h3>Bespoke Culinary & Spa</h3>
+              <p>Thưởng thức thực đơn tiệc nướng nướng trực tiếp bởi Chef chuyên nghiệp và thư giãn tuyệt đối với liệu trình ngâm suối khoáng nóng Onsen Nhật Bản.</p>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-qrcode"></i></div>
+              <h3>Thanh Toán Tự Động VietQR</h3>
+              <p>Quy trình đặt giỏ hàng multi-villa tiện lợi với xuất hóa đơn VAT 10% tự động và mã QR Napas 24/7 xác nhận giữ chỗ tức thì.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story Timeline Showcase -->
+      <section class="about-timeline-section">
+        <div class="section-container">
+          <div class="timeline-wrapper">
+            <div class="timeline-left">
+              <img src="./assets/villa_coral_img_1785398966024.jpg" alt="Dinh thự NORA Villas">
+            </div>
+            <div class="timeline-right">
+              <span class="section-eyebrow">HOW IT STARTED</span>
+              <h2 class="section-title">Câu Chuyện Sáng Lập NORA Villas</h2>
+              <p class="timeline-text">Năm 2024, từ những trải nghiệm du lịch thực tế của nhóm sáng lập khi tìm kiếm biệt thự riêng tư cho gia đình đa thế hệ, chúng tôi nhận thấy khoảng trống lớn giữa chất lượng biệt thực tế và thông tin hình ảnh trên mạng.</p>
+              <p class="timeline-text">NORA Villas ra đời với sứ mệnh gạt bỏ hoàn toàn lo âu của khách hàng: 100% biệt thự chuẩn hình thực tế, dịch vụ chu đáo như resort 5 sao nhưng giữ trọn sự riêng tư ấm cúng cho cả gia đình.</p>
+
+              <div class="stats-row-about">
+                <div>
+                  <strong>248+</strong>
+                  <span>Villa Thẩm Định</span>
+                </div>
+                <div>
+                  <strong>15.000+</strong>
+                  <span>Khách Hàng Hài Lòng</span>
+                </div>
+                <div>
+                  <strong>4.9 ★</strong>
+                  <span>Đánh Giá Trung Bình</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Back to Catalog CTA -->
+      <section class="about-cta-section">
+        <div class="section-container text-center-clean">
+          <h2>Sẵn sàng khám phá kỳ nghỉ biệt thự riêng tư?</h2>
+          <p>Duyệt bộ sưu tập villa có hồ bơi vô cực và đặt giữ chỗ trực tuyến ngay hôm nay.</p>
+          <button class="btn-primary btn-nav-route" data-route="home" style="margin-top: 1.5rem;">
+            Khám phá danh sách Biệt Thự ngay <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==========================================================================
+         VIEW 3: DEDICATED JOURNAL & BLOG HUB PAGE (#blogView)
+         ========================================================================== -->
+    <div class="page-view" id="blogView">
+      
+      <!-- Blog Hero Banner -->
+      <section class="blog-hero-section">
+        <div class="section-container text-center-clean">
+          <span class="section-eyebrow">✦ NORA JOURNAL & TRAVEL GUIDES ✦</span>
+          <h1 class="blog-hero-title">Cẩm Nang Nghỉ Dưỡng & Kinh Nghiệm Thuê Villa</h1>
+          <p class="blog-hero-sub">Khám phá các bí quyết chọn biệt thự biển, lịch trình ăn chơi tại Hồ Tràm, Vũng Tàu, Đà Lạt và cập nhật xu hướng du lịch wellness mới nhất.</p>
+        </div>
+      </section>
+
+      <!-- Featured Cover Story -->
+      <section class="blog-featured-section">
+        <div class="section-container">
+          <div class="featured-blog-card btn-read-blog" data-blogid="blog1">
+            <div class="feat-blog-img">
+              <img src="./assets/villa_serene_img_1785398944559.jpg" alt="Featured Blog">
+              <span class="blog-category">FEATURED STORY</span>
+            </div>
+            <div class="feat-blog-content">
+              <span class="blog-date"><i class="fa-regular fa-calendar"></i> 28 Tháng 7, 2026 · 8 min read</span>
+              <h2 class="feat-blog-title">Top 5 Villa Biển Hồ Tràm Có Đầu Bếp Riêng Đáng Tiền Nhất 2026</h2>
+              <p class="feat-blog-excerpt">Hồ Tràm đang trở thành thiên đường nghỉ dưỡng hàng đầu cho các gia đình và nhóm doanh nhân tại TP.HCM. Việc thuê một biệt thự riêng tư sát biển tích hợp dịch vụ Đầu Bếp Chuyên Nghiệp (Private Chef) mang lại trải nghiệm tiệc hải sản thượng hạng ngay tại bàn ăn villa...</p>
+              <span class="blog-read-more" style="font-size: 0.95rem;">Đọc toàn bộ bài viết <i class="fa-solid fa-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog Grid Catalog -->
+      <section class="blog-catalog-section">
+        <div class="section-container">
+          
+          <div class="blog-filter-tabs">
+            <button class="cat-pill active">Tất cả bài viết</button>
+            <button class="cat-pill">🏖️ Cẩm nang Hồ Tràm</button>
+            <button class="cat-pill">🌊 Biển Vũng Tàu</button>
+            <button class="cat-pill">🌲 Đồi thông Đà Lạt</button>
+            <button class="cat-pill">♨️ Wellness & Onsen</button>
+          </div>
+
+          <div class="blog-grid-cards">
+            <article class="blog-card btn-read-blog" data-blogid="blog1">
+              <div class="blog-img-box">
+                <img src="./assets/villa_serene_img_1785398944559.jpg" alt="Kinh nghiệm thuê Villa Hồ Tràm">
+                <span class="blog-category">Cẩm Nang Hồ Tràm</span>
+              </div>
+              <div class="blog-info">
+                <span class="blog-date"><i class="fa-regular fa-calendar"></i> 28 Tháng 7, 2026 · 5 min read</span>
+                <h3 class="blog-title">Top 5 Villa Biển Hồ Tràm Có Đầu Bếp Riêng Đáng Tiền Nhất 2026</h3>
+                <p class="blog-excerpt">Tổng hợp các khu biệt thự biển Hồ Tràm có bãi tắm riêng, hồ bơi tràn bờ và dịch vụ Chef nấu tiệc hải sản tươi sống tại chỗ...</p>
+                <span class="blog-read-more">Đọc bài viết <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </article>
+
+            <article class="blog-card btn-read-blog" data-blogid="blog2">
+              <div class="blog-img-box">
+                <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Kinh nghiệm du lịch Vũng Tàu">
+                <span class="blog-category">Bí Quyết Đặt Phòng</span>
+              </div>
+              <div class="blog-info">
+                <span class="blog-date"><i class="fa-regular fa-calendar"></i> 25 Tháng 7, 2026 · 4 min read</span>
+                <h3 class="blog-title">Kinh Nghiệm Thuê Biệt Thự Nguyên Căn Cho Gia Đình 10-15 Người</h3>
+                <p class="blog-excerpt">Bí quyết chọn villa Vũng Tàu vừa có hồ bơi an toàn cho trẻ em, vừa đủ phòng ngủ riêng tư cho các gia đình đa thế hệ...</p>
+                <span class="blog-read-more">Đọc bài viết <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </article>
+
+            <article class="blog-card btn-read-blog" data-blogid="blog3">
+              <div class="blog-img-box">
+                <img src="./assets/villa_mosaic_img_1785398954537.jpg" alt="Onsen Trị Liệu Đà Lạt">
+                <span class="blog-category">Trải Nghiệm Wellness</span>
+              </div>
+              <div class="blog-info">
+                <span class="blog-date"><i class="fa-regular fa-calendar"></i> 20 Tháng 7, 2026 · 6 min read</span>
+                <h3 class="blog-title">Bí Quyết Thư Giãn Tối Đa Với Liệu Trình Onsen Khoáng Nóng Tại Villa</h3>
+                <p class="blog-excerpt">Khám phá xu hướng ngâm khoáng nóng thảo mộc Nhật Bản ngay tại khuôn viên biệt thự đồi thông Đà Lạt se lạnh...</p>
+                <span class="blog-read-more">Đọc bài viết <i class="fa-solid fa-arrow-right"></i></span>
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- Specialist Help Banner -->
+  <section class="specialist-banner">
+    <div class="section-container">
+      <div class="specialist-box">
+        <div class="specialist-left">
+          <span class="badge-accent"><i class="fa-solid fa-headset"></i> Personal assistance · Secure booking</span>
+          <h2>Can't find the right villa?</h2>
+          <p>Our villa specialists can recommend a stay based on your destination, group size, and preferred experience. We respond within 15 minutes.</p>
+        </div>
+
+        <div class="specialist-right">
+          <a href="https://zalo.me" target="_blank" class="btn-zalo"><i class="fa-solid fa-comment"></i> Chat on Zalo</a>
+          <a href="tel:+842839158888" class="btn-phone"><i class="fa-solid fa-phone"></i> Call a specialist</a>
+          <span class="support-sub">24/7 support · Response in 15 minutes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col brand-col">
+        <a href="#" class="brand-logo btn-nav-route" data-route="home">
+          <span class="logo-mark-sq">J</span>
+          <span class="logo-text">NORA Villas</span>
+        </a>
+        <p>A curated collection of premium private villas for families, friends, and corporate retreats across Vietnam.</p>
+        <div class="contact-info">
+          <p><i class="fa-solid fa-phone"></i> +84 28 3915 8888</p>
+          <p><i class="fa-solid fa-envelope"></i> hello@noravilla.com</p>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Vũng Tàu</a></li>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Hồ Tràm</a></li>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Long Hải</a></li>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Đà Lạt</a></li>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Phú Quốc</a></li>
+          <li><a href="#destinations" class="btn-nav-route" data-route="home">Nha Trang</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Discover Pages</h4>
+        <ul>
+          <li><a href="#about" class="btn-nav-route" data-route="about">Our Story & About</a></li>
+          <li><a href="#blog" class="btn-nav-route" data-route="blog">Journal & Travel Blog</a></li>
+          <li><a href="#resortAmenities" class="btn-nav-route" data-route="home">Onsen & Spa Services</a></li>
+          <li><a href="#experiences" class="btn-nav-route" data-route="home">Concierge Services</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Customer Support</h4>
+        <ul>
+          <li><a href="#">Booking Guide</a></li>
+          <li><a href="#">Frequently Asked Questions</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col payments-col">
+        <h4>We accept</h4>
+        <div class="payment-badges">
+          <span class="pay-badge">Visa</span>
+          <span class="pay-badge">MC</span>
+          <span class="pay-badge">JCB</span>
+          <span class="pay-badge">Napas</span>
+          <span class="pay-badge">QR</span>
+        </div>
+        
+        <div class="lang-selector">
+          <button class="lang-btn active" id="langVi">🇻🇳 Tiếng Việt</button>
+          <button class="lang-btn" id="langEn">🇬🇧 English</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <p>© 2026 NORA Villas Platform. Dedicated Multi-Page Luxury White Architecture.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BLOG ARTICLE READER MODAL -->
+  <div class="modal-overlay" id="blogReaderModal">
+    <div class="modal-content modal-content-sm" style="max-width: 720px;">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-glass);">
+        <span class="badge-curated" id="blogModalCategory">CẨM NANG HỒ TRÀM</span>
+        <button class="modal-close" id="closeBlogModalBtn" style="position: static;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="blogModalBody" style="padding: 1.8rem;">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING CART DRAWER MODAL -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal-content modal-content-sm">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-glass);">
+        <h3><i class="fa-solid fa-bag-shopping" style="color: var(--text-gold);"></i> Giỏ Hàng Đặt Villa (<span id="cartModalCount">2</span>)</h3>
+        <button class="modal-close" id="closeCartBtn" style="position: static;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="cartListContainer" style="padding: 1.2rem;"></div>
+      <div style="padding: 1.2rem; border-top: 1px solid var(--border-glass); background: #F8FAFC;">
+        <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 1rem; font-size: 1.05rem;">
+          <span>Tổng chi phí giỏ hàng:</span>
+          <span id="cartTotalSum" style="color: var(--text-gold);">0 ₫</span>
+        </div>
+        <button class="btn-primary" id="btnCartCheckout" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-credit-card"></i> Tiến Hành Đặt Toàn Bộ Giỏ Hàng
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MULTI-STEP CART CHECKOUT WIZARD MODAL -->
+  <div class="modal-overlay" id="cartCheckoutModal">
+    <div class="modal-content modal-content-checkout">
+      <button class="modal-close" id="closeCartCheckoutBtn"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- Checkout Wizard Header -->
+      <div class="checkout-wizard-header">
+        <span class="badge-curated">✦ MULTI-VILLA CART CHECKOUT ✦</span>
+        <h2 style="font-family: var(--font-serif); font-size: 2.2rem; margin-top: 0.3rem;">Thanh Toán Đặt Toàn Bộ Biệt Thự Trong Giỏ Hàng</h2>
+        
+        <!-- Step Indicator Nodes -->
+        <div class="checkout-step-indicator">
+          <div class="ck-step-node active" id="ckStepNode1">
+            <div class="ck-node-num">1</div>
+            <span>Review Selected Villas</span>
+          </div>
+          <div class="ck-step-node" id="ckStepNode2">
+            <div class="ck-node-num">2</div>
+            <span>Guest Info & Invoicing</span>
+          </div>
+          <div class="ck-step-node" id="ckStepNode3">
+            <div class="ck-node-num">3</div>
+            <span>Payment & Live QR Code</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step Content Frames -->
+      <div class="checkout-wizard-body">
+        
+        <!-- STEP 1: REVIEW VILLAS IN CART -->
+        <div class="ck-step-frame active" id="ckStepFrame1">
+          <h3 class="ck-section-title">Danh mục Biệt thự được chọn giữ chỗ:</h3>
+          <div class="ck-villas-list-box" id="ckVillasReviewList">
+            <!-- Dynamically injected via JS -->
+          </div>
+
+          <div class="ck-summary-box">
+            <div class="summary-row">
+              <span>Tổng tiền thuê biệt thự:</span>
+              <span id="ckSubtotalVal">0 ₫</span>
+            </div>
+            <div class="summary-row">
+              <span>Phí phụ thu quản gia & dọn dẹp:</span>
+              <span>1.000.000 ₫</span>
+            </div>
+            <div class="summary-row" id="ckPromoDiscountRow" style="display: none; color: #166534; font-weight: 700;">
+              <span>Mã ưu đãi (NORA15):</span>
+              <span>-15%</span>
+            </div>
+            <div class="summary-row total">
+              <span>Tổng thanh toán giỏ hàng:</span>
+              <span id="ckGrandTotalVal" style="color: var(--primary-emerald); font-size: 1.2rem;">0 ₫</span>
+            </div>
+          </div>
+
+          <div class="ck-actions-bar">
+            <div></div>
+            <button class="btn-primary" id="btnCkGotoStep2">
+              Tiếp tục: Nhập Thông Tin Khách <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: GUEST CONTACT & INVOICING -->
+        <div class="ck-step-frame" id="ckStepFrame2">
+          <h3 class="ck-section-title">Thông tin đại diện trưởng đoàn & Xuất hóa đơn:</h3>
+          
+          <div class="ck-form-grid">
+            <div class="ck-form-group">
+              <label>HỌ VÀ TÊN TRƯỞNG ĐOÀN *</label>
+              <input type="text" id="ckGuestName" value="Nguyễn Văn An" required placeholder="Nhập họ và tên đầy đủ">
+            </div>
+
+            <div class="ck-form-group">
+              <label>SỐ ĐIỆN THOẠI / ZALO *</label>
+              <input type="tel" id="ckGuestPhone" value="+84 901 234 567" required placeholder="Số điện thoại nhận tin nhắn QR">
+            </div>
+
+            <div class="ck-form-group full-width">
+              <label>EMAIL NHẬN VOUCHER CHECK-IN *</label>
+              <input type="email" id="ckGuestEmail" value="nguyenvanan@gmail.com" required placeholder="nhanvoucher@gmail.com">
+            </div>
+
+            <div class="ck-form-group full-width">
+              <label>YÊU CẦU ĐẶC BIỆT CHO QUẢN GIA (OPTIONAL)</label>
+              <textarea id="ckSpecialRequest" rows="2" placeholder="Ví dụ: Cần chuẩn bị sớm lò nướng BBQ, hỗ trợ đón từ bến xe..."></textarea>
+            </div>
+
+            <div class="ck-form-group full-width">
+              <label class="filter-checkbox-label">
+                <input type="checkbox" id="ckNeedVatInvoice">
+                <strong>Yêu cầu xuất Hóa Đơn Giá Trị Gia Tăng (VAT Tax Invoice 10%)</strong>
+              </label>
+            </div>
+
+            <div class="vat-invoice-fields full-width" id="vatFieldsBox" style="display: none; background: var(--bg-light); border: 1px solid var(--border-glass); padding: 1rem; border-radius: var(--radius-sm);">
+              <div class="ck-form-grid">
+                <div class="ck-form-group">
+                  <label>MÃ SỐ THUẾ CÔNG TY</label>
+                  <input type="text" id="ckVatTaxCode" placeholder="0312345678">
+                </div>
+                <div class="ck-form-group">
+                  <label>TÊN CÔNG TY TRÊN HÓA ĐƠN</label>
+                  <input type="text" id="ckVatCompanyName" placeholder="CÔNG TY TNHH ABC">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ck-actions-bar">
+            <button class="btn-outline" id="btnCkBackStep1"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+            <button class="btn-primary" id="btnCkGotoStep3">
+              Tiếp tục: Thanh Toán & Nhận Mã QR <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: PAYMENT METHOD & LIVE QR CODE -->
+        <div class="ck-step-frame" id="ckStepFrame3">
+          <h3 class="ck-section-title">Chọn Phương Thức Thanh Toán Giỏ Hàng:</h3>
+
+          <div class="payment-tabs-grid">
+            <button class="pay-tab-btn active" data-paymethod="qr">
+              <i class="fa-solid fa-qrcode"></i>
+              <strong>VietQR / Napas 24/7</strong>
+              <span>Quét QR chuyển khoản tức thì</span>
+            </button>
+
+            <button class="pay-tab-btn" data-paymethod="card">
+              <i class="fa-solid fa-credit-card"></i>
+              <strong>Visa / Mastercard</strong>
+              <span>Thẻ thanh toán quốc tế</span>
+            </button>
+
+            <button class="pay-tab-btn" data-paymethod="deposit">
+              <i class="fa-solid fa-coins"></i>
+              <strong>Cọc 30% Giữ Chỗ</strong>
+              <span>Còn lại trả khi check-in</span>
+            </button>
+          </div>
+
+          <!-- PAY METHOD 1: VIETQR BOX -->
+          <div class="pay-method-view active" id="payViewQr">
+            <div class="vietqr-live-box">
+              <div class="qr-code-img-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=NORAVILLAS_CART_84920" alt="VietQR Code">
+                <span class="qr-pulse-badge">Live Scan</span>
+              </div>
+              <div class="qr-details">
+                <span class="badge-instant"><i class="fa-solid fa-bolt"></i> Tự động xác nhận sau khi chuyển</span>
+                <h4>Ngân hàng MBBank (Quân Đội)</h4>
+                <p>Số tài khoản: <strong id="qrAccNum">0901 234 567</strong> <button class="btn-copy" id="btnCopyAcc">Copy</button></p>
+                <p>Chủ tài khoản: <strong>CONG TY CO PHAN NORA VILLAS</strong></p>
+                <p>Nội dung chuyển khoản: <strong id="qrMemo" style="color: var(--primary-emerald);">NORACART84920</strong> <button class="btn-copy" id="btnCopyMemo">Copy</button></p>
+                <p>Số tiền cần chuyển: <strong id="qrAmountVal" style="color: var(--accent-gold); font-size: 1.2rem;">0 ₫</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAY METHOD 2: CARD FORM -->
+          <div class="pay-method-view" id="payViewCard" style="display: none;">
+            <div class="card-inputs-box">
+              <div class="ck-form-group full-width">
+                <label>SỐ THẺ VISA / MASTERCARD</label>
+                <input type="text" value="4111 2222 3333 4444" placeholder="4111 2222 3333 4444">
+              </div>
+              <div class="ck-form-group">
+                <label>NGÀY HẾT HẠN (MM/YY)</label>
+                <input type="text" value="08/28" placeholder="08/28">
+              </div>
+              <div class="ck-form-group">
+                <label>MÃ CVC / CVV</label>
+                <input type="password" value="888" placeholder="888">
+              </div>
+            </div>
+          </div>
+
+          <!-- PAY METHOD 3: 30% DEPOSIT INFO -->
+          <div class="pay-method-view" id="payViewDeposit" style="display: none;">
+            <div class="deposit-info-card">
+              <h4>Thanh Toán Đặt Cọc 30% Giỏ Hàng:</h4>
+              <div class="summary-row">
+                <span>Số tiền đặt cọc ngay (30%):</span>
+                <span id="deposit30Val" style="font-weight: 800; color: var(--primary-emerald); font-size: 1.2rem;">0 ₫</span>
+              </div>
+              <div class="summary-row">
+                <span>Số tiền còn lại thanh toán khi check-in (70%):</span>
+                <span id="deposit70Val" style="font-weight: 700; color: var(--text-muted);">0 ₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ck-actions-bar">
+            <button class="btn-outline" id="btnCkBackStep2"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+            <button class="btn-primary" id="btnCkConfirmPayment" style="background: var(--primary-emerald);">
+              <i class="fa-solid fa-lock"></i> XÁC NHẬN ĐẶT TOÀN BỘ GIỎ HÀNG NOW
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE DETAIL MODAL -->
+  <div class="modal-overlay" id="expDetailModal">
+    <div class="modal-content modal-content-sm">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-glass);">
+        <h3 id="expModalTitle" style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--text-main);">Ẩm Thực & Giải Trí</h3>
+        <button class="modal-close" id="closeExpDetailBtn" style="position: static;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem;">
+        <p id="expModalDesc" style="color: var(--text-main); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.2rem;"></p>
+        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.2rem;">
+          <h4 style="color: #166534; font-size: 0.9rem; margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-check"></i> Đã bao gồm hỗ trợ Concierge 24/7</h4>
+          <p style="font-size: 0.82rem; color: #15803D;">Dịch vụ có thể linh hoạt thêm vào khi bạn hoàn tất đặt biệt thự trên hệ thống NORA Villas.</p>
+        </div>
+        <button class="btn-primary" id="btnExpModalContact" style="width: 100%; justify-content: center;">
+          <i class="fa-solid fa-headset"></i> Đăng Ký Trải Nghiệm Này Ngay
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WISHLIST SAVED VILLAS MODAL -->
+  <div class="modal-overlay" id="wishlistModal">
+    <div class="modal-content modal-content-sm">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-glass);">
+        <h3><i class="fa-solid fa-heart" style="color: #E74C3C;"></i> Saved Wishlist Villas (<span id="wishlistModalCount">3</span>)</h3>
+        <button class="modal-close" id="closeWishlistBtn" style="position: static;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="wishlistContainer" style="padding: 1.2rem;"></div>
+    </div>
+  </div>
+
+  <!-- SIGN IN / LOGIN MODAL -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-content modal-content-login">
+      <button class="modal-close modal-close-light" id="closeAuthBtn"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="auth-split-wrapper">
+        <div class="auth-left-panel">
+          <div class="auth-top-nav">
+            <a href="#" class="btn-back-home" id="btnAuthBackHome">
+              <i class="fa-solid fa-arrow-left"></i> Back to home
+            </a>
+            <div class="auth-brand-logo">
+              <span class="logo-mark-sm">J</span>
+              <span class="logo-text-sm">NORA Villas</span>
+            </div>
+          </div>
+
+          <div class="auth-form-content">
+            <span class="auth-eyebrow">— MEMBER ACCESS</span>
+            <h2 class="auth-title">Welcome <br>NORA Villas</h2>
+            <p class="auth-subtitle">Sign in to manage your bookings and discover new stays.</p>
+
+            <button class="btn-google-login" id="btnGoogleLogin">
+              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+              <span>Continue with Google</span>
+            </button>
+
+            <div class="auth-divider">
+              <span>OR</span>
+            </div>
+
+            <form id="signInForm">
+              <div class="auth-input-group">
+                <label>EMAIL OR PHONE</label>
+                <div class="input-with-icon">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="authEmail" placeholder="your@email.com" required value="guest@noravilla.com">
+                </div>
+              </div>
+
+              <div class="auth-input-group">
+                <label>PASSWORD</label>
+                <div class="input-with-icon">
+                  <i class="fa-regular fa-lock input-icon"></i>
+                  <input type="password" id="authPassword" placeholder="Enter your password" required value="12345678">
+                  <button type="button" class="btn-toggle-password" id="togglePasswordBtn">
+                    <i class="fa-regular fa-eye" id="passwordEyeIcon"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="auth-options-row">
+                <label class="remember-me-label">
+                  <input type="checkbox" id="authRemember" checked>
+                  <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password-link" id="btnForgotPassword">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="btn-auth-submit">
+                <span>Sign In</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+
+              <div class="auth-security-note">
+                <i class="fa-solid fa-lock"></i> 256-bit SSL encrypted · Your data is safe
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="auth-right-panel">
+          <img src="./assets/hero_slide_2.jpg" alt="Luxury Cliffside Ocean Villa">
+          <div class="auth-image-overlay">
+            <span class="auth-image-badge">✦ EXCLUSIVE VILLA STAY</span>
+            <h3>Dinh thự Biển Resort Phú Quốc & Hồ Tràm</h3>
+            <p>Trải nghiệm nghỉ dưỡng riêng tư hàng đầu Châu Á</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE 360 VIRTUAL TOUR MODAL -->
+  <div class="modal-overlay" id="tour360Modal">
+    <div class="modal-content modal-content-tour">
+      <button class="modal-close modal-close-light" id="closeTourBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="tour-header-bar">
+        <div>
+          <span class="badge-curated">360° VIRTUAL WALKTHROUGH</span>
+          <h3 id="tourVillaTitle" style="color: #FFFFFF; font-family: var(--font-serif); font-size: 1.5rem;">Villa Azure 360° Panorama</h3>
+        </div>
+        <div class="tour-controls">
+          <button class="btn-tour-pill active"><i class="fa-solid fa-cube"></i> Living Room</button>
+          <button class="btn-tour-pill"><i class="fa-solid fa-water"></i> Infinity Pool</button>
+          <button class="btn-tour-pill"><i class="fa-solid fa-bed"></i> Master Bedroom</button>
+        </div>
+      </div>
+      <div class="tour-viewport">
+        <img id="tourViewportImg" src="./assets/hero_slide_1.jpg" alt="360 Tour View">
+        <div class="tour-hotspot" style="top: 45%; left: 35%;" title="Infinity Pool Deck">
+          <div class="hotspot-pulse"></div>
+          <i class="fa-solid fa-water"></i>
+        </div>
+        <div class="tour-hotspot" style="top: 60%; left: 70%;" title="Oceanview Dining Table">
+          <div class="hotspot-pulse"></div>
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="tour-overlay-badge">
+          <i class="fa-solid fa-street-view"></i> Click & Drag to Explore 360° Panorama
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Villa Booking & Detail Modal -->
+  <div class="modal-overlay" id="villaModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModalBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-body" id="modalDynamicBody"></div>
+    </div>
+  </div>
+
+  <!-- ULTRA LUXURY BOOKING SUCCESS ANIMATED MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content modal-content-success">
+      <button class="modal-close" id="closeSuccessBtn"><i class="fa-solid fa-xmark"></i></button>
+      <div class="success-card-body" id="successModalContent"></div>
+    </div>
+  </div>
+
+  <!-- My Trips Drawer Modal -->
+  <div class="modal-overlay" id="tripsModal">
+    <div class="modal-content modal-content-sm">
+      <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1.2rem; border-bottom: 1px solid var(--border-glass);">
+        <h3><i class="fa-solid fa-suitcase"></i> My Trips (<span id="tripsModalCount">3</span>)</h3>
+        <button class="modal-close" id="closeTripsBtn" style="position: static;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="tripsListContainer" style="padding: 1.2rem;"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
