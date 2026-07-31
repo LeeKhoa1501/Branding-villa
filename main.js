@@ -1297,15 +1297,6 @@ function initAuthModalEvents() {
     });
   }
 
-  const btnUserMenuCart = document.getElementById("btnUserMenuCart");
-  if (btnUserMenuCart) {
-    btnUserMenuCart.addEventListener("click", () => {
-      userDropdownMenu?.classList.remove("active");
-      renderCartData();
-      document.getElementById("cartModal")?.classList.add("active");
-    });
-  }
-
   if (btnUserLogout) {
     btnUserLogout.addEventListener("click", () => {
       performLogout();
@@ -1335,27 +1326,7 @@ function updateHeaderUserUI() {
   const userMenuEmail = document.getElementById("userMenuEmail");
   const userMenuAvatar = document.getElementById("userMenuAvatar");
 
-  const btnOpenWishlist = document.getElementById("btnOpenWishlist");
-  const btnOpenCart = document.getElementById("btnOpenCart");
-  const btnOpenTrips = document.getElementById("btnOpenTrips");
-  const dividers = document.querySelectorAll(".header-actions-divider");
-
-  // Update menu item badge counts
-  const wishlistCount = wishlistState ? wishlistState.length : 0;
-  const cartCount = myCartState ? myCartState.length : 0;
-  const tripsCount = myTripsState ? myTripsState.length : 0;
-
-  if (document.getElementById("userMenuWishlistCount")) document.getElementById("userMenuWishlistCount").textContent = wishlistCount;
-  if (document.getElementById("userMenuCartCount")) document.getElementById("userMenuCartCount").textContent = cartCount;
-  if (document.getElementById("userMenuTripsCount")) document.getElementById("userMenuTripsCount").textContent = tripsCount;
-
   if (currentUser) {
-    // When LOGGED IN: Hide Wishlist, Cart, Trips icons from main navbar (they move into the white user dropdown)
-    if (btnOpenWishlist) btnOpenWishlist.style.display = "none";
-    if (btnOpenCart) btnOpenCart.style.display = "none";
-    if (btnOpenTrips) btnOpenTrips.style.display = "none";
-    dividers.forEach(div => div.style.display = "none");
-
     const initial = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : "U";
     if (btnSignIn) {
       btnSignIn.innerHTML = `
@@ -1372,12 +1343,6 @@ function updateHeaderUserUI() {
     if (userMenuEmail) userMenuEmail.textContent = currentUser.email || "user@gmail.com";
     if (userMenuAvatar) userMenuAvatar.textContent = initial;
   } else {
-    // When LOGGED OUT: Show Wishlist, Cart, Trips icons back on main navbar
-    if (btnOpenWishlist) btnOpenWishlist.style.display = "inline-flex";
-    if (btnOpenCart) btnOpenCart.style.display = "inline-flex";
-    if (btnOpenTrips) btnOpenTrips.style.display = "inline-flex";
-    dividers.forEach(div => div.style.display = "block");
-
     if (btnSignIn) {
       btnSignIn.innerHTML = `Sign in`;
       btnSignIn.style.fontWeight = "600";
@@ -1550,17 +1515,36 @@ function renderVillaGrid(customFilterList = null) {
 
   let listToRender = customFilterList || VILLAS_DATA.filter(villa => {
     let catMatch = true;
-    if (activeCategoryFilter === "beachfront") catMatch = villa.location.toLowerCase().includes("beachfront") || villa.tags.includes("Beachfront");
-    if (activeCategoryFilter === "pool") catMatch = villa.pool.toLowerCase().includes("pool");
-    if (activeCategoryFilter === "instant") catMatch = villa.instant;
-    if (activeCategoryFilter === "families") catMatch = villa.guests >= 10;
-    if (activeCategoryFilter === "large") catMatch = villa.guests >= 16;
-    if (activeCategoryFilter === "quiet") catMatch = villa.city === "Đà Lạt" || villa.city === "Long Hải";
+    if (activeCategoryFilter === "beachfront") {
+      catMatch = villa.location.toLowerCase().includes("beachfront") || villa.tags.some(t => t.toLowerCase().includes("beachfront"));
+    } else if (activeCategoryFilter === "pool") {
+      catMatch = villa.pool.toLowerCase().includes("pool") || villa.amenities.some(a => a.toLowerCase().includes("hồ bơi"));
+    } else if (activeCategoryFilter === "instant") {
+      catMatch = villa.instant === true;
+    } else if (activeCategoryFilter === "families") {
+      catMatch = villa.guests >= 10;
+    } else if (activeCategoryFilter === "large") {
+      catMatch = villa.guests >= 16;
+    } else if (activeCategoryFilter === "quiet") {
+      catMatch = villa.city === "Đà Lạt" || villa.city === "Long Hải" || villa.tags.some(t => t.toLowerCase().includes("quiet"));
+    } else if (activeCategoryFilter === "pet") {
+      catMatch = villa.tags.some(t => t.toLowerCase().includes("pet")) || villa.amenities.some(a => a.toLowerCase().includes("pet"));
+    } else if (activeCategoryFilter === "event") {
+      catMatch = villa.tags.some(t => t.toLowerCase().includes("event")) || villa.amenities.some(a => a.toLowerCase().includes("tiệc"));
+    } else if (activeCategoryFilter === "luxury") {
+      catMatch = villa.luxury === true || villa.tags.some(t => t.toLowerCase().includes("luxury"));
+    } else if (activeCategoryFilter === "toprated") {
+      catMatch = villa.rating >= 4.8;
+    }
 
     let tabMatch = true;
-    if (activeTabFilter === "beachfront") tabMatch = villa.location.toLowerCase().includes("beachfront") || villa.tags.includes("Beachfront");
-    if (activeTabFilter === "toprated") tabMatch = villa.rating >= 4.8;
-    if (activeTabFilter === "luxury") tabMatch = villa.luxury || villa.pricePerNight >= 10000000;
+    if (activeTabFilter === "beachfront") {
+      tabMatch = villa.location.toLowerCase().includes("beachfront") || villa.tags.some(t => t.toLowerCase().includes("beachfront"));
+    } else if (activeTabFilter === "toprated") {
+      tabMatch = villa.rating >= 4.8;
+    } else if (activeTabFilter === "luxury") {
+      tabMatch = villa.luxury === true || villa.tags.some(t => t.toLowerCase().includes("luxury"));
+    }
 
     let priceMatch = true;
     if (priceChecked.length > 0) {
@@ -1838,20 +1822,55 @@ function initGoogleMapSwitcher() {
    BESPOKE EXPERIENCES & OFFERS LOGIC
    -------------------------------------------------------------------------- */
 function initOffersAndAddons() {
-  document.querySelectorAll("#expAddonGrid .exp-item").forEach(item => {
-    item.addEventListener("click", () => {
+  const items = document.querySelectorAll("#expAddonGrid .exp-item");
+  const clearBtn = document.getElementById("btnClearExpSelections");
+  const personalizeBtn = document.getElementById("btnPersonalizeStay");
+
+  function calcAndDisplayConciergeTotal() {
+    let totalAddonCost = 0;
+    const selectedList = [];
+
+    document.querySelectorAll("#expAddonGrid .exp-item.active").forEach(item => {
+      const price = parseInt(item.dataset.price) || 0;
+      const name = item.dataset.addon || "";
+      totalAddonCost += price;
+      selectedList.push(name);
+    });
+
+    const summaryCountEl = document.getElementById("expSummaryCount");
+    const summaryPriceEl = document.getElementById("expSummaryPriceTotal");
+
+    if (summaryCountEl) summaryCountEl.textContent = `${selectedList.length} dịch vụ`;
+    if (summaryPriceEl) summaryPriceEl.textContent = `+${formatCurrency(totalAddonCost)}`;
+  }
+
+  items.forEach(item => {
+    item.addEventListener("click", (e) => {
+      e.stopPropagation();
       item.classList.toggle("active");
+      calcAndDisplayConciergeTotal();
     });
   });
 
-  document.getElementById("btnPersonalizeStay")?.addEventListener("click", () => {
-    const selectedAddons = Array.from(document.querySelectorAll("#expAddonGrid .exp-item.active")).map(i => i.dataset.addon);
-    if (selectedAddons.length > 0) {
-      showToastNotification(`Đã lưu ${selectedAddons.length} dịch vụ Concierge tùy chỉnh (${selectedAddons.join(", ")}).`, "Personalized Experience", "success");
-    } else {
-      showToastNotification("Vui lòng chọn ít nhất 1 trải nghiệm concierge để cá nhân hóa kỳ nghỉ.", "Bespoke Concierge", "info");
-    }
-  });
+  if (clearBtn) {
+    clearBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      items.forEach(i => i.classList.remove("active"));
+      calcAndDisplayConciergeTotal();
+      showToastNotification("Đã bỏ chọn toàn bộ dịch vụ concierge bổ sung.", "Concierge", "info");
+    });
+  }
+
+  if (personalizeBtn) {
+    personalizeBtn.addEventListener("click", () => {
+      const selectedAddons = Array.from(document.querySelectorAll("#expAddonGrid .exp-item.active")).map(i => i.dataset.addon);
+      if (selectedAddons.length > 0) {
+        showToastNotification(`Đã lưu ${selectedAddons.length} dịch vụ Concierge tùy chỉnh (${selectedAddons.join(", ")}).`, "Personalized Experience", "success");
+      } else {
+        showToastNotification("Vui lòng chọn ít nhất 1 trải nghiệm concierge để cá nhân hóa kỳ nghỉ.", "Bespoke Concierge", "info");
+      }
+    });
+  }
 }
 
 /* --------------------------------------------------------------------------
