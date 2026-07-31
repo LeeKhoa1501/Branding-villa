@@ -1837,11 +1837,32 @@ function initOffersAndAddons() {
       selectedList.push(name);
     });
 
+    // Top Right Counter Pill
     const summaryCountEl = document.getElementById("expSummaryCount");
     const summaryPriceEl = document.getElementById("expSummaryPriceTotal");
 
     if (summaryCountEl) summaryCountEl.textContent = `${selectedList.length} dịch vụ`;
     if (summaryPriceEl) summaryPriceEl.textContent = `+${formatCurrency(totalAddonCost)}`;
+
+    // Left Side Live Summary Card
+    const leftCountEl = document.getElementById("expSelectedCount");
+    const leftCostEl = document.getElementById("expTotalCost");
+    const tagsRowEl = document.getElementById("expSelectedTagsRow");
+
+    if (leftCountEl) leftCountEl.textContent = `${selectedList.length} dịch vụ`;
+    if (leftCostEl) leftCostEl.textContent = formatCurrency(totalAddonCost);
+
+    if (tagsRowEl) {
+      if (selectedList.length > 0) {
+        tagsRowEl.innerHTML = `
+          <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; padding-top: 0.6rem; border-top: 1px dashed rgba(255,255,255,0.15);">
+            ${selectedList.map(name => `<span style="font-size: 0.75rem; background: rgba(212, 175, 55, 0.2); color: #FEF08A; padding: 0.2rem 0.5rem; border-radius: 4px;">✓ ${name}</span>`).join('')}
+          </div>
+        `;
+      } else {
+        tagsRowEl.innerHTML = '';
+      }
+    }
   }
 
   items.forEach(item => {
