@@ -1128,33 +1128,74 @@ function cancelTrip(tripId, villaName) {
    -------------------------------------------------------------------------- */
 function initAuthModalEvents() {
   const authModal = document.getElementById("authModal");
+  const googleAuthModal = document.getElementById("googleAuthModal");
   const btnSignIn = document.getElementById("btnSignIn");
   const mobileSignIn = document.getElementById("mobileSignIn");
   const closeBtn = document.getElementById("closeAuthBtn");
+  const closeGoogleBtn = document.getElementById("closeGoogleAuthBtn");
   const btnBackHome = document.getElementById("btnAuthBackHome");
+  const form = document.getElementById("signInForm");
   const togglePassBtn = document.getElementById("togglePasswordBtn");
   const passInput = document.getElementById("authPassword");
   const passEyeIcon = document.getElementById("passwordEyeIcon");
-  const form = document.getElementById("signInForm");
   const googleBtn = document.getElementById("btnGoogleLogin");
   const forgotPassBtn = document.getElementById("btnForgotPassword");
+  const userDropdownMenu = document.getElementById("userDropdownMenu");
+  const btnUserLogout = document.getElementById("btnUserLogout");
+  const btnUserMenuTrips = document.getElementById("btnUserMenuTrips");
+  const btnUserMenuWishlist = document.getElementById("btnUserMenuWishlist");
 
-  function openAuth() {
-    if (authModal) authModal.classList.add("active");
+  const openAuth = () => authModal?.classList.add("active");
+  const closeAuth = () => authModal?.classList.remove("active");
+  const openGoogleAuth = () => {
+    closeAuth();
+    googleAuthModal?.classList.add("active");
+  };
+  const closeGoogleAuth = () => googleAuthModal?.classList.remove("active");
+
+  if (btnSignIn) {
+    btnSignIn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (currentUser) {
+        userDropdownMenu?.classList.toggle("active");
+      } else {
+        openAuth();
+      }
+    });
   }
 
-  function closeAuth() {
-    if (authModal) authModal.classList.remove("active");
+  if (mobileSignIn) {
+    mobileSignIn.addEventListener("click", () => {
+      if (currentUser) {
+        if (confirm(`Bạn có muốn đăng xuất tài khoản [${currentUser.name}] không?`)) {
+          performLogout();
+        }
+      } else {
+        openAuth();
+      }
+    });
   }
 
-  if (btnSignIn) btnSignIn.addEventListener("click", openAuth);
-  if (mobileSignIn) mobileSignIn.addEventListener("click", openAuth);
+  // Close dropdown on outside click
+  document.addEventListener("click", (e) => {
+    if (userDropdownMenu && !userDropdownMenu.contains(e.target) && e.target !== btnSignIn) {
+      userDropdownMenu.classList.remove("active");
+    }
+  });
+
   if (closeBtn) closeBtn.addEventListener("click", closeAuth);
+  if (closeGoogleBtn) closeGoogleBtn.addEventListener("click", closeGoogleAuth);
   if (btnBackHome) btnBackHome.addEventListener("click", (e) => { e.preventDefault(); closeAuth(); });
 
   if (authModal) {
     authModal.addEventListener("click", (e) => {
       if (e.target === authModal) closeAuth();
+    });
+  }
+
+  if (googleAuthModal) {
+    googleAuthModal.addEventListener("click", (e) => {
+      if (e.target === googleAuthModal) closeGoogleAuth();
     });
   }
 
@@ -1196,16 +1237,69 @@ function initAuthModalEvents() {
     });
   }
 
+  // Open Google Account Simulator
   if (googleBtn) {
     googleBtn.addEventListener("click", () => {
+      openGoogleAuth();
+    });
+  }
+
+  // Select predefined Google Demo Account
+  document.querySelectorAll(".btn-select-gacc").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const gname = btn.dataset.gname;
+      const gemail = btn.dataset.gemail;
+
       currentUser = {
-        name: "Khách Hàng VIP",
-        email: "user.personal@gmail.com"
+        name: gname,
+        email: gemail
       };
 
       updateHeaderUserUI();
-      closeAuth();
-      showToastNotification("Đăng nhập tài khoản Google cá nhân thành công!", "Google Auth", "success");
+      closeGoogleAuth();
+      showToastNotification(`Đăng nhập tài khoản Google thành công: ${gemail}`, "Google Auth", "success");
+    });
+  });
+
+  // Custom Google Account Form
+  document.getElementById("customGoogleForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const customEmail = document.getElementById("customGoogleEmail")?.value.trim();
+    if (!customEmail) return;
+
+    const rawName = customEmail.split("@")[0];
+    const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
+    currentUser = {
+      name: displayName,
+      email: customEmail
+    };
+
+    updateHeaderUserUI();
+    closeGoogleAuth();
+    showToastNotification(`Đăng nhập tài khoản Google [${customEmail}] thành công!`, "Google Auth", "success");
+  });
+
+  // Dropdown Menu Items
+  if (btnUserMenuTrips) {
+    btnUserMenuTrips.addEventListener("click", () => {
+      userDropdownMenu?.classList.remove("active");
+      renderTripsList();
+      document.getElementById("tripsModal")?.classList.add("active");
+    });
+  }
+
+  if (btnUserMenuWishlist) {
+    btnUserMenuWishlist.addEventListener("click", () => {
+      userDropdownMenu?.classList.remove("active");
+      renderWishlistData();
+      document.getElementById("wishlistModal")?.classList.add("active");
+    });
+  }
+
+  if (btnUserLogout) {
+    btnUserLogout.addEventListener("click", () => {
+      performLogout();
     });
   }
 
@@ -1217,11 +1311,45 @@ function initAuthModalEvents() {
   }
 }
 
+function performLogout() {
+  const name = currentUser ? currentUser.name : "Tài khoản";
+  currentUser = null;
+  updateHeaderUserUI();
+  document.getElementById("userDropdownMenu")?.classList.remove("active");
+  showToastNotification(`Đã đăng xuất tài khoản ${name} thành công.`, "Đăng Xuất", "info");
+}
+
 function updateHeaderUserUI() {
   const btnSignIn = document.getElementById("btnSignIn");
-  if (btnSignIn && currentUser) {
-    btnSignIn.innerHTML = `<i class="fa-solid fa-circle-user" style="color: #FEF08A; font-size: 1.1rem;"></i> <span>${currentUser.name}</span>`;
-    btnSignIn.style.fontWeight = "600";
+  const mobileSignIn = document.getElementById("mobileSignIn");
+  const userMenuName = document.getElementById("userMenuName");
+  const userMenuEmail = document.getElementById("userMenuEmail");
+  const userMenuAvatar = document.getElementById("userMenuAvatar");
+
+  if (currentUser) {
+    const initial = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : "U";
+    if (btnSignIn) {
+      btnSignIn.innerHTML = `
+        <i class="fa-solid fa-circle-user" style="color: #FEF08A; font-size: 1.15rem;"></i>
+        <span>${currentUser.name}</span>
+        <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 0.2rem;"></i>
+      `;
+      btnSignIn.style.fontWeight = "600";
+    }
+    if (mobileSignIn) {
+      mobileSignIn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${currentUser.name} (Đăng xuất)`;
+    }
+    if (userMenuName) userMenuName.textContent = currentUser.name;
+    if (userMenuEmail) userMenuEmail.textContent = currentUser.email || "user@gmail.com";
+    if (userMenuAvatar) userMenuAvatar.textContent = initial;
+  } else {
+    if (btnSignIn) {
+      btnSignIn.innerHTML = `Sign in`;
+      btnSignIn.style.fontWeight = "600";
+    }
+    if (mobileSignIn) {
+      mobileSignIn.innerHTML = `<i class="fa-solid fa-user"></i> Sign in / Sign up`;
+    }
   }
 }
 

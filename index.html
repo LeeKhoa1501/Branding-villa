@@ -222,8 +222,32 @@
         <!-- VIP Callback Button -->
         <button class="btn-vip-callback" id="btnOpenContactModal"><i class="fa-solid fa-headset"></i> Tư Vấn VIP</button>
 
-        <!-- Member Sign In Button -->
-        <button class="btn-signin-pill" id="btnSignIn">Sign in</button>
+        <!-- Member Sign In / User Profile Button -->
+        <div class="user-account-wrapper" style="position: relative; display: inline-block;">
+          <button class="btn-signin-pill" id="btnSignIn">Sign in</button>
+          
+          <!-- User Profile Dropdown Menu -->
+          <div class="user-profile-menu" id="userDropdownMenu">
+            <div class="user-menu-header">
+              <div class="user-menu-avatar" id="userMenuAvatar">U</div>
+              <div class="user-menu-details">
+                <strong id="userMenuName">Khách Hàng VIP</strong>
+                <span id="userMenuEmail">user@gmail.com</span>
+              </div>
+            </div>
+            <div class="user-menu-divider"></div>
+            <button class="user-menu-item" id="btnUserMenuTrips">
+              <i class="fa-solid fa-suitcase"></i> Chuyến đi của tôi (My Trips)
+            </button>
+            <button class="user-menu-item" id="btnUserMenuWishlist">
+              <i class="fa-solid fa-heart"></i> Danh sách đã lưu (Wishlist)
+            </button>
+            <div class="user-menu-divider"></div>
+            <button class="user-menu-item logout" id="btnUserLogout">
+              <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất (Log Out)
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
           <i class="fa-solid fa-bars"></i>
@@ -1890,6 +1914,55 @@
           <i class="fa-solid fa-paper-plane"></i> Gửi Yêu Cầu Tư Vấn VIP Ngay
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- GOOGLE ACCOUNT SELECTOR SIMULATOR MODAL -->
+  <div class="modal-overlay" id="googleAuthModal">
+    <div class="modal-content" style="max-width: 440px; padding: 2rem 1.8rem; background: #FFFFFF; color: #1F2937; border-radius: 16px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
+      <button class="modal-close" id="closeGoogleAuthBtn" style="color: #6B7280; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
+      
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="width: 42px; height: 42px; margin: 0 auto 0.8rem;">
+      <h3 style="font-family: system-ui, -apple-system, sans-serif; font-size: 1.35rem; font-weight: 600; color: #111827; margin-bottom: 0.2rem;">Đăng nhập bằng Google</h3>
+      <p style="font-size: 0.88rem; color: #6B7280; margin-bottom: 1.5rem;">Chọn hoặc nhập tài khoản Google của bạn để tiếp tục tới <strong>LeeKhoa Villas</strong></p>
+
+      <div class="google-accounts-list" style="display: flex; flex-direction: column; gap: 0.6rem; text-align: left; margin-bottom: 1.2rem;">
+        <button class="google-acc-item btn-select-gacc" data-gname="Nguyễn Văn An" data-gemail="an.nguyen@gmail.com">
+          <div class="gacc-avatar" style="background: #E0E7FF; color: #4338CA;">A</div>
+          <div class="gacc-info">
+            <strong>Nguyễn Văn An</strong>
+            <span>an.nguyen@gmail.com</span>
+          </div>
+        </button>
+
+        <button class="google-acc-item btn-select-gacc" data-gname="Trần Thị Bình" data-gemail="binh.tran@gmail.com">
+          <div class="gacc-avatar" style="background: #FEF3C7; color: #D97706;">B</div>
+          <div class="gacc-info">
+            <strong>Trần Thị Bình</strong>
+            <span>binh.tran@gmail.com</span>
+          </div>
+        </button>
+
+        <button class="google-acc-item btn-select-gacc" data-gname="Doanh Nghiệp / VIP" data-gemail="vip.client@gmail.com">
+          <div class="gacc-avatar" style="background: #D1FAE5; color: #059669;">V</div>
+          <div class="gacc-info">
+            <strong>Doanh Nghiệp / VIP</strong>
+            <span>vip.client@gmail.com</span>
+          </div>
+        </button>
+      </div>
+
+      <div style="border-top: 1px solid #E5E7EB; padding-top: 1rem; text-align: left;">
+        <label style="display: block; font-size: 0.78rem; font-weight: 700; color: #4B5563; margin-bottom: 0.4rem;">HOẶC NHẬP GMAIL KHÁC CỦA BẠN:</label>
+        <form id="customGoogleForm" style="display: flex; gap: 0.5rem;">
+          <input type="email" id="customGoogleEmail" placeholder="nhap.email.cua.ban@gmail.com" required style="flex: 1; padding: 0.6rem 0.8rem; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 0.88rem; outline: none; color: #111827;">
+          <button type="submit" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.85rem; border-radius: 8px; font-weight: 600;">Đăng nhập</button>
+        </form>
+      </div>
+
+      <p style="font-size: 0.75rem; color: #9CA3AF; margin-top: 1.2rem;">
+        Để tiếp tục, Google sẽ chia sẻ tên, địa chỉ email và ảnh hồ sơ của bạn với LeeKhoa Villas.
+      </p>
     </div>
   </div>
 
