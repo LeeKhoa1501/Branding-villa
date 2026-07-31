@@ -736,6 +736,9 @@ function initCurrencySwitcher() {
   select.addEventListener("change", (e) => {
     currentCurrency = e.target.value;
     renderVillaGrid();
+    if (typeof renderCartList === "function") renderCartList();
+    if (typeof renderTripsList === "function") renderTripsList();
+    if (typeof updateExpSummary === "function") updateExpSummary();
     showToastNotification(`Đã chuyển đổi đơn vị tiền tệ sang ${currentCurrency}`, "Currency Switcher", "info");
   });
 }

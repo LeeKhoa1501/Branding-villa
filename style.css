@@ -402,23 +402,59 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 
 .site-header.scrolled .header-actions-divider { background: var(--border-glass); }
 
+.currency-selector {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
 .currency-selector select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.22);
   color: #FFFFFF;
-  padding: 0.38rem 0.6rem;
+  padding: 0.38rem 1.6rem 0.38rem 0.65rem;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
   font-weight: 600;
   outline: none;
   cursor: pointer;
   font-family: var(--font-sans);
+  transition: var(--transition-smooth);
+}
+
+.currency-selector::after {
+  content: '\f0d7';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  pointer-events: none;
+  transition: color 0.3s ease;
 }
 
 .site-header.scrolled .currency-selector select {
   background: var(--surface-secondary);
   border-color: var(--border-glass);
   color: var(--text-main);
+}
+
+.site-header.scrolled .currency-selector::after {
+  color: var(--text-main);
+}
+
+.currency-selector select option {
+  background-color: #0F172A;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  padding: 8px 12px;
 }
 
 .btn-icon-action {
