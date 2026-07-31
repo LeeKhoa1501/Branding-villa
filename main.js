@@ -1175,30 +1175,37 @@ function initAuthModalEvents() {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const email = document.getElementById("authEmail").value;
-      const userName = email.split("@")[0] || "User";
+      const inputVal = (document.getElementById("authEmail")?.value || "").trim();
+      let displayName = "Khách Hàng";
+
+      if (inputVal.includes("@")) {
+        const rawName = inputVal.split("@")[0];
+        displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+      } else if (inputVal.length > 0) {
+        displayName = "Khách Hàng (" + inputVal.slice(-4) + ")";
+      }
 
       currentUser = {
-        name: userName.charAt(0).toUpperCase() + userName.slice(1),
-        email: email
+        name: displayName,
+        email: inputVal
       };
 
       updateHeaderUserUI();
       closeAuth();
-      showToastNotification(`Chào mừng ${currentUser.name} quay trở lại!`, "Member Access", "success");
+      showToastNotification(`Chào mừng ${currentUser.name} đã đăng nhập tài khoản cá nhân!`, "Đăng Nhập Thành Công", "success");
     });
   }
 
   if (googleBtn) {
     googleBtn.addEventListener("click", () => {
       currentUser = {
-        name: "Lê Minh Khoa",
-        email: "khoa.le@leekhoavilla.com"
+        name: "Khách Hàng VIP",
+        email: "user.personal@gmail.com"
       };
 
       updateHeaderUserUI();
       closeAuth();
-      showToastNotification("Đăng nhập tài khoản Google thành công!", "Google Auth", "success");
+      showToastNotification("Đăng nhập tài khoản Google cá nhân thành công!", "Google Auth", "success");
     });
   }
 
