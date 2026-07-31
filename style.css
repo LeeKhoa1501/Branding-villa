@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NORA VILLAS — DEDICATED MULTI-PAGE SPA DESIGN SYSTEM (STYLE.CSS)
+   LeeKhoa Villas — DEDICATED MULTI-PAGE SPA DESIGN SYSTEM (STYLE.CSS)
    ========================================================================== */
 
 /* 1. BRAND DESIGN SYSTEM & DESIGN TOKENS */
@@ -2660,6 +2660,351 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 #blogReaderModal h3 {
   font-family: var(--font-serif);
   color: var(--text-main);
+}
+
+/* ==========================================================================
+   VIP CALLBACK BUTTON IN HEADER
+   ========================================================================== */
+
+.btn-vip-callback {
+  background: linear-gradient(135deg, #0F2E23, #16A34A);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-vip-callback:hover {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #144B36, #22C55E);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
+  color: #FFFFFF;
+}
+
+.site-header.scrolled .btn-vip-callback {
+  background: var(--primary-emerald);
+  border-color: var(--primary-emerald);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   UPGRADED ABOUT PAGE LUXURY STYLES
+   ========================================================================== */
+
+.about-stats-badge-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  max-width: 980px;
+  margin: 2.5rem auto 0 auto;
+}
+
+.about-stat-box {
+  background: var(--surface-white);
+  border: 1px solid var(--border-glass);
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.about-stat-box:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+.about-stat-box .stat-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--primary-emerald);
+  margin-bottom: 0.2rem;
+}
+
+.about-stat-box .stat-desc {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Founder's Philosophy Card */
+.founder-philosophy-section {
+  padding: 3rem 0 4rem 0;
+}
+
+.founder-card-wrapper {
+  background: #0B132B;
+  border-radius: var(--radius-lg);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.founder-quote-box {
+  padding: 3.5rem;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.quote-mark {
+  font-family: var(--font-serif);
+  font-size: 6rem;
+  line-height: 0.8;
+  color: var(--accent-gold);
+  opacity: 0.4;
+  position: absolute;
+  top: 1.5rem;
+  left: 2.5rem;
+}
+
+.founder-quote-text {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.founder-author-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.founder-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary-emerald);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: 2px solid var(--accent-gold);
+}
+
+.founder-name {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #FFFFFF;
+}
+
+.founder-title {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.founder-image-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.founder-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-badge-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FEF08A;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(254, 240, 138, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Timeline Milestone List */
+.timeline-milestone-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border-glass);
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-emerald);
+  border: 2px solid #FFFFFF;
+}
+
+.milestone-year {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  flex-shrink: 0;
+}
+
+.timeline-item strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-item p {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Press & Accolades Section */
+.about-press-section {
+  padding: 3rem 0;
+  background: var(--surface-white);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.press-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.press-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.press-logo {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--text-gold);
+  margin-bottom: 0.8rem;
+}
+
+.press-item p {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   UPGRADED BLOG HUB & NEWSLETTER STYLES
+   ========================================================================== */
+
+.blog-cat-pill {
+  background: var(--surface-white);
+  border: 1.5px solid var(--border-glass);
+  padding: 0.5rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.blog-cat-pill:hover,
+.blog-cat-pill.active {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--primary-emerald);
+}
+
+.blog-newsletter-card {
+  margin-top: 4rem;
+  background: linear-gradient(135deg, #0F2E23 0%, #0B132B 100%);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-lg);
+}
+
+.newsletter-content h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin: 0.5rem 0 0.8rem 0;
+}
+
+.newsletter-content p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 1.8rem auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
+.newsletter-form input:focus {
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /* ==========================================================================

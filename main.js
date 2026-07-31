@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NORA VILLAS — COMPLETE APPLICATION LOGIC & SPA ROUTER (MAIN.JS)
+   LeeKhoa Villas — COMPLETE APPLICATION LOGIC & SPA ROUTER (MAIN.JS)
    ========================================================================== */
 
 // Expanded Vietnam Villa Catalog Dataset
@@ -146,15 +146,15 @@ const BLOG_DATA = {
     title: "Top 5 Villa Biển Hồ Tràm Có Đầu Bếp Riêng Đáng Tiền Nhất 2026",
     date: "28 Tháng 7, 2026 · 5 min read",
     content: `
-      <p style="margin-bottom: 1rem; line-height: 1.7;">Hồ Tràm đang trở thành thiên đường nghỉ dưỡng hàng đầu cho các gia đình và nhóm doanh nhân tại TP.HCM. Việc thuê một biệt thự riêng tư sát biển tích hợp dịch vụ Đầu Bếp Chuyên Nghiệp (Private Chef) không chỉ mang lại sự riêng tư tối đa mà còn mang đến trải nghiệm ẩm thực thượng hạng ngay tại bàn ăn villa.</p>
-      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">1. Villa Serene Coast Hồ Tràm</h4>
-      <p style="margin-bottom: 1rem; line-height: 1.7;">Sở hữu bãi biển riêng và khuôn viên sân vườn 1200m², Villa Serene Coast nổi bật với gói tiệc nướng hải sản BBQ chuẩn 5 sao. Đầu bếp riêng sẽ trực tiếp sơ chế tôm hùm, mực lá tươi sống và chế biến theo yêu cầu của trưởng đoàn.</p>
-      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">2. Kinh nghiệm lựa chọn menu ăn uống</h4>
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Hồ Tràm đang trở thành thiên đường nghỉ dưỡng hàng đầu cho các gia đình và nhóm doanh nhân tại TP.HCM. Việc thuê một biệt thự riêng tư sát biển tích hợp dịch vụ Đầu Bếp Chuyên Nghiệp (Private Chef) mang lại trải nghiệm ẩm thực thượng hạng ngay tại bàn ăn villa.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">1. Villa Serene Coast Hồ Tràm — Độc Bản Sát Biển</h4>
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Sở hữu bãi biển riêng và khuôn viên sân vườn 1200m², Villa Serene Coast nổi bật với gói tiệc nướng hải sản BBQ chuẩn 5 sao. Đầu bếp riêng sẽ trực tiếp sơ chế tôm hùm, mực lá tươi sống và chế biến theo khẩu vị riêng của đoàn.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">2. Kinh nghiệm đặt Chef riêng hiệu quả</h4>
       <p style="line-height: 1.7;">Bạn nên chốt thực đơn với Quản gia Concierge trước 24 giờ check-in để bếp chuẩn bị nguyên liệu hải sản đánh bắt trong ngày tươi ngon nhất.</p>
     `
   },
   blog2: {
-    category: "BÍ QUYẾT ĐẶT PHÒNG",
+    category: "BIỂN VŨNG TÀU",
     title: "Kinh Nghiệm Thuê Biệt Thự Nguyên Căn Cho Gia Đình 10-15 Người",
     date: "25 Tháng 7, 2026 · 4 min read",
     content: `
@@ -165,6 +165,7 @@ const BLOG_DATA = {
         <li>Phòng ngủ tầng trệt thuận tiện cho ông bà lớn tuổi di chuyển.</li>
         <li>Khu vực bếp gia đình trang bị đầy đủ tủ lạnh dung tích lớn và bếp nướng.</li>
       </ul>
+      <p style="line-height: 1.7;">Tại LeeKhoa Villas, tất cả dinh thự 5-7 phòng ngủ đều có sẵn dịch vụ hỗ trợ đi chợ và dọn dẹp sau tiệc nướng.</p>
     `
   },
   blog3: {
@@ -173,7 +174,39 @@ const BLOG_DATA = {
     date: "20 Tháng 7, 2026 · 6 min read",
     content: `
       <p style="margin-bottom: 1rem; line-height: 1.7;">Ngâm mình trong bồn khoáng nóng thảo mộc Nhật Bản giữa không gian đồi thông se lạnh Đà Lạt là liệu pháp phục hồi sức khỏe tuyệt vời nhất hiện nay.</p>
-      <p style="line-height: 1.7;">Tại NORA Villas, dịch vụ chuẩn bị bồn ngâm khoáng nóng thảo mộc Jacuzzi được tích hợp sẵn theo yêu cầu của khách hàng, giúp giảm căng thẳng và cải thiện giấc ngủ sâu.</p>
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Tại LeeKhoa Villas, dịch vụ chuẩn bị bồn ngâm khoáng nóng thảo mộc Jacuzzi được tích hợp sẵn theo yêu cầu của khách hàng, giúp giảm căng thẳng và cải thiện giấc ngủ sâu.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">Liệu trình ngâm khoáng khuyến nghị:</h4>
+      <p style="line-height: 1.7;">Nên ngâm từ 15-20 phút vào buổi chiều tối sau chuyến tham quan, kết hợp trà hoa cúc và tinh dầu bưởi thiên nhiên.</p>
+    `
+  },
+  blog4: {
+    category: "REVIEWS VILLA",
+    title: "Review Chi Tiết Dinh Thự Villa Azure Bãi Sau Vũng Tàu",
+    date: "18 Tháng 7, 2026 · 5 min read",
+    content: `
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Villa Azure tọa lạc tại đường Trần Phú, Bãi Sau Vũng Tàu — cách bãi tắm chưa đầy 200m. Kiến trúc Địa Trung Hải hiện đại với tông trắng - xanh chủ đạo mang lại cảm giác vô cùng phóng khoáng.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">Điểm nổi bật nhất:</h4>
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Hồ bơi tràn bờ sân thượng view ngắm nhìn trọn vẹn bình minh biển Vũng Tàu. Trang bị hệ thống loa Karaoke chuyên nghiệp cách âm và bàn bida nhập khẩu.</p>
+    `
+  },
+  blog5: {
+    category: "TIỆC VIP & EVENTS",
+    title: "Xu Hướng Tổ Chức Tiệc Sinh Nhật VIP & Anniversary Tại Biệt Thự Biển",
+    date: "12 Tháng 7, 2026 · 7 min read",
+    content: `
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Thay vì tổ chức tại các nhà hàng đông đúc, ngày càng nhiều gia đình và cặp đôi lựa chọn thuê biệt thự sát biển nguyên căn để làm tiệc kỷ niệm riêng tư.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">Dịch vụ Setup Event trọn gói tại LeeKhoa:</h4>
+      <p style="line-height: 1.7;">Đội ngũ Concierge hỗ trợ cắm hoa tươi ngoài trời, trang trí nến lung linh sát bãi biển và chuẩn bị bánh kem 3 tầng theo ý thích.</p>
+    `
+  },
+  blog6: {
+    category: "ĐỒI THÔNG ĐÀ LẠT",
+    title: "Hành Trình Đổi Gió Đà Lạt: Thưởng Thức Tiệc Rượu Vang Đêm Bên Lò Sưởi",
+    date: "05 Tháng 7, 2026 · 6 min read",
+    content: `
+      <p style="margin-bottom: 1rem; line-height: 1.7;">Đà Lạt luôn mang vẻ đẹp dịu dàng và lãng mạn. Thuê một căn biệt thự gỗ đồi thông có lò sưởi thật là cách lý tưởng nhất để tận hưởng bầu không khí se lạnh 16°C về đêm.</p>
+      <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--primary-emerald); margin: 1.2rem 0 0.6rem 0;">Trải nghiệm không thể bỏ qua:</h4>
+      <p style="line-height: 1.7;">Thưởng thức ly rượu vang đỏ Premium bên lề lò sưởi ấm cúng, lắng nghe tiếng thông reo và thưởng thức thịt nướng sốt tiêu rừng Đà Lạt.</p>
     `
   }
 };
@@ -323,6 +356,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initOffersAndAddons();
   initNavSmoothScroll();
   initRecentlyViewedCarousel();
+  initContactModalEvents();
+  initBlogCategoryFilterEvents();
+  initNewsletterForm();
   updateBadges();
 });
 
@@ -499,7 +535,7 @@ function initCartCheckoutWizard() {
 
   if (btnCopyMemo) {
     btnCopyMemo.addEventListener("click", () => {
-      navigator.clipboard.writeText("NORACART84920");
+      navigator.clipboard.writeText("LEEKHOACART84920");
       showToastNotification("Đã sao chép Nội dung chuyển khoản!", "Copy", "info");
     });
   }
@@ -513,7 +549,7 @@ function initCartCheckoutWizard() {
     btnConfirmPay.addEventListener("click", () => {
       if (myCartState.length === 0) return;
 
-      const guestName = document.getElementById("ckGuestName").value || "Khách Hàng NORA";
+      const guestName = document.getElementById("ckGuestName").value || "Khách Hàng LeeKhoa";
       
       myCartState.forEach(cartItem => {
         myTripsState.unshift({
@@ -690,7 +726,7 @@ function initRecentlyViewedCarousel() {
 /* --------------------------------------------------------------------------
    TOAST NOTIFICATION SYSTEM
    -------------------------------------------------------------------------- */
-function showToastNotification(message, title = "NORA Villas", type = "success") {
+function showToastNotification(message, title = "LeeKhoa Villas", type = "success") {
   const container = document.getElementById("toastContainer");
   if (!container) return;
 
@@ -1103,7 +1139,7 @@ function initAuthModalEvents() {
     googleBtn.addEventListener("click", () => {
       currentUser = {
         name: "Lê Minh Khoa",
-        email: "khoa.le@noravilla.com"
+        email: "khoa.le@leekhoavilla.com"
       };
 
       updateHeaderUserUI();
@@ -1790,7 +1826,7 @@ function showSuccessBookingModal(booking) {
     
     <span class="success-eyebrow">✦ RESERVATION CONFIRMED ✦</span>
     <h2 class="success-title">Đặt Biệt Thự Thành Công!</h2>
-    <p class="success-sub">Cảm ơn bạn đã lựa chọn <strong>NORA Villas</strong>. Quản gia cá nhân sẽ liên hệ hỗ trợ bạn trong 15 phút.</p>
+    <p class="success-sub">Cảm ơn bạn đã lựa chọn <strong>LeeKhoa Villas</strong>. Quản gia cá nhân sẽ liên hệ hỗ trợ bạn trong 15 phút.</p>
 
     <div class="booking-receipt-box">
       <div class="receipt-row">
@@ -1861,6 +1897,94 @@ function initLanguageSwitcher() {
       btnEn.classList.add("active");
       btnVi.classList.remove("active");
       showToastNotification("Language switched to English", "Language", "info");
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   VIP CONTACT & CALLBACK REQUEST MODAL LOGIC
+   -------------------------------------------------------------------------- */
+function initContactModalEvents() {
+  const contactModal = document.getElementById("contactModal");
+  const btnOpenHeader = document.getElementById("btnOpenContactModal");
+  const btnOpenAbout = document.getElementById("btnAboutOpenContact");
+  const closeBtn = document.getElementById("closeContactModalBtn");
+  const form = document.getElementById("contactForm");
+
+  function openContact() {
+    if (contactModal) contactModal.classList.add("active");
+  }
+
+  function closeContact() {
+    if (contactModal) contactModal.classList.remove("active");
+  }
+
+  if (btnOpenHeader) btnOpenHeader.addEventListener("click", openContact);
+  if (btnOpenAbout) btnOpenAbout.addEventListener("click", openContact);
+  if (closeBtn) closeBtn.addEventListener("click", closeContact);
+
+  if (contactModal) {
+    contactModal.addEventListener("click", (e) => {
+      if (e.target === contactModal) closeContact();
+    });
+  }
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("contactName")?.value || "Quý khách";
+      const phone = document.getElementById("contactPhone")?.value || "";
+      const dest = document.getElementById("contactDest")?.value || "Hồ Tràm";
+      const ticketId = "LK-VIP-" + Math.floor(1000 + Math.random() * 9000);
+
+      closeContact();
+      form.reset();
+
+      showToastNotification(
+        `Yêu cầu tư vấn VIP (Mã ${ticketId}) của ${name} (${phone}) đã được chuyển tới Quản gia LeeKhoa. Chúng tôi sẽ gọi lại trong 15 phút cho biệt thự tại ${dest}!`,
+        "✅ Tư Vấn VIP Đã Gửi",
+        "success"
+      );
+    });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BLOG CATEGORY FILTER TABS & NEWSLETTER LOGIC
+   -------------------------------------------------------------------------- */
+function initBlogCategoryFilterEvents() {
+  const tabs = document.querySelectorAll("#blogCategoryTabs .blog-cat-pill");
+  const articles = document.querySelectorAll(".blog-grid-cards article");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const category = tab.dataset.blogcat;
+      articles.forEach(article => {
+        if (category === "all" || article.dataset.blogcat === category) {
+          article.style.display = "flex";
+        } else {
+          article.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+function initNewsletterForm() {
+  const form = document.getElementById("newsletterForm");
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = document.getElementById("newsletterEmail")?.value || "";
+      form.reset();
+      showToastNotification(
+        `Cảm ơn bạn! Mã voucher ưu đãi 10% (LEEKHOAVIP10) đã gửi tới ${email}.`,
+        "🎉 VIP Club Voucher",
+        "success"
+      );
     });
   }
 }
