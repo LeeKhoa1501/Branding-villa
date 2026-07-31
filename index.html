@@ -227,6 +227,7 @@
           <button class="btn-signin-pill" id="btnSignIn">Sign in</button>
           
           <!-- User Profile Dropdown Menu -->
+          <!-- User Profile Dropdown Menu -->
           <div class="user-profile-menu" id="userDropdownMenu">
             <div class="user-menu-header">
               <div class="user-menu-avatar" id="userMenuAvatar">U</div>
@@ -237,10 +238,13 @@
             </div>
             <div class="user-menu-divider"></div>
             <button class="user-menu-item" id="btnUserMenuTrips">
-              <i class="fa-solid fa-suitcase"></i> Chuyến đi của tôi (My Trips)
+              <i class="fa-solid fa-suitcase" style="color: var(--primary-emerald);"></i> Chuyến đi của tôi (<span id="userMenuTripsCount">3</span>)
             </button>
             <button class="user-menu-item" id="btnUserMenuWishlist">
-              <i class="fa-solid fa-heart"></i> Danh sách đã lưu (Wishlist)
+              <i class="fa-solid fa-heart" style="color: #E74C3C;"></i> Danh sách yêu thích (<span id="userMenuWishlistCount">3</span>)
+            </button>
+            <button class="user-menu-item" id="btnUserMenuCart">
+              <i class="fa-solid fa-bag-shopping" style="color: var(--accent-gold);"></i> Giỏ hàng đặt biệt thự (<span id="userMenuCartCount">2</span>)
             </button>
             <div class="user-menu-divider"></div>
             <button class="user-menu-item logout" id="btnUserLogout">

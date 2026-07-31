@@ -1297,6 +1297,15 @@ function initAuthModalEvents() {
     });
   }
 
+  const btnUserMenuCart = document.getElementById("btnUserMenuCart");
+  if (btnUserMenuCart) {
+    btnUserMenuCart.addEventListener("click", () => {
+      userDropdownMenu?.classList.remove("active");
+      renderCartData();
+      document.getElementById("cartModal")?.classList.add("active");
+    });
+  }
+
   if (btnUserLogout) {
     btnUserLogout.addEventListener("click", () => {
       performLogout();
@@ -1326,7 +1335,27 @@ function updateHeaderUserUI() {
   const userMenuEmail = document.getElementById("userMenuEmail");
   const userMenuAvatar = document.getElementById("userMenuAvatar");
 
+  const btnOpenWishlist = document.getElementById("btnOpenWishlist");
+  const btnOpenCart = document.getElementById("btnOpenCart");
+  const btnOpenTrips = document.getElementById("btnOpenTrips");
+  const dividers = document.querySelectorAll(".header-actions-divider");
+
+  // Update menu item badge counts
+  const wishlistCount = wishlistState ? wishlistState.length : 0;
+  const cartCount = myCartState ? myCartState.length : 0;
+  const tripsCount = myTripsState ? myTripsState.length : 0;
+
+  if (document.getElementById("userMenuWishlistCount")) document.getElementById("userMenuWishlistCount").textContent = wishlistCount;
+  if (document.getElementById("userMenuCartCount")) document.getElementById("userMenuCartCount").textContent = cartCount;
+  if (document.getElementById("userMenuTripsCount")) document.getElementById("userMenuTripsCount").textContent = tripsCount;
+
   if (currentUser) {
+    // When LOGGED IN: Hide Wishlist, Cart, Trips icons from main navbar (they move into the white user dropdown)
+    if (btnOpenWishlist) btnOpenWishlist.style.display = "none";
+    if (btnOpenCart) btnOpenCart.style.display = "none";
+    if (btnOpenTrips) btnOpenTrips.style.display = "none";
+    dividers.forEach(div => div.style.display = "none");
+
     const initial = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : "U";
     if (btnSignIn) {
       btnSignIn.innerHTML = `
@@ -1343,6 +1372,12 @@ function updateHeaderUserUI() {
     if (userMenuEmail) userMenuEmail.textContent = currentUser.email || "user@gmail.com";
     if (userMenuAvatar) userMenuAvatar.textContent = initial;
   } else {
+    // When LOGGED OUT: Show Wishlist, Cart, Trips icons back on main navbar
+    if (btnOpenWishlist) btnOpenWishlist.style.display = "inline-flex";
+    if (btnOpenCart) btnOpenCart.style.display = "inline-flex";
+    if (btnOpenTrips) btnOpenTrips.style.display = "inline-flex";
+    dividers.forEach(div => div.style.display = "block");
+
     if (btnSignIn) {
       btnSignIn.innerHTML = `Sign in`;
       btnSignIn.style.fontWeight = "600";
