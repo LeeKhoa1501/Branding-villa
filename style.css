@@ -2041,11 +2041,17 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
    ========================================================================== */
 
 .modal-content-success {
-  max-width: 560px;
+  max-width: min(560px, 94vw);
+  width: 100%;
   padding: 0;
   text-align: center;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  box-sizing: border-box;
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Green top accent bar */
@@ -2057,7 +2063,9 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 }
 
 .success-card-body {
-  padding: 2.8rem 2.5rem 2.5rem;
+  padding: 2.2rem 1.8rem 2rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* Animated success check circle */
@@ -2119,17 +2127,21 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   overflow: hidden;
   margin-bottom: 1.8rem;
   text-align: left;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .receipt-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.75rem 1.2rem;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   border-bottom: 1px solid var(--border-glass);
-  gap: 1rem;
+  gap: 0.8rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .receipt-row:last-child {
@@ -2149,10 +2161,18 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   color: var(--text-main);
   font-weight: 600;
   text-align: right;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 65%;
 }
 
 .receipt-row:last-child > span:first-child {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.receipt-row:last-child > span:last-child {
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 .receipt-row:last-child > span:last-child {
@@ -3327,24 +3347,53 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
     padding: 0.8rem;
   }
 
+  /* iOS Safari & iPhone Specific Reset */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
+  }
+
   /* Modals Mobile Reset */
   .modal-overlay {
     padding: 12px;
     align-items: flex-end;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100dvh;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
 
   .modal-content {
     width: 100%;
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 88vh;
+    max-height: 88dvh;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: max(1.2rem, env(safe-area-inset-bottom));
   }
 
   .modal-content-sm,
   .modal-content-login,
-  .modal-content-tour {
+  .modal-content-tour,
+  .modal-content-success {
     max-width: 100%;
+  }
+
+  .success-card-body {
+    padding: 1.8rem 1.2rem 1.5rem;
+  }
+
+  .receipt-row {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
   }
 
   .auth-split-wrapper {

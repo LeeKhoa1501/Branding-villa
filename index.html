@@ -1393,15 +1393,19 @@
         <div class="checkout-step-indicator">
           <div class="ck-step-node active" id="ckStepNode1">
             <div class="ck-node-num">1</div>
-            <span>Review Selected Villas</span>
+            <span>1. Biệt thự</span>
           </div>
           <div class="ck-step-node" id="ckStepNode2">
             <div class="ck-node-num">2</div>
-            <span>Guest Info & Invoicing</span>
+            <span>2. Trưởng đoàn</span>
           </div>
           <div class="ck-step-node" id="ckStepNode3">
             <div class="ck-node-num">3</div>
-            <span>Payment & Live QR Code</span>
+            <span>3. Thanh toán</span>
+          </div>
+          <div class="ck-step-node" id="ckStepNode4">
+            <div class="ck-node-num">4</div>
+            <span>4. Xác nhận đơn</span>
           </div>
         </div>
       </div>
@@ -1422,7 +1426,7 @@
               <span id="ckSubtotalVal">0 ₫</span>
             </div>
             <div class="summary-row">
-              <span>Phí phụ thu quản gia & dọn dẹp:</span>
+              <span>Phí phụ thu quản gia &amp; dọn dẹp:</span>
               <span>1.000.000 ₫</span>
             </div>
             <div class="summary-row" id="ckPromoDiscountRow" style="display: none; color: #166534; font-weight: 700;">
@@ -1445,7 +1449,7 @@
 
         <!-- STEP 2: GUEST CONTACT & INVOICING -->
         <div class="ck-step-frame" id="ckStepFrame2">
-          <h3 class="ck-section-title">Thông tin đại diện trưởng đoàn & Xuất hóa đơn:</h3>
+          <h3 class="ck-section-title">Thông tin đại diện trưởng đoàn &amp; Xuất hóa đơn:</h3>
           
           <div class="ck-form-grid">
             <div class="ck-form-group">
@@ -1492,7 +1496,7 @@
           <div class="ck-actions-bar">
             <button class="btn-outline" id="btnCkBackStep1"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
             <button class="btn-primary" id="btnCkGotoStep3">
-              Tiếp tục: Thanh Toán & Nhận Mã QR <i class="fa-solid fa-arrow-right"></i>
+              Tiếp tục: Thanh Toán &amp; Nhận Mã QR <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -1525,7 +1529,7 @@
           <div class="pay-method-view active" id="payViewQr">
             <div class="vietqr-live-box">
               <div class="qr-code-img-box">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=LEEKHOAVILLAS_CART_84920" alt="VietQR Code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=LEEKHOAVILLAS_CART_84920" alt="VietQR Code">
                 <span class="qr-pulse-badge">Live Scan</span>
               </div>
               <div class="qr-details">
@@ -1574,8 +1578,60 @@
 
           <div class="ck-actions-bar">
             <button class="btn-outline" id="btnCkBackStep2"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
-            <button class="btn-primary" id="btnCkConfirmPayment" style="background: var(--primary-emerald);">
-              <i class="fa-solid fa-lock"></i> XÁC NHẬN ĐẶT TOÀN BỘ GIỎ HÀNG NOW
+            <button class="btn-primary" id="btnCkGotoStep4">
+              Tiếp tục: Kiểm Tra &amp; Xác Nhận Đơn Hàng <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: ORDER REVIEW & FINAL CONFIRMATION -->
+        <div class="ck-step-frame" id="ckStepFrame4">
+          <h3 class="ck-section-title"><i class="fa-solid fa-clipboard-check"></i> Kiểm Tra &amp; Xác Nhận Lại Toàn Bộ Thông Tin Đặt Phòng:</h3>
+
+          <div class="review-confirmation-card" style="background: #F8FAFC; border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem; text-align: left;">
+            <!-- Guest Summary -->
+            <div style="margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-glass);">
+              <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--primary-emerald); margin-bottom: 0.6rem;"><i class="fa-solid fa-user-check"></i> Thông Tin Đại Diện Trưởng Đoàn</h4>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.6rem; font-size: 0.88rem;">
+                <div><span style="color: var(--text-muted);">Trưởng đoàn:</span> <strong id="confirmGuestName">Nguyễn Văn An</strong></div>
+                <div><span style="color: var(--text-muted);">Số điện thoại:</span> <strong id="confirmGuestPhone">+84 901 234 567</strong></div>
+                <div><span style="color: var(--text-muted);">Email nhận voucher:</span> <strong id="confirmGuestEmail">nguyenvanan@gmail.com</strong></div>
+                <div><span style="color: var(--text-muted);">Phương thức thanh toán:</span> <strong id="confirmPayMethodText" style="color: var(--text-gold);">VietQR Napas 24/7</strong></div>
+              </div>
+            </div>
+
+            <!-- Cart Villas Summary -->
+            <div style="margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--border-glass);">
+              <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--primary-emerald); margin-bottom: 0.6rem;"><i class="fa-solid fa-house-chimney"></i> Biệt Thự Được Chọn Giữ Chỗ (<span id="confirmVillaCount">2</span> Villa)</h4>
+              <div id="confirmVillasSummaryList" style="display: flex; flex-direction: column; gap: 0.6rem;"></div>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div style="background: #FFFFFF; border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 1rem;">
+              <div class="summary-row" style="padding: 0.3rem 0; border: none;">
+                <span>Tổng tiền thuê biệt thự:</span>
+                <span id="confirmSubtotalVal">0 ₫</span>
+              </div>
+              <div class="summary-row" style="padding: 0.3rem 0; border: none;">
+                <span>Phí phụ thu &amp; dọn dẹp Quản gia:</span>
+                <span>1.000.000 ₫</span>
+              </div>
+              <div class="summary-row total" style="padding-top: 0.6rem; margin-top: 0.4rem; border-top: 1.5px solid var(--border-glass);">
+                <span>Tổng tiền chính thức thanh toán:</span>
+                <span id="confirmGrandTotalVal" style="color: var(--primary-emerald); font-size: 1.3rem;">0 ₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #FEF08A; border: 1px solid #FDE047; border-radius: var(--radius-md); padding: 0.8rem 1.2rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.6rem; font-size: 0.84rem; color: #854D0E;">
+            <input type="checkbox" id="ckAgreeTermsCheck" checked style="width: 18px; height: 18px; cursor: pointer;">
+            <label for="ckAgreeTermsCheck" style="cursor: pointer; font-weight: 600;">Tôi đã kiểm tra chính xác thông tin ngày lưu trú &amp; đồng ý với Điều Khoản Giữ Chỗ LeeKhoa Villas.</label>
+          </div>
+
+          <div class="ck-actions-bar">
+            <button class="btn-outline" id="btnCkBackStep3"><i class="fa-solid fa-arrow-left"></i> Quay lại sửa</button>
+            <button class="btn-primary" id="btnCkConfirmPayment" style="background: linear-gradient(135deg, #0F2E23, #16A34A); padding: 0.85rem 1.8rem;">
+              <i class="fa-solid fa-circle-check"></i> XÁC NHẬN CHÍNH THỨC &amp; HOÀN TẤT ĐẶT PHÒNG
             </button>
           </div>
         </div>

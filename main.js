@@ -492,6 +492,8 @@ function initCartCheckoutWizard() {
   const btnStep2Back = document.getElementById("btnCkBackStep1");
   const btnStep2Next = document.getElementById("btnCkGotoStep3");
   const btnStep3Back = document.getElementById("btnCkBackStep2");
+  const btnStep3Next = document.getElementById("btnCkGotoStep4");
+  const btnStep4Back = document.getElementById("btnCkBackStep3");
   const btnConfirmPay = document.getElementById("btnCkConfirmPayment");
 
   const vatCheckbox = document.getElementById("ckNeedVatInvoice");
@@ -544,13 +546,22 @@ function initCartCheckoutWizard() {
   if (btnStep2Back) btnStep2Back.addEventListener("click", () => setWizardStep(1));
   if (btnStep2Next) btnStep2Next.addEventListener("click", () => setWizardStep(3));
   if (btnStep3Back) btnStep3Back.addEventListener("click", () => setWizardStep(2));
+  if (btnStep3Next) btnStep3Next.addEventListener("click", () => setWizardStep(4));
+  if (btnStep4Back) btnStep4Back.addEventListener("click", () => setWizardStep(3));
 
   if (btnConfirmPay) {
     btnConfirmPay.addEventListener("click", () => {
       if (myCartState.length === 0) return;
 
+      const termsCheck = document.getElementById("ckAgreeTermsCheck");
+      if (termsCheck && !termsCheck.checked) {
+        showToastNotification("Vui lòng tick chọn đồng ý với Điều Khoản Giữ Chỗ trước khi hoàn tất!", "Xác Nhận Đơn Hàng", "info");
+        return;
+      }
+
       const guestName = document.getElementById("ckGuestName").value || "Khách Hàng LeeKhoa";
-      
+
+      // Transfer cart items to trips
       myCartState.forEach(cartItem => {
         myTripsState.unshift({
           id: "TRIP-" + Math.floor(1000 + Math.random() * 9000),
@@ -565,13 +576,13 @@ function initCartCheckoutWizard() {
         });
       });
 
+      const firstBooking = myTripsState[0];
       myCartState = [];
       updateBadges();
       wizardModal.classList.remove("active");
 
       showToastNotification(`Đã xác nhận đặt toàn bộ giỏ hàng cho ${guestName}! Voucher Check-in đã gửi về Email.`, "Thanh Toán Thành Công", "success");
-      renderTripsList();
-      document.getElementById("tripsModal")?.classList.add("active");
+      showSuccessBookingModal(firstBooking);
     });
   }
 }
@@ -606,6 +617,49 @@ function setWizardStep(stepNum) {
       frame.classList.remove("active");
     }
   });
+
+  if (stepNum === 4) {
+    populateStep4ReviewData();
+  }
+}
+
+function populateStep4ReviewData() {
+  const name = document.getElementById("ckGuestName")?.value || "Khách Hàng LeeKhoa";
+  const phone = document.getElementById("ckGuestPhone")?.value || "Chưa nhập";
+  const email = document.getElementById("ckGuestEmail")?.value || "Chưa nhập";
+
+  let payText = "VietQR Napas 24/7";
+  if (currentPayMethod === "card") payText = "Thẻ Quốc Tế Visa / Mastercard";
+  if (currentPayMethod === "deposit") payText = "Cọc 30% Giữ Chỗ (70% khi Check-in)";
+
+  if (document.getElementById("confirmGuestName")) document.getElementById("confirmGuestName").textContent = name;
+  if (document.getElementById("confirmGuestPhone")) document.getElementById("confirmGuestPhone").textContent = phone;
+  if (document.getElementById("confirmGuestEmail")) document.getElementById("confirmGuestEmail").textContent = email;
+  if (document.getElementById("confirmPayMethodText")) document.getElementById("confirmPayMethodText").textContent = payText;
+  if (document.getElementById("confirmVillaCount")) document.getElementById("confirmVillaCount").textContent = myCartState.length;
+
+  let baseSum = 0;
+  const listEl = document.getElementById("confirmVillasSummaryList");
+  if (listEl) {
+    listEl.innerHTML = myCartState.map(item => {
+      baseSum += item.totalPrice;
+      return `
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #FFFFFF; border: 1px solid var(--border-glass); padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
+          <div>
+            <strong>${item.villaName} (${item.city})</strong>
+            <div style="font-size: 0.78rem; color: var(--text-muted);">${item.checkIn} ➔ ${item.checkOut} (${item.nights} đêm) · ${item.guests} người</div>
+          </div>
+          <strong style="color: var(--primary-emerald);">${formatCurrency(item.totalPrice)}</strong>
+        </div>
+      `;
+    }).join('');
+  }
+
+  let finalGrand = baseSum + 1000000;
+  if (appliedDiscountCode) finalGrand = finalGrand * 0.85;
+
+  if (document.getElementById("confirmSubtotalVal")) document.getElementById("confirmSubtotalVal").textContent = formatCurrency(baseSum);
+  if (document.getElementById("confirmGrandTotalVal")) document.getElementById("confirmGrandTotalVal").textContent = formatCurrency(finalGrand);
 }
 
 function renderCartCheckoutData() {
