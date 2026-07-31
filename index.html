@@ -52,7 +52,7 @@
         
         <!-- 1. VILLAS MEGA MENU LINK -->
         <div class="nav-item-dropdown">
-          <a href="#villas" class="nav-link active btn-nav-route" data-route="home" id="navVillas">
+          <a href="#villas" class="nav-link btn-nav-route" data-route="villas" id="navVillas">
             Villas <i class="fa-solid fa-chevron-down nav-arrow"></i>
           </a>
           
@@ -454,137 +454,6 @@
                 TÌM HIỂU THÊM <i class="fa-solid fa-arrow-right-long"></i>
               </button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Category Pills Carousel -->
-      <section class="category-section">
-        <div class="section-container">
-          <div class="browse-by-label">Browse by:</div>
-          <div class="category-pills-wrapper">
-            <button class="cat-pill active" data-cat="all">All Stays</button>
-            <button class="cat-pill" data-cat="beachfront">🏖️ Beachfront</button>
-            <button class="cat-pill" data-cat="pool">🏊 Private pool</button>
-            <button class="cat-pill" data-cat="families">👨‍👩‍👧‍👦 For families</button>
-            <button class="cat-pill" data-cat="large">🎉 Large groups</button>
-            <button class="cat-pill" data-cat="pet">🐾 Pet friendly</button>
-            <button class="cat-pill" data-cat="event">🎊 Event villas</button>
-            <button class="cat-pill" data-cat="quiet">🌿 Quiet retreats</button>
-            <button class="cat-pill" data-cat="instant">⚡ Instant booking</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Featured Private Villas Section -->
-      <section class="villas-section" id="villas">
-        <div class="section-container">
-          <div class="section-header">
-            <div>
-              <span class="section-eyebrow">Editor's pick</span>
-              <h2 class="section-title">Featured private villas</h2>
-              <p class="section-desc">Exceptional stays selected for their location, design, and guest experience.</p>
-            </div>
-            
-            <div class="filter-tab-group">
-              <button class="tab-btn active" data-filter="all">Guest favorite</button>
-              <button class="tab-btn" data-filter="beachfront">Beachfront</button>
-              <button class="tab-btn" data-filter="toprated">Top rated</button>
-              <button class="tab-btn" data-filter="luxury">★ Luxury</button>
-            </div>
-          </div>
-
-          <div class="villas-layout-wrapper">
-            <aside class="sidebar-filter-card">
-              <div class="filter-card-header">
-                <h3>Filters</h3>
-                <button class="btn-reset-all" id="btnResetSidebarFilters">Reset all</button>
-              </div>
-
-              <div class="filter-group">
-                <h4 class="filter-group-title">Price per night</h4>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="price" value="under5m" class="filter-checkbox">
-                  <span>Under 5,000,000 ₫</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="price" value="5m10m" class="filter-checkbox">
-                  <span>5M – 10M ₫</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="price" value="10m20m" class="filter-checkbox">
-                  <span>10M – 20M ₫</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="price" value="over20m" class="filter-checkbox">
-                  <span>Over 20,000,000 ₫</span>
-                </label>
-              </div>
-
-              <hr class="filter-divider">
-
-              <div class="filter-group">
-                <h4 class="filter-group-title">Minimum bedrooms</h4>
-                <div class="bedroom-pills-grid" id="bedroomPillsGroup">
-                  <button class="bed-pill active" data-beds="0">Any</button>
-                  <button class="bed-pill" data-beds="2">2+</button>
-                  <button class="bed-pill" data-beds="3">3+</button>
-                  <button class="bed-pill" data-beds="4">4+</button>
-                  <button class="bed-pill" data-beds="5">5+</button>
-                  <button class="bed-pill" data-beds="6">6+</button>
-                  <button class="bed-pill" data-beds="8">8+</button>
-                </div>
-              </div>
-
-              <hr class="filter-divider">
-
-              <div class="filter-group">
-                <h4 class="filter-group-title">Amenities</h4>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="amenity" value="pool" class="filter-checkbox">
-                  <span>Private pool</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="amenity" value="bbq" class="filter-checkbox">
-                  <span>BBQ area</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="amenity" value="karaoke" class="filter-checkbox">
-                  <span>Karaoke room</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="amenity" value="pet" class="filter-checkbox">
-                  <span>Pet friendly</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="amenity" value="event" class="filter-checkbox">
-                  <span>Event allowed</span>
-                </label>
-              </div>
-
-              <hr class="filter-divider">
-
-              <div class="filter-group">
-                <h4 class="filter-group-title">Booking type</h4>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="bookingType" value="instant" class="filter-checkbox">
-                  <span>Instant booking</span>
-                </label>
-                <label class="filter-checkbox-label">
-                  <input type="checkbox" name="bookingType" value="freeCancel" class="filter-checkbox">
-                  <span>Free cancellation</span>
-                </label>
-              </div>
-            </aside>
-
-            <main class="villas-main-content">
-              <div class="results-bar">
-                <span id="resultsCountLabel">Showing 7 premium villas</span>
-              </div>
-              <div class="villa-grid" id="villaGridContainer">
-                <!-- Dynamically injected via JS -->
-              </div>
-            </main>
           </div>
         </div>
       </section>
@@ -1281,8 +1150,190 @@
         </div>
       </section>
 
-    </div>
+  </div>
 
+  <!-- ==========================================================================
+       DEDICATED VILLAS BOOKING PAGE VIEW (GIAO DIỆN ĐẶT PHÒNG VILLA RIÊNG BIỆT)
+       ========================================================================== -->
+  <div class="page-view" id="villasView">
+    <!-- Dedicated Villa Hero Header -->
+    <section class="villas-hero-banner" style="background: linear-gradient(135deg, #0F2E23, #144B36); color: #FFFFFF; padding: 4.5rem 0 3.5rem 0; text-align: center; position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.18), transparent 70%); pointer-events: none;"></div>
+      <div class="section-container" style="position: relative; z-index: 2;">
+        <span class="section-eyebrow" style="color: #FEF08A; letter-spacing: 0.15em;">✦ LEEKHOA VILLAS BOOKING SELECTION ✦</span>
+        <h1 style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 700; margin: 0.6rem 0 0.8rem 0; color: #FFFFFF; line-height: 1.2;">
+          Danh Mục Biệt Thự Nghỉ Dưỡng Resort Premium
+        </h1>
+        <p style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.85); max-width: 760px; margin: 0 auto 2.2rem auto; line-height: 1.6;">
+          Khám phá 248+ đại dinh thự riêng tư sát biển, hồ bơi vô cực &amp; dịch vụ quản gia 5-6 sao tại Vũng Tàu, Hồ Tràm, Đà Lạt, Phú Quốc, Nha Trang.
+        </p>
+
+        <!-- Quick Filter Search Bar inside Villas Page -->
+        <div class="villas-page-search-bar" style="background: #FFFFFF; border-radius: 16px; padding: 1.2rem 1.4rem; box-shadow: 0 20px 40px rgba(0,0,0,0.25); max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 220px; text-align: left;">
+            <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase; margin-bottom: 0.3rem;">ĐỊA ĐIỂM NGHỈ DƯỠNG</label>
+            <select id="villasPageDest" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 0.6rem 0.9rem; font-size: 0.92rem; font-weight: 600; color: #0F172A; outline: none; background: #FFFFFF;">
+              <option value="all">📍 Tất cả điểm đến (Việt Nam)</option>
+              <option value="Vũng Tàu">🌊 Vũng Tàu (48 Villas)</option>
+              <option value="Hồ Tràm">🏖️ Hồ Tràm (23 Villas)</option>
+              <option value="Đà Lạt">🌲 Đà Lạt (31 Villas)</option>
+              <option value="Phú Quốc">🌅 Phú Quốc (42 Villas)</option>
+              <option value="Nha Trang">⛵ Nha Trang (19 Villas)</option>
+            </select>
+          </div>
+          
+          <div style="flex: 1; min-width: 180px; text-align: left;">
+            <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase; margin-bottom: 0.3rem;">NGÀY NHẬN - TRẢ PHÒNG</label>
+            <input type="date" style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 0.55rem 0.9rem; font-size: 0.88rem; color: #0F172A; outline: none; background: #FFFFFF;">
+          </div>
+
+          <div style="flex: 1; min-width: 180px; text-align: left;">
+            <label style="display: block; font-size: 0.72rem; font-weight: 700; color: #64748B; text-transform: uppercase; margin-bottom: 0.3rem;">SỐ LƯỢNG KHÁCH</label>
+            <select style="width: 100%; border: 1.5px solid #CBD5E1; border-radius: 10px; padding: 0.6rem 0.9rem; font-size: 0.92rem; font-weight: 600; color: #0F172A; outline: none; background: #FFFFFF;">
+              <option value="any">👥 Tất cả quy mô</option>
+              <option value="2-6">Gia đình nhỏ (2-6 khách)</option>
+              <option value="6-12">Nhóm vừa (6-12 khách)</option>
+              <option value="12+">Đoàn lớn (12-30+ khách)</option>
+            </select>
+          </div>
+
+          <button id="btnVillasPageSearch" class="btn-primary" style="padding: 0.75rem 1.8rem; font-weight: 700; height: 46px; border-radius: 10px; margin-top: 1.1rem; background: linear-gradient(135deg, #0F2E23, #16A34A);">
+            <i class="fa-solid fa-magnifying-glass"></i> Lọc Biệt Thự
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Pills Carousel inside Villas Page -->
+    <section class="category-section">
+      <div class="section-container">
+        <div class="browse-by-label">Browse by:</div>
+        <div class="category-pills-wrapper">
+          <button class="cat-pill active" data-cat="all">All Stays</button>
+          <button class="cat-pill" data-cat="beachfront">🏖️ Beachfront</button>
+          <button class="cat-pill" data-cat="pool">🏊 Private pool</button>
+          <button class="cat-pill" data-cat="families">👨‍👩‍👧‍👦 For families</button>
+          <button class="cat-pill" data-cat="large">🎉 Large groups</button>
+          <button class="cat-pill" data-cat="pet">🐾 Pet friendly</button>
+          <button class="cat-pill" data-cat="event">🎊 Event villas</button>
+          <button class="cat-pill" data-cat="quiet">🌿 Quiet retreats</button>
+          <button class="cat-pill" data-cat="instant">⚡ Instant booking</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Private Villas Catalog Grid -->
+    <section class="villas-section" id="villas">
+      <div class="section-container">
+        <div class="section-header">
+          <div>
+            <span class="section-eyebrow">Editor's pick</span>
+            <h2 class="section-title">Featured private villas</h2>
+            <p class="section-desc">Exceptional stays selected for their location, design, and guest experience.</p>
+          </div>
+          
+          <div class="filter-tab-group">
+            <button class="tab-btn active" data-filter="all">Guest favorite</button>
+            <button class="tab-btn" data-filter="beachfront">Beachfront</button>
+            <button class="tab-btn" data-filter="toprated">Top rated</button>
+            <button class="tab-btn" data-filter="luxury">★ Luxury</button>
+          </div>
+        </div>
+
+        <div class="villas-layout-wrapper">
+          <aside class="sidebar-filter-card">
+            <div class="filter-card-header">
+              <h3>Filters</h3>
+              <button class="btn-reset-all" id="btnResetSidebarFilters">Reset all</button>
+            </div>
+
+            <div class="filter-group">
+              <h4 class="filter-group-title">Price per night</h4>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="price" value="under5m" class="filter-checkbox">
+                <span>Under 5,000,000 ₫</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="price" value="5m10m" class="filter-checkbox">
+                <span>5M – 10M ₫</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="price" value="10m20m" class="filter-checkbox">
+                <span>10M – 20M ₫</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="price" value="over20m" class="filter-checkbox">
+                <span>Over 20,000,000 ₫</span>
+              </label>
+            </div>
+
+            <hr class="filter-divider">
+
+            <div class="filter-group">
+              <h4 class="filter-group-title">Minimum bedrooms</h4>
+              <div class="bedroom-pills-grid" id="bedroomPillsGroup">
+                <button class="bed-pill active" data-beds="0">Any</button>
+                <button class="bed-pill" data-beds="2">2+</button>
+                <button class="bed-pill" data-beds="3">3+</button>
+                <button class="bed-pill" data-beds="4">4+</button>
+                <button class="bed-pill" data-beds="5">5+</button>
+                <button class="bed-pill" data-beds="6">6+</button>
+                <button class="bed-pill" data-beds="8">8+</button>
+              </div>
+            </div>
+
+            <hr class="filter-divider">
+
+            <div class="filter-group">
+              <h4 class="filter-group-title">Amenities</h4>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="amenity" value="pool" class="filter-checkbox">
+                <span>Private pool</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="amenity" value="bbq" class="filter-checkbox">
+                <span>BBQ area</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="amenity" value="karaoke" class="filter-checkbox">
+                <span>Karaoke room</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="amenity" value="pet" class="filter-checkbox">
+                <span>Pet friendly</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="amenity" value="event" class="filter-checkbox">
+                <span>Event allowed</span>
+              </label>
+            </div>
+
+            <hr class="filter-divider">
+
+            <div class="filter-group">
+              <h4 class="filter-group-title">Booking type</h4>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="bookingType" value="instant" class="filter-checkbox">
+                <span>Instant booking</span>
+              </label>
+              <label class="filter-checkbox-label">
+                <input type="checkbox" name="bookingType" value="freeCancel" class="filter-checkbox">
+                <span>Free cancellation</span>
+              </label>
+            </div>
+          </aside>
+
+          <main class="villas-main-content">
+            <div class="results-bar">
+              <span id="resultsCountLabel">Showing 7 premium villas</span>
+            </div>
+            <div class="villa-grid" id="villaGridContainer">
+              <!-- Dynamically injected via JS -->
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
   </div>
 
   <!-- Specialist Help Banner -->

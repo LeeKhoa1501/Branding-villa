@@ -712,21 +712,19 @@ function renderCartCheckoutData() {
 function initMegaMenuEvents() {
   document.querySelectorAll(".btn-mega-filter").forEach(btn => {
     btn.addEventListener("click", () => {
-      switchViewRoute("home");
+      switchViewRoute("villas");
       activeCategoryFilter = btn.dataset.cat;
       renderVillaGrid();
-      document.getElementById("villas")?.scrollIntoView({ behavior: "smooth" });
     });
   });
 
   document.querySelectorAll(".btn-mega-bed").forEach(pill => {
     pill.addEventListener("click", () => {
-      switchViewRoute("home");
+      switchViewRoute("villas");
       document.querySelectorAll(".btn-mega-bed").forEach(p => p.classList.remove("active"));
       pill.classList.add("active");
       activeMinBeds = parseInt(pill.dataset.beds) || 0;
       renderVillaGrid();
-      document.getElementById("villas")?.scrollIntoView({ behavior: "smooth" });
     });
   });
 
@@ -738,7 +736,7 @@ function initMegaMenuEvents() {
 
   document.querySelectorAll(".dest-item-chip").forEach(chip => {
     chip.addEventListener("click", () => {
-      switchViewRoute("home");
+      switchViewRoute("villas");
       const locName = chip.dataset.location;
       filterVillasByLocation(locName);
     });
@@ -1752,18 +1750,19 @@ function resetAllSidebarFilters() {
 }
 
 function filterVillasByLocation(cityName) {
+  switchViewRoute("villas");
   const filtered = VILLAS_DATA.filter(v => v.city.toLowerCase().includes(cityName.toLowerCase()) || v.location.toLowerCase().includes(cityName.toLowerCase()));
   renderVillaGrid(filtered);
-  document.getElementById("villas").scrollIntoView({ behavior: "smooth" });
 }
 
 function initSearchEvents() {
   const btnSearch = document.getElementById("btnExecuteSearch");
-  if (!btnSearch) return;
+  const btnVillasPageSearch = document.getElementById("btnVillasPageSearch");
 
-  btnSearch.addEventListener("click", () => {
-    const destSelect = document.getElementById("searchDestination");
-    const selectedDest = destSelect.value;
+  function handleSearchExecution(destSelectId) {
+    switchViewRoute("villas");
+    const destSelect = document.getElementById(destSelectId);
+    const selectedDest = destSelect ? destSelect.value : "all";
 
     if (selectedDest !== "all") {
       filterVillasByLocation(selectedDest);
@@ -1771,9 +1770,16 @@ function initSearchEvents() {
       activeCategoryFilter = "all";
       activeTabFilter = "all";
       renderVillaGrid();
-      document.getElementById("villas").scrollIntoView({ behavior: "smooth" });
     }
-  });
+  }
+
+  if (btnSearch) {
+    btnSearch.addEventListener("click", () => handleSearchExecution("searchDestination"));
+  }
+
+  if (btnVillasPageSearch) {
+    btnVillasPageSearch.addEventListener("click", () => handleSearchExecution("villasPageDest"));
+  }
 }
 
 /* --------------------------------------------------------------------------
