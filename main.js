@@ -1269,10 +1269,47 @@ function initMobileDrawer() {
   const closeBtn = document.getElementById("closeDrawerBtn");
   const drawer = document.getElementById("mobileDrawer");
 
+  function closeDrawer() {
+    if (drawer) drawer.classList.remove("open");
+  }
+
   if (openBtn && closeBtn && drawer) {
     openBtn.addEventListener("click", () => drawer.classList.add("open"));
-    closeBtn.addEventListener("click", () => drawer.classList.remove("open"));
+    closeBtn.addEventListener("click", closeDrawer);
   }
+
+  // Auto close on route click
+  drawer?.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeDrawer);
+  });
+
+  // Mobile action links
+  document.getElementById("mobileCart")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeDrawer();
+    renderCartList();
+    document.getElementById("cartModal")?.classList.add("active");
+  });
+
+  document.getElementById("mobileWishlist")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeDrawer();
+    renderWishlistList();
+    document.getElementById("wishlistModal")?.classList.add("active");
+  });
+
+  document.getElementById("mobileMyTrips")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeDrawer();
+    renderTripsList();
+    document.getElementById("tripsModal")?.classList.add("active");
+  });
+
+  document.getElementById("mobileSignIn")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeDrawer();
+    document.getElementById("authModal")?.classList.add("active");
+  });
 }
 
 /* --------------------------------------------------------------------------

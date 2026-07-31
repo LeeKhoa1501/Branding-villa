@@ -3008,56 +3008,403 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 }
 
 /* ==========================================================================
-   RESPONSIVE BREAKPOINTS
+   COMPLETE MULTI-DEVICE RESPONSIVE DESIGN SYSTEM
    ========================================================================== */
 
-@media (max-width: 1100px) {
+/* 1. LARGE LAPTOPS & DESKTOPS (1200px - 1399px) */
+@media (max-width: 1399px) {
+  .header-container {
+    padding: 0 20px;
+    gap: 1.2rem;
+  }
+
+  .nav-link {
+    padding: 1.5rem 0.8rem;
+    font-size: 0.84rem;
+  }
+
+  .search-widget-card {
+    width: min(1140px, 98%);
+    padding: 0 1rem;
+  }
+
+  .villas-layout-wrapper {
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+  }
+
+  .villas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .experiences-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .mega-villas { width: 720px; }
+  .mega-destinations { width: 580px; }
+}
+
+/* 2. TABLETS LANDSCAPE & MEDIUM SCREENS (992px - 1199px) */
+@media (max-width: 1199px) {
+  .nav-sep { display: none; }
+  .nav-link { padding: 1.5rem 0.6rem; font-size: 0.82rem; }
+  
+  .search-widget-card {
+    grid-template-columns: 1fr 1px 1fr 1px 1fr auto;
+    height: auto;
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  .villas-layout-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .villas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experiences-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .exp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .founder-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-image-frame {
+    height: 320px;
+  }
+
+  .founder-quote-box {
+    padding: 2.5rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+  }
+
+  .press-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* 3. TABLETS PORTRAIT & SMALL TABLETS (769px - 991px) */
+@media (max-width: 991px) {
+  .section-container { padding: 0 24px; }
+  
+  .villas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-sidebar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .press-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .blog-grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-blog-card {
+    grid-template-columns: 1fr;
+  }
+
   .modal-villa-grid {
     grid-template-columns: 1fr;
-    max-height: none;
+    max-height: 82vh;
+    overflow-y: auto;
   }
 
   .modal-right {
     border-left: none;
     border-top: 1px solid var(--border-glass);
-  }
-
-  .pillars-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .timeline-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .blog-grid-cards {
-    grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
   }
 }
 
+/* 4. MOBILENUM & SMARTPHONES (<= 768px) */
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.5rem; }
+  .site-header-bar { height: 64px; }
+  .site-header.scrolled .site-header-bar { height: 60px; }
+
+  .mobile-toggle { display: flex; }
+  .main-nav { display: none; }
+
+  .header-actions .btn-icon-action,
+  .header-actions .currency-selector,
+  .header-actions .nav-action-link,
+  .header-actions .btn-signin-pill,
+  .header-actions-divider {
+    display: none;
+  }
+
+  /* Keep VIP Callback button visible on mobile header! */
+  .header-actions .btn-vip-callback {
+    display: inline-flex;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 6.5rem 0 3rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.22;
+  }
+
+  .hero-subtext {
+    font-size: 0.88rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-floating-chip { display: none; }
+  .hero-arrow { display: none; }
+
+  /* Search Widget Mobile Vertical Stack */
   .search-widget-card {
     width: 100%;
     grid-template-columns: 1fr;
     height: auto;
-    padding: 1rem;
+    padding: 1.2rem;
+    gap: 0.8rem;
+    border-radius: var(--radius-md);
+  }
+
+  .search-field {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border-glass);
+  }
+
+  .search-field:last-of-type { border-bottom: none; }
+
+  .search-divider { display: none; }
+
+  .btn-search {
+    width: 100%;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    justify-content: center;
+    margin-top: 0.4rem;
+  }
+
+  /* Stats Strip Mobile */
+  .stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    padding: 1.5rem;
+  }
+
+  .stat-divider { display: none; }
+
+  /* Filters Sidebar Mobile */
+  .filters-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .villas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .exp-item {
+    padding: 0.7rem 0.5rem;
+  }
+
+  .exp-emoji { font-size: 1.2rem; }
+  .exp-name { font-size: 0.72rem; }
+  .exp-price { font-size: 0.65rem; }
+
+  .specialist-box {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 1.8rem;
+  }
+
+  .specialist-right {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-zalo, .btn-phone {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-hero-title,
+  .blog-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .founder-quote-box {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .founder-quote-text {
+    font-size: 1.1rem;
+  }
+
+  .founder-image-frame {
+    height: 240px;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-newsletter-card {
+    padding: 2.2rem 1.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  /* Modals Mobile Reset */
+  .modal-overlay {
+    padding: 12px;
+    align-items: flex-end;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow-y: auto;
+  }
+
+  .modal-content-sm,
+  .modal-content-login,
+  .modal-content-tour {
+    max-width: 100%;
+  }
+
+  .auth-split-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-right-panel { display: none; }
+}
+
+/* 5. SMALL MOBILE PHONES (<= 480px) */
+@media (max-width: 480px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .exp-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .exp-summary-row {
+    font-size: 0.78rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
   }
-  .search-divider { display: none; }
-  .auth-split-wrapper { grid-template-columns: 1fr; }
-  .auth-right-panel { display: none; }
-  .pillars-grid { grid-template-columns: 1fr; }
-  .blog-grid-cards { grid-template-columns: 1fr; }
-  .featured-blog-card { grid-template-columns: 1fr; }
-  .about-hero-title { font-size: 2rem; }
-  .blog-hero-title { font-size: 2rem; }
-  .mobile-toggle { display: flex; }
-  .main-nav { display: none; }
-  .header-actions .btn-icon-action,
-  .header-actions .currency-selector,
-  .header-actions .nav-action-link,
-  .header-actions .btn-signin-pill {
-    display: none;
+
+  .about-stat-box {
+    padding: 0.8rem;
+  }
+
+  .about-stat-box .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .floating-contact-stack {
+    bottom: 16px;
+    left: 16px;
+    gap: 8px;
+  }
+
+  .float-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .toast-card {
+    min-width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    right: 16px;
   }
 }
