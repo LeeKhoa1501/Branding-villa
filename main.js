@@ -522,9 +522,9 @@ function initCartCheckoutWizard() {
       tab.classList.add("active");
       currentPayMethod = tab.dataset.paymethod;
 
+      document.getElementById("payViewCash").style.display = currentPayMethod === "cash" ? "block" : "none";
       document.getElementById("payViewQr").style.display = currentPayMethod === "qr" ? "flex" : "none";
       document.getElementById("payViewCard").style.display = currentPayMethod === "card" ? "block" : "none";
-      document.getElementById("payViewDeposit").style.display = currentPayMethod === "deposit" ? "block" : "none";
     });
   });
 
@@ -624,19 +624,46 @@ function setWizardStep(stepNum) {
 }
 
 function populateStep4ReviewData() {
-  const name = document.getElementById("ckGuestName")?.value || "Khách Hàng LeeKhoa";
-  const phone = document.getElementById("ckGuestPhone")?.value || "Chưa nhập";
-  const email = document.getElementById("ckGuestEmail")?.value || "Chưa nhập";
+  const name = document.getElementById("ckGuestName")?.value || "Nguyễn Văn An";
+  const phone = document.getElementById("ckGuestPhone")?.value || "+84 901 234 567";
+  const email = document.getElementById("ckGuestEmail")?.value || "nguyenvanan@gmail.com";
 
-  let payText = "VietQR Napas 24/7";
-  if (currentPayMethod === "card") payText = "Thẻ Quốc Tế Visa / Mastercard";
-  if (currentPayMethod === "deposit") payText = "Cọc 30% Giữ Chỗ (70% khi Check-in)";
+  let payText = "💵 Tiền Mặt Khi Nhận Phòng (Cash on Arrival)";
+  let payBadgeClass = "background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0;";
 
-  if (document.getElementById("confirmGuestName")) document.getElementById("confirmGuestName").textContent = name;
-  if (document.getElementById("confirmGuestPhone")) document.getElementById("confirmGuestPhone").textContent = phone;
-  if (document.getElementById("confirmGuestEmail")) document.getElementById("confirmGuestEmail").textContent = email;
-  if (document.getElementById("confirmPayMethodText")) document.getElementById("confirmPayMethodText").textContent = payText;
-  if (document.getElementById("confirmVillaCount")) document.getElementById("confirmVillaCount").textContent = myCartState.length;
+  if (currentPayMethod === "qr") {
+    payText = "🏦 Chuyển Khoản QR Code (VietQR / Napas 24/7)";
+    payBadgeClass = "background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A;";
+  } else if (currentPayMethod === "card") {
+    payText = "💳 Thẻ Quốc Tế Visa / Mastercard / JCB";
+    payBadgeClass = "background: #E0E7FF; color: #3730A3; border: 1px solid #C7D2FE;";
+  }
+
+  const nameEl = document.getElementById("confirmGuestName");
+  const phoneEl = document.getElementById("confirmGuestPhone");
+  const emailEl = document.getElementById("confirmGuestEmail");
+  const payBadgeEl = document.getElementById("confirmPayMethodBadge");
+  const villaCountEl = document.getElementById("confirmVillaCount");
+
+  if (nameEl) nameEl.textContent = name;
+  if (phoneEl) phoneEl.textContent = phone;
+  if (emailEl) emailEl.textContent = email;
+  
+  if (payBadgeEl) {
+    payBadgeEl.textContent = payText;
+    payBadgeEl.style.cssText = payBadgeClass + " font-weight: 700; padding: 4px 12px; border-radius: 9999px; font-size: 13px; display: inline-block;";
+  }
+  
+  if (villaCountEl) villaCountEl.textContent = myCartState.length;
+
+  // Invoice Code & Date
+  const codeEl = document.getElementById("invoiceBillCode");
+  const dateEl = document.getElementById("invoiceBillDate");
+  if (codeEl) codeEl.textContent = "BILL-2026-" + Math.floor(10000 + Math.random() * 90000);
+  if (dateEl) {
+    const now = new Date();
+    dateEl.textContent = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth()+1).toString().padStart(2, '0')}/${now.getFullYear()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+  }
 
   let baseSum = 0;
   const listEl = document.getElementById("confirmVillasSummaryList");
@@ -649,7 +676,7 @@ function populateStep4ReviewData() {
             <strong>${item.villaName} (${item.city})</strong>
             <div style="font-size: 0.78rem; color: var(--text-muted);">${item.checkIn} ➔ ${item.checkOut} (${item.nights} đêm) · ${item.guests} người</div>
           </div>
-          <strong style="color: var(--primary-emerald);">${formatCurrency(item.totalPrice)}</strong>
+          <strong class="price" style="color: var(--primary-emerald);">${formatCurrency(item.totalPrice)}</strong>
         </div>
       `;
     }).join('');
@@ -658,8 +685,10 @@ function populateStep4ReviewData() {
   let finalGrand = baseSum + 1000000;
   if (appliedDiscountCode) finalGrand = finalGrand * 0.85;
 
-  if (document.getElementById("confirmSubtotalVal")) document.getElementById("confirmSubtotalVal").textContent = formatCurrency(baseSum);
-  if (document.getElementById("confirmGrandTotalVal")) document.getElementById("confirmGrandTotalVal").textContent = formatCurrency(finalGrand);
+  const subtotalEl = document.getElementById("confirmSubtotalVal");
+  const grandEl = document.getElementById("confirmGrandTotalVal");
+  if (subtotalEl) subtotalEl.textContent = formatCurrency(baseSum);
+  if (grandEl) grandEl.textContent = formatCurrency(finalGrand);
 }
 
 function renderCartCheckoutData() {
