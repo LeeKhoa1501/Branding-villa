@@ -1549,6 +1549,118 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 
 .btn-primary:hover { background: var(--primary-hover); }
 
+/* ==========================================================================
+   BUTTON STATES SYSTEM (HOVER, ACTIVE/PRESSED, FOCUS-VISIBLE, DISABLED)
+   ========================================================================== */
+
+/* Universal Button Focus & Click Scale Transitions */
+button, 
+.btn-primary, 
+.btn-primary-small, 
+.btn-secondary, 
+.btn-signin-pill, 
+.cat-pill, 
+.tab-btn, 
+.bed-pill, 
+.exp-item, 
+.btn-icon-action, 
+.social-icon-pill, 
+.lang-btn, 
+.map-loc-btn {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Active / Pressed Micro Feedback State */
+button:active:not(:disabled),
+.btn-primary:active:not(:disabled),
+.btn-signin-pill:active:not(:disabled),
+.cat-pill:active:not(:disabled),
+.tab-btn:active:not(:disabled),
+.bed-pill:active:not(:disabled),
+.exp-item:active:not(:disabled),
+.btn-icon-action:active:not(:disabled),
+.social-icon-pill:active:not(:disabled),
+.lang-btn:active:not(:disabled) {
+  transform: scale(0.96) translateY(1px) !important;
+  box-shadow: none !important;
+}
+
+/* Accessible Focus-Visible Ring */
+button:focus-visible,
+.btn-primary:focus-visible,
+.btn-signin-pill:focus-visible,
+.cat-pill:focus-visible,
+.tab-btn:focus-visible,
+.bed-pill:focus-visible,
+.exp-item:focus-visible,
+.btn-icon-action:focus-visible {
+  outline: 2.5px solid var(--accent-gold) !important;
+  outline-offset: 2.5px !important;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.25) !important;
+}
+
+/* Disabled State */
+button:disabled,
+button.disabled,
+.btn-primary:disabled,
+.btn-primary.disabled,
+.btn-signin-pill.disabled {
+  opacity: 0.55 !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+  filter: grayscale(40%);
+}
+
+/* Specific Hover State Enhancements */
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 46, 35, 0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--primary-emerald);
+  color: var(--primary-emerald);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-pill);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.cat-pill:hover {
+  border-color: var(--primary-emerald);
+  color: var(--primary-emerald);
+  transform: translateY(-1px);
+}
+
+.cat-pill.active {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--primary-emerald);
+  box-shadow: 0 4px 12px rgba(15, 46, 35, 0.2);
+}
+
+.tab-btn:hover {
+  color: var(--primary-emerald);
+}
+
+.tab-btn.active {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(15, 46, 35, 0.18);
+}
+
 /* DESTINATIONS GRID */
 .destinations-section { padding: 4rem 0; }
 .destinations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -3480,6 +3592,54 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 
   .hero-floating-chip { display: none; }
   .hero-arrow { display: none; }
+
+  /* Dedicated Villas Page Mobile Responsive */
+  .villas-hero-banner {
+    padding: 3.2rem 1rem 2.2rem 1rem !important;
+  }
+
+  .villas-hero-banner h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .villas-hero-banner p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .villas-page-search-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 1rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .villas-page-search-bar > div {
+    min-width: 100% !important;
+  }
+
+  .villas-page-search-bar button {
+    width: 100% !important;
+    margin-top: 0.3rem !important;
+  }
+
+  .category-pills-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 0.5rem !important;
+    scrollbar-width: none !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .category-pills-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
 
   /* Search Widget Mobile Vertical Stack */
   .search-widget-card {
