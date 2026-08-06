@@ -215,72 +215,9 @@ const BLOG_DATA = {
 let currentUser = null;
 let currentCurrency = "VND";
 let currentRoute = "home"; // 'home' | 'about' | 'blog'
-let myWishlistState = ["azure", "serene", "coral"];
-
-let myCartState = [
-  {
-    cartId: "CART-101",
-    villaId: "serene",
-    villaName: "Villa Serene Coast",
-    city: "Hồ Tràm",
-    image: "./assets/villa_serene_img_1785398944559.jpg",
-    checkIn: "2026-08-20",
-    checkOut: "2026-08-22",
-    nights: 2,
-    guests: 10,
-    pricePerNight: 12500000,
-    totalPrice: 25500000
-  },
-  {
-    cartId: "CART-102",
-    villaId: "mosaic",
-    villaName: "Villa Mosaic",
-    city: "Đà Lạt",
-    image: "./assets/villa_mosaic_img_1785398954537.jpg",
-    checkIn: "2026-09-10",
-    checkOut: "2026-09-12",
-    nights: 2,
-    guests: 8,
-    pricePerNight: 6800000,
-    totalPrice: 14100000
-  }
-];
-
-let myTripsState = [
-  {
-    id: "TRIP-8492",
-    villaName: "Villa Azure",
-    city: "Vũng Tàu",
-    image: "./assets/villa_azure_img_1785398933026.jpg",
-    checkIn: "2026-08-12",
-    checkOut: "2026-08-14",
-    totalPrice: 15500000,
-    guests: 10,
-    status: "Confirmed"
-  },
-  {
-    id: "TRIP-3910",
-    villaName: "Villa Mosaic",
-    city: "Đà Lạt",
-    image: "./assets/villa_mosaic_img_1785398954537.jpg",
-    checkIn: "2026-09-01",
-    checkOut: "2026-09-03",
-    totalPrice: 14100000,
-    guests: 8,
-    status: "Confirmed"
-  },
-  {
-    id: "TRIP-1049",
-    villaName: "Villa Coral",
-    city: "Phú Quốc",
-    image: "./assets/villa_coral_img_1785398966024.jpg",
-    checkIn: "2026-10-15",
-    checkOut: "2026-10-18",
-    totalPrice: 54500000,
-    guests: 16,
-    status: "Upcoming"
-  }
-];
+let myWishlistState = [];
+let myCartState = [];
+let myTripsState = [];
 
 let activeCategoryFilter = "all";
 let activeTabFilter = "all";
@@ -1039,18 +976,32 @@ function initWishlistModalEvents() {
 function updateBadges() {
   const wishBadge = document.getElementById("wishlistCount");
   const wishModalCount = document.getElementById("wishlistModalCount");
-  if (wishBadge) wishBadge.textContent = myWishlistState.length;
-  if (wishModalCount) wishModalCount.textContent = myWishlistState.length;
+  const wishVal = myWishlistState.length;
+  if (wishBadge) {
+    wishBadge.textContent = wishVal;
+    wishBadge.style.display = wishVal > 0 ? "inline-flex" : "none";
+  }
+  if (wishModalCount) wishModalCount.textContent = wishVal;
 
   const cartBadge = document.getElementById("cartCount");
   const mobileCartCount = document.getElementById("mobileCartCount");
-  if (cartBadge) cartBadge.textContent = myCartState.length;
-  if (mobileCartCount) mobileCartCount.textContent = myCartState.length;
+  const cartVal = myCartState.length;
+  if (cartBadge) {
+    cartBadge.textContent = cartVal;
+    cartBadge.style.display = cartVal > 0 ? "inline-flex" : "none";
+  }
+  if (mobileCartCount) mobileCartCount.textContent = cartVal;
 
   const tripsHeaderCount = document.getElementById("tripsHeaderCount");
   const tripsModalCount = document.getElementById("tripsModalCount");
-  if (tripsHeaderCount) tripsHeaderCount.textContent = myTripsState.length;
-  if (tripsModalCount) tripsModalCount.textContent = myTripsState.length;
+  const tripsVal = myTripsState.length;
+  if (tripsHeaderCount) tripsHeaderCount.textContent = tripsVal;
+  if (tripsModalCount) tripsModalCount.textContent = tripsVal;
+
+  const profTripCount = document.getElementById("profTripCount");
+  const profWishCount = document.getElementById("profWishCount");
+  if (profTripCount) profTripCount.textContent = tripsVal;
+  if (profWishCount) profWishCount.textContent = wishVal;
 }
 
 function renderWishlist() {
@@ -1326,6 +1277,26 @@ function initAuthModalEvents() {
       phone: "+84 901 234 567"
     };
 
+    if (myTripsState.length === 0) {
+      myTripsState = [
+        {
+          id: "TRIP-8492",
+          villaName: "Villa Azure",
+          city: "Vũng Tàu",
+          image: "./assets/villa_azure_img_1785398933026.jpg",
+          checkIn: "2026-08-12",
+          checkOut: "2026-08-14",
+          totalPrice: 17500000,
+          guests: 10,
+          status: "Confirmed"
+        }
+      ];
+    }
+    if (myWishlistState.length === 0) {
+      myWishlistState = ["azure", "serene"];
+    }
+
+    updateBadges();
     updateHeaderUserUI();
     closeGoogleAuth();
     showToastNotification(`Kết nối tài khoản Gmail cá nhân [${customEmail}] thành công!`, "Google Accounts", "success");
@@ -1519,6 +1490,10 @@ function renderPersonalWishlistGrid() {
 function performLogout() {
   const name = currentUser ? currentUser.name : "Tài khoản";
   currentUser = null;
+  myWishlistState = [];
+  myCartState = [];
+  myTripsState = [];
+  updateBadges();
   updateHeaderUserUI();
   showToastNotification(`Đã đăng xuất tài khoản Gmail [${name}] thành công.`, "Đăng Xuất Gmail", "info");
 }
