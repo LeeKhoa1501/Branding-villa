@@ -1143,42 +1143,58 @@ function renderTripsList() {
       <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 0.8rem;">
         <img src="${t.image || './assets/villa_azure_img_1785398933026.jpg'}" alt="${t.villaName}" style="width: 75px; height: 75px; object-fit: cover; border-radius: var(--radius-sm);">
         <div style="flex-grow: 1;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-main);">${t.villaName}</h4>
-            <span class="badge-instant">${t.status}</span>
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--text-main); margin: 0;">${t.villaName}</h4>
+            <span style="background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; font-weight: 700; padding: 4px 10px; border-radius: 9999px; font-size: 0.76rem;">
+              <i class="fa-solid fa-lock"></i> Đã Giữ Chỗ (Locked)
+            </span>
           </div>
-          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem;"><i class="fa-solid fa-location-dot"></i> ${t.city} · ${t.guests || 10} người</p>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.3rem;"><i class="fa-solid fa-location-dot"></i> ${t.city} · ${t.guests || 10} người</p>
           <p style="font-size: 0.82rem; color: var(--text-muted);"><i class="fa-solid fa-calendar"></i> ${t.checkIn} ➔ ${t.checkOut}</p>
         </div>
       </div>
 
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-glass); padding-top: 0.8rem; margin-top: 0.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-glass); padding-top: 0.8rem; margin-top: 0.5rem; flex-wrap: wrap; gap: 0.6rem;">
         <div>
-          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">Mã chuyến đi: <strong>${t.id}</strong></span>
-          <span style="color: var(--text-gold); font-weight: 700; font-size: 1.05rem;">${formatCurrency(t.totalPrice)}</span>
+          <span style="font-size: 0.78rem; color: var(--text-muted); display: block;">Mã chuyến đi: <strong class="price" style="color: var(--primary-emerald);">${t.id}</strong></span>
+          <span class="price" style="color: var(--text-gold); font-weight: 700; font-size: 1.05rem;">${formatCurrency(t.totalPrice)}</span>
         </div>
 
-        <button class="btn-cancel-trip btn-trigger-cancel-trip" data-tripid="${t.id}" data-villaname="${t.villaName}">
-          <i class="fa-solid fa-circle-xmark"></i> Hủy đặt phòng
-        </button>
+        <div style="display: flex; gap: 0.4rem;">
+          <button class="btn-primary-small btn-view-trip-bill" data-tripid="${t.id}" style="font-size: 0.78rem; padding: 6px 12px;">
+            <i class="fa-solid fa-file-invoice"></i> Xem Hóa Đơn Bill
+          </button>
+          <button class="btn-secondary btn-request-admin-change" data-tripid="${t.id}" data-villaname="${t.villaName}" style="font-size: 0.78rem; padding: 6px 12px;">
+            <i class="fa-solid fa-headset"></i> Đổi Lịch / Admin
+          </button>
+        </div>
       </div>
     </div>
   `).join('');
 
-  document.querySelectorAll(".btn-trigger-cancel-trip").forEach(btn => {
+  container.querySelectorAll(".btn-view-trip-bill").forEach(btn => {
     btn.addEventListener("click", () => {
-      const tripId = btn.dataset.tripid;
-      const vName = btn.dataset.villaname;
-      cancelTrip(tripId, vName);
+      const trip = myTripsState.find(t => t.id === btn.dataset.tripid);
+      if (trip) {
+        document.getElementById("tripsModal")?.classList.remove("active");
+        showSuccessBookingModal(trip);
+      }
+    });
+  });
+
+  container.querySelectorAll(".btn-request-admin-change").forEach(btn => {
+    btn.addEventListener("click", () => {
+      requestAdminTripChange(btn.dataset.tripid, btn.dataset.villaname);
     });
   });
 }
 
-function cancelTrip(tripId, villaName) {
-  myTripsState = myTripsState.filter(t => t.id !== tripId);
-  updateBadges();
-  renderTripsList();
-  showToastNotification(`Đã hủy giữ chỗ thành công cho [${villaName}] (Mã ${tripId}). Khoản tiền cọc sẽ được tự động hoàn lại trong 24h.`, "Hủy đặt biệt thự", "info");
+function requestAdminTripChange(tripId, villaName) {
+  showToastNotification(
+    `🔒 Đơn đặt [${villaName}] (Mã ${tripId}) đã thanh toán & giữ chỗ chính thức. Để thay đổi ngày hoặc hủy phòng, vui lòng gọi Hotline Admin: 028 3915 8888!`,
+    "Yêu Cầu Hỗ Trợ Admin",
+    "info"
+  );
 }
 
 /* --------------------------------------------------------------------------
@@ -1440,26 +1456,40 @@ function renderPersonalTripsList() {
       <div style="display: flex; gap: 0.8rem; align-items: center; margin-bottom: 0.6rem;">
         <img src="${t.image || './assets/villa_azure_img_1785398933026.jpg'}" alt="${t.villaName}" style="width: 64px; height: 64px; object-fit: cover; border-radius: var(--radius-sm);">
         <div style="flex-grow: 1;">
-          <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.4rem;">
             <strong style="font-family: var(--font-serif); font-size: 1.05rem; color: var(--text-main);">${t.villaName}</strong>
-            <span class="badge-instant" style="font-size: 0.72rem; padding: 2px 8px;">${t.status}</span>
+            <span style="background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; font-weight: 700; padding: 2px 8px; border-radius: 9999px; font-size: 0.72rem;"><i class="fa-solid fa-lock"></i> Đã Giữ Chỗ</span>
           </div>
           <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0;"><i class="fa-solid fa-location-dot"></i> ${t.city} · ${t.checkIn} ➔ ${t.checkOut}</p>
         </div>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-glass); padding-top: 0.6rem; font-size: 0.82rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-glass); padding-top: 0.6rem; font-size: 0.82rem; flex-wrap: wrap; gap: 0.4rem;">
         <span style="color: var(--primary-emerald); font-weight: 700; font-family: var(--font-mono);">${formatCurrency(t.totalPrice)}</span>
-        <button class="btn-cancel-trip btn-trigger-cancel-trip" data-tripid="${t.id}" data-villaname="${t.villaName}" style="font-size: 0.78rem; padding: 4px 10px;">
-          <i class="fa-solid fa-circle-xmark"></i> Hủy đơn
-        </button>
+        <div style="display: flex; gap: 0.4rem;">
+          <button class="btn-primary-small btn-view-trip-bill" data-tripid="${t.id}" style="font-size: 0.76rem; padding: 4px 10px;">
+            <i class="fa-solid fa-file-invoice"></i> Xem Hóa Đơn Bill
+          </button>
+          <button class="btn-secondary btn-request-admin-change" data-tripid="${t.id}" data-villaname="${t.villaName}" style="font-size: 0.76rem; padding: 4px 10px;">
+            <i class="fa-solid fa-headset"></i> Đổi Lịch / Admin
+          </button>
+        </div>
       </div>
     </div>
   `).join('');
 
-  container.querySelectorAll(".btn-trigger-cancel-trip").forEach(btn => {
+  container.querySelectorAll(".btn-view-trip-bill").forEach(btn => {
     btn.addEventListener("click", () => {
-      cancelTrip(btn.dataset.tripid, btn.dataset.villaname);
-      renderPersonalTripsList();
+      const trip = myTripsState.find(t => t.id === btn.dataset.tripid);
+      if (trip) {
+        document.getElementById("personalProfileModal")?.classList.remove("active");
+        showSuccessBookingModal(trip);
+      }
+    });
+  });
+
+  container.querySelectorAll(".btn-request-admin-change").forEach(btn => {
+    btn.addEventListener("click", () => {
+      requestAdminTripChange(btn.dataset.tripid, btn.dataset.villaname);
     });
   });
 }
