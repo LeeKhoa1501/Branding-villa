@@ -551,7 +551,7 @@ function initCartCheckoutWizard() {
 
   if (btnConfirmPay) {
     btnConfirmPay.addEventListener("click", () => {
-      if (myCartState.length === 0) return;
+      if (activeCheckoutItems.length === 0) return;
 
       const termsCheck = document.getElementById("ckAgreeTermsCheck");
       if (termsCheck && !termsCheck.checked) {
