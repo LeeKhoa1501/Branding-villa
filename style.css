@@ -475,14 +475,14 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 
 /* Nav link base */
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
   transition: color 0.25s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 1.5rem 1.1rem;
+  gap: 4px;
+  padding: 12px 10px;
   white-space: nowrap;
   position: relative;
 }
@@ -579,7 +579,7 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
   flex-shrink: 0;
 }
 
@@ -3611,7 +3611,34 @@ button.disabled,
   }
 }
 
-/* 4. MOBILENUM & SMARTPHONES (<= 768px) */
+/* 4. NAVBAR TABLET BREAKPOINT (<= 1100px) */
+@media (max-width: 1100px) {
+  .header-container {
+    padding: 0 16px !important;
+  }
+
+  .main-nav {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  .header-actions .currency-selector,
+  .header-actions-divider,
+  .header-actions .nav-action-link {
+    display: none !important;
+  }
+
+  .header-actions .btn-vip-callback {
+    display: inline-flex !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+  }
+}
+
+/* 5. MOBILE PHONES (<= 768px) */
 @media (max-width: 768px) {
   .site-header-bar { height: 64px; }
   .site-header.scrolled .site-header-bar { height: 60px; }
