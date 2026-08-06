@@ -561,8 +561,8 @@ function initCartCheckoutWizard() {
 
       const guestName = document.getElementById("ckGuestName").value || "Khách Hàng LeeKhoa";
 
-      // Transfer cart items to trips
-      myCartState.forEach(cartItem => {
+      // Transfer active checkout items to trips
+      activeCheckoutItems.forEach(cartItem => {
         myTripsState.unshift({
           id: "TRIP-" + Math.floor(1000 + Math.random() * 9000),
           villaName: cartItem.villaName,
@@ -570,21 +570,39 @@ function initCartCheckoutWizard() {
           image: cartItem.image,
           checkIn: cartItem.checkIn,
           checkOut: cartItem.checkOut,
+          nights: cartItem.nights || 2,
+          guests: cartItem.guests || 6,
           totalPrice: cartItem.totalPrice,
-          guests: cartItem.guests,
           status: "Confirmed"
         });
       });
 
       const firstBooking = myTripsState[0];
-      myCartState = [];
+
+      if (checkoutMode === "cart") {
+        myCartState = [];
+      }
+      activeCheckoutItems = [];
       updateBadges();
       wizardModal.classList.remove("active");
 
-      showToastNotification(`Đã xác nhận đặt toàn bộ giỏ hàng cho ${guestName}! Voucher Check-in đã gửi về Email.`, "Thanh Toán Thành Công", "success");
+      showToastNotification(`Đã xác nhận đặt biệt thự thành công cho ${guestName}! Voucher Check-in đã gửi về Email.`, "Thanh Toán Thành Công", "success");
       showSuccessBookingModal(firstBooking);
     });
   }
+}
+
+let checkoutMode = "cart"; // "cart" or "single"
+let activeCheckoutItems = [];
+
+function openSingleVillaCheckoutWizard(singleItem) {
+  checkoutMode = "single";
+  activeCheckoutItems = [singleItem];
+
+  renderCartCheckoutData();
+  setWizardStep(1);
+  document.getElementById("cartModal")?.classList.remove("active");
+  document.getElementById("cartCheckoutModal")?.classList.add("active");
 }
 
 function openCartCheckoutWizard() {
@@ -592,6 +610,9 @@ function openCartCheckoutWizard() {
     showToastNotification("Giỏ hàng của bạn đang trống. Hãy thêm villa trước khi đặt!", "Giỏ Hàng", "info");
     return;
   }
+
+  checkoutMode = "cart";
+  activeCheckoutItems = [...myCartState];
 
   renderCartCheckoutData();
   setWizardStep(1);
@@ -654,7 +675,7 @@ function populateStep4ReviewData() {
     payBadgeEl.style.cssText = payBadgeClass + " font-weight: 700; padding: 4px 12px; border-radius: 9999px; font-size: 13px; display: inline-block;";
   }
   
-  if (villaCountEl) villaCountEl.textContent = myCartState.length;
+  if (villaCountEl) villaCountEl.textContent = activeCheckoutItems.length;
 
   // Invoice Code & Date
   const codeEl = document.getElementById("invoiceBillCode");
@@ -668,7 +689,7 @@ function populateStep4ReviewData() {
   let baseSum = 0;
   const listEl = document.getElementById("confirmVillasSummaryList");
   if (listEl) {
-    listEl.innerHTML = myCartState.map(item => {
+    listEl.innerHTML = activeCheckoutItems.map(item => {
       baseSum += item.totalPrice;
       return `
         <div style="display: flex; justify-content: space-between; align-items: center; background: #FFFFFF; border: 1px solid var(--border-glass); padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
@@ -703,7 +724,7 @@ function renderCartCheckoutData() {
   if (!listContainer) return;
 
   let baseSum = 0;
-  listContainer.innerHTML = myCartState.map(item => {
+  listContainer.innerHTML = activeCheckoutItems.map(item => {
     baseSum += item.totalPrice;
     return `
       <div class="ck-villa-item">
@@ -2126,8 +2147,8 @@ function openVillaModal(villaId) {
     e.preventDefault();
     const { nights, selectedGuests, extraGuests, finalTotal } = calcPrice();
 
-    const newBooking = {
-      id: "TRIP-" + Math.floor(1000 + Math.random() * 9000),
+    const singleBooking = {
+      id: villa.id,
       villaName: villa.name,
       city: villa.city,
       image: villa.image,
@@ -2136,15 +2157,11 @@ function openVillaModal(villaId) {
       nights: nights,
       guests: selectedGuests,
       extraGuests: extraGuests,
-      totalPrice: finalTotal,
-      status: "Confirmed"
+      totalPrice: finalTotal
     };
 
-    myTripsState.unshift(newBooking);
-    updateBadges();
     modal.classList.remove("active");
-
-    showSuccessBookingModal(newBooking);
+    openSingleVillaCheckoutWizard(singleBooking);
   });
 
   modal.classList.add("active");
