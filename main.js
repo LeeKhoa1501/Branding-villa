@@ -595,10 +595,19 @@ function initCartCheckoutWizard() {
 let checkoutMode = "cart"; // "cart" or "single"
 let activeCheckoutItems = [];
 
+function prefillGuestFieldsFromUser() {
+  if (currentUser) {
+    if (document.getElementById("ckGuestName")) document.getElementById("ckGuestName").value = currentUser.name;
+    if (document.getElementById("ckGuestEmail")) document.getElementById("ckGuestEmail").value = currentUser.email;
+    if (document.getElementById("ckGuestPhone") && currentUser.phone) document.getElementById("ckGuestPhone").value = currentUser.phone;
+  }
+}
+
 function openSingleVillaCheckoutWizard(singleItem) {
   checkoutMode = "single";
   activeCheckoutItems = [singleItem];
 
+  prefillGuestFieldsFromUser();
   renderCartCheckoutData();
   setWizardStep(1);
   document.getElementById("cartModal")?.classList.remove("active");
@@ -614,6 +623,7 @@ function openCartCheckoutWizard() {
   checkoutMode = "cart";
   activeCheckoutItems = [...myCartState];
 
+  prefillGuestFieldsFromUser();
   renderCartCheckoutData();
   setWizardStep(1);
   document.getElementById("cartModal")?.classList.remove("active");
@@ -1205,7 +1215,7 @@ function initAuthModalEvents() {
     btnSignIn.addEventListener("click", (e) => {
       e.stopPropagation();
       if (currentUser) {
-        userDropdownMenu?.classList.toggle("active");
+        openPersonalProfileModal();
       } else {
         openAuth();
       }
@@ -1215,21 +1225,12 @@ function initAuthModalEvents() {
   if (mobileSignIn) {
     mobileSignIn.addEventListener("click", () => {
       if (currentUser) {
-        if (confirm(`Bạn có muốn đăng xuất tài khoản [${currentUser.name}] không?`)) {
-          performLogout();
-        }
+        openPersonalProfileModal();
       } else {
         openAuth();
       }
     });
   }
-
-  // Close dropdown on outside click
-  document.addEventListener("click", (e) => {
-    if (userDropdownMenu && !userDropdownMenu.contains(e.target) && e.target !== btnSignIn) {
-      userDropdownMenu.classList.remove("active");
-    }
-  });
 
   if (closeBtn) closeBtn.addEventListener("click", closeAuth);
   if (closeGoogleBtn) closeGoogleBtn.addEventListener("click", closeGoogleAuth);
@@ -1265,138 +1266,255 @@ function initAuthModalEvents() {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const inputVal = (document.getElementById("authEmail")?.value || "").trim();
-      let displayName = "Khách Hàng";
+      let displayName = "Lee Khoa";
 
       if (inputVal.includes("@")) {
         const rawName = inputVal.split("@")[0];
         displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
-      } else if (inputVal.length > 0) {
-        displayName = "Khách Hàng (" + inputVal.slice(-4) + ")";
       }
 
       currentUser = {
         name: displayName,
-        email: inputVal
+        email: inputVal || "leekhoa1501@gmail.com",
+        phone: "+84 901 234 567"
       };
 
       updateHeaderUserUI();
       closeAuth();
-      showToastNotification(`Chào mừng ${currentUser.name} đã đăng nhập tài khoản cá nhân!`, "Đăng Nhập Thành Công", "success");
+      showToastNotification(`Chào mừng ${currentUser.name} đã đăng nhập tài khoản Gmail cá nhân!`, "Đăng Nhập Thành Công", "success");
     });
   }
 
-  // Open Google Account Simulator
+  // Open Google Account Dialog
   if (googleBtn) {
     googleBtn.addEventListener("click", () => {
       openGoogleAuth();
     });
   }
 
-  // Select predefined Google Demo Account
-  document.querySelectorAll(".btn-select-gacc").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const gname = btn.dataset.gname;
-      const gemail = btn.dataset.gemail;
-
-      currentUser = {
-        name: gname,
-        email: gemail
-      };
-
-      updateHeaderUserUI();
-      closeGoogleAuth();
-      showToastNotification(`Đăng nhập tài khoản Google thành công: ${gemail}`, "Google Auth", "success");
-    });
-  });
-
-  // Custom Google Account Form
+  // Custom Google Account Sign-In Form
   document.getElementById("customGoogleForm")?.addEventListener("submit", (e) => {
     e.preventDefault();
-    const customEmail = document.getElementById("customGoogleEmail")?.value.trim();
-    if (!customEmail) return;
+    const customEmail = document.getElementById("customGoogleEmail")?.value.trim() || "leekhoa1501@gmail.com";
 
-    const rawName = customEmail.split("@")[0];
-    const displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+    let displayName = "Lee Khoa";
+    if (customEmail.includes("@")) {
+      const raw = customEmail.split("@")[0];
+      displayName = raw.split(".")[0].split("_")[0];
+      displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
+    }
 
     currentUser = {
       name: displayName,
-      email: customEmail
+      email: customEmail,
+      phone: "+84 901 234 567"
     };
 
     updateHeaderUserUI();
     closeGoogleAuth();
-    showToastNotification(`Đăng nhập tài khoản Google [${customEmail}] thành công!`, "Google Auth", "success");
+    showToastNotification(`Kết nối tài khoản Gmail cá nhân [${customEmail}] thành công!`, "Google Accounts", "success");
   });
 
-  // Dropdown Menu Items
-  if (btnUserMenuTrips) {
-    btnUserMenuTrips.addEventListener("click", () => {
-      userDropdownMenu?.classList.remove("active");
-      renderTripsList();
-      document.getElementById("tripsModal")?.classList.add("active");
+  // Personal Profile Modal Event Listeners
+  const profModal = document.getElementById("personalProfileModal");
+  const closeProfBtn = document.getElementById("closePersonalProfileBtn");
+  const btnProfLogout = document.getElementById("btnPersonalLogout");
+
+  if (closeProfBtn && profModal) {
+    closeProfBtn.addEventListener("click", () => profModal.classList.remove("active"));
+    profModal.addEventListener("click", (e) => {
+      if (e.target === profModal) profModal.classList.remove("active");
     });
   }
 
-  if (btnUserMenuWishlist) {
-    btnUserMenuWishlist.addEventListener("click", () => {
-      userDropdownMenu?.classList.remove("active");
-      renderWishlistData();
-      document.getElementById("wishlistModal")?.classList.add("active");
-    });
-  }
-
-  if (btnUserLogout) {
-    btnUserLogout.addEventListener("click", () => {
+  if (btnProfLogout) {
+    btnProfLogout.addEventListener("click", () => {
       performLogout();
+      profModal?.classList.remove("active");
+    });
+  }
+
+  // Personal Profile Tabs Switch
+  const profTabTrips = document.getElementById("profTabTrips");
+  const profTabWishlist = document.getElementById("profTabWishlist");
+  const profTabSettings = document.getElementById("profTabSettings");
+  const profViewTrips = document.getElementById("profViewTrips");
+  const profViewWishlist = document.getElementById("profViewWishlist");
+  const profViewSettings = document.getElementById("profViewSettings");
+
+  const resetProfTabs = () => {
+    [profTabTrips, profTabWishlist, profTabSettings].forEach(t => {
+      if (t) {
+        t.style.background = "var(--bg-light)";
+        t.style.color = "var(--text-muted)";
+        t.style.border = "1px solid var(--border-glass)";
+      }
+    });
+    if (profViewTrips) profViewTrips.style.display = "none";
+    if (profViewWishlist) profViewWishlist.style.display = "none";
+    if (profViewSettings) profViewSettings.style.display = "none";
+  };
+
+  if (profTabTrips) {
+    profTabTrips.addEventListener("click", () => {
+      resetProfTabs();
+      profTabTrips.style.background = "var(--primary-emerald)";
+      profTabTrips.style.color = "#FFFFFF";
+      profTabTrips.style.border = "none";
+      if (profViewTrips) profViewTrips.style.display = "block";
+    });
+  }
+
+  if (profTabWishlist) {
+    profTabWishlist.addEventListener("click", () => {
+      resetProfTabs();
+      profTabWishlist.style.background = "var(--primary-emerald)";
+      profTabWishlist.style.color = "#FFFFFF";
+      profTabWishlist.style.border = "none";
+      if (profViewWishlist) profViewWishlist.style.display = "block";
+    });
+  }
+
+  if (profTabSettings) {
+    profTabSettings.addEventListener("click", () => {
+      resetProfTabs();
+      profTabSettings.style.background = "var(--primary-emerald)";
+      profTabSettings.style.color = "#FFFFFF";
+      profTabSettings.style.border = "none";
+      if (profViewSettings) profViewSettings.style.display = "block";
     });
   }
 
   if (forgotPassBtn) {
     forgotPassBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      showToastNotification("Liên kết khôi phục mật khẩu đã được gửi về email của bạn.", "Quên mật khẩu", "info");
+      showToastNotification("Liên kết khôi phục mật khẩu đã gửi về email của bạn.", "Quên mật khẩu", "info");
     });
   }
+}
+
+function openPersonalProfileModal() {
+  const modal = document.getElementById("personalProfileModal");
+  if (!modal) return;
+
+  const user = currentUser || {
+    name: "Lee Khoa",
+    email: "leekhoa1501@gmail.com",
+    phone: "+84 901 234 567"
+  };
+
+  if (document.getElementById("profileUserName")) document.getElementById("profileUserName").textContent = user.name;
+  if (document.getElementById("profileUserEmail")) document.getElementById("profileUserEmail").textContent = user.email;
+  if (document.getElementById("profileUserAvatar")) document.getElementById("profileUserAvatar").textContent = user.name.charAt(0).toUpperCase();
+
+  renderPersonalTripsList();
+  renderPersonalWishlistGrid();
+
+  modal.classList.add("active");
+}
+
+function renderPersonalTripsList() {
+  const container = document.getElementById("profTripsListContainer");
+  const countEl = document.getElementById("profTripCount");
+  if (countEl) countEl.textContent = myTripsState.length;
+
+  if (!container) return;
+
+  if (myTripsState.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 2rem 1rem; color: var(--text-muted);">
+        <i class="fa-solid fa-hotel" style="font-size: 2.2rem; color: var(--border-glass); margin-bottom: 0.6rem;"></i>
+        <p style="margin: 0; font-size: 0.9rem;">Bạn chưa có đơn đặt biệt thự cá nhân nào.</p>
+        <button class="btn-primary-small" id="btnProfExploreNow" style="margin-top: 0.8rem;">Khám phá biệt thự ngay</button>
+      </div>
+    `;
+    document.getElementById("btnProfExploreNow")?.addEventListener("click", () => {
+      document.getElementById("personalProfileModal")?.classList.remove("active");
+      switchViewRoute("villas");
+    });
+    return;
+  }
+
+  container.innerHTML = myTripsState.map(t => `
+    <div style="background: #F8FAFC; border: 1px solid var(--border-glass); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 0.8rem;">
+      <div style="display: flex; gap: 0.8rem; align-items: center; margin-bottom: 0.6rem;">
+        <img src="${t.image || './assets/villa_azure_img_1785398933026.jpg'}" alt="${t.villaName}" style="width: 64px; height: 64px; object-fit: cover; border-radius: var(--radius-sm);">
+        <div style="flex-grow: 1;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="font-family: var(--font-serif); font-size: 1.05rem; color: var(--text-main);">${t.villaName}</strong>
+            <span class="badge-instant" style="font-size: 0.72rem; padding: 2px 8px;">${t.status}</span>
+          </div>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin: 0.2rem 0 0;"><i class="fa-solid fa-location-dot"></i> ${t.city} · ${t.checkIn} ➔ ${t.checkOut}</p>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--border-glass); padding-top: 0.6rem; font-size: 0.82rem;">
+        <span style="color: var(--primary-emerald); font-weight: 700; font-family: var(--font-mono);">${formatCurrency(t.totalPrice)}</span>
+        <button class="btn-cancel-trip btn-trigger-cancel-trip" data-tripid="${t.id}" data-villaname="${t.villaName}" style="font-size: 0.78rem; padding: 4px 10px;">
+          <i class="fa-solid fa-circle-xmark"></i> Hủy đơn
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll(".btn-trigger-cancel-trip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      cancelTrip(btn.dataset.tripid, btn.dataset.villaname);
+      renderPersonalTripsList();
+    });
+  });
+}
+
+function renderPersonalWishlistGrid() {
+  const container = document.getElementById("profWishlistContainer");
+  const countEl = document.getElementById("profWishCount");
+  if (countEl) countEl.textContent = myWishlistState.length;
+
+  if (!container) return;
+
+  const saved = VILLAS_DATA.filter(v => myWishlistState.includes(v.id));
+  if (saved.length === 0) {
+    container.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 1.5rem;">Chưa có biệt thự yêu thích.</p>`;
+    return;
+  }
+
+  container.innerHTML = saved.map(v => `
+    <div style="background: #F8FAFC; border: 1px solid var(--border-glass); padding: 0.6rem; border-radius: var(--radius-sm); font-size: 0.82rem;">
+      <img src="${v.image}" alt="${v.name}" style="width: 100%; height: 90px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 0.4rem;">
+      <strong style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--text-main);">${v.name}</strong>
+      <span style="color: var(--text-gold); font-weight: 700; font-family: var(--font-mono); font-size: 0.8rem;">${formatCurrency(v.pricePerNight)}</span>
+    </div>
+  `).join('');
 }
 
 function performLogout() {
   const name = currentUser ? currentUser.name : "Tài khoản";
   currentUser = null;
   updateHeaderUserUI();
-  document.getElementById("userDropdownMenu")?.classList.remove("active");
-  showToastNotification(`Đã đăng xuất tài khoản ${name} thành công.`, "Đăng Xuất", "info");
+  showToastNotification(`Đã đăng xuất tài khoản Gmail [${name}] thành công.`, "Đăng Xuất Gmail", "info");
 }
 
 function updateHeaderUserUI() {
   const btnSignIn = document.getElementById("btnSignIn");
   const mobileSignIn = document.getElementById("mobileSignIn");
-  const userMenuName = document.getElementById("userMenuName");
-  const userMenuEmail = document.getElementById("userMenuEmail");
-  const userMenuAvatar = document.getElementById("userMenuAvatar");
 
   if (currentUser) {
-    const initial = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : "U";
     if (btnSignIn) {
       btnSignIn.innerHTML = `
-        <i class="fa-solid fa-circle-user" style="color: #FEF08A; font-size: 1.15rem;"></i>
-        <span>${currentUser.name}</span>
-        <i class="fa-solid fa-chevron-down" style="font-size: 0.65rem; margin-left: 0.2rem;"></i>
+        <i class="fa-brands fa-google" style="color: #4285F4; font-size: 1rem;"></i>
+        <span>${currentUser.email || currentUser.name}</span>
       `;
       btnSignIn.style.fontWeight = "600";
     }
     if (mobileSignIn) {
-      mobileSignIn.innerHTML = `<i class="fa-solid fa-circle-user"></i> ${currentUser.name} (Đăng xuất)`;
+      mobileSignIn.innerHTML = `<i class="fa-brands fa-google"></i> ${currentUser.email || currentUser.name} (Tài khoản cá nhân)`;
     }
-    if (userMenuName) userMenuName.textContent = currentUser.name;
-    if (userMenuEmail) userMenuEmail.textContent = currentUser.email || "user@gmail.com";
-    if (userMenuAvatar) userMenuAvatar.textContent = initial;
   } else {
     if (btnSignIn) {
-      btnSignIn.innerHTML = `Sign in`;
+      btnSignIn.innerHTML = `<i class="fa-brands fa-google"></i> Sign in`;
       btnSignIn.style.fontWeight = "600";
     }
     if (mobileSignIn) {
-      mobileSignIn.innerHTML = `<i class="fa-solid fa-user"></i> Sign in / Sign up`;
+      mobileSignIn.innerHTML = `<i class="fa-solid fa-user"></i> Tài khoản / Đăng nhập Gmail`;
     }
   }
 }

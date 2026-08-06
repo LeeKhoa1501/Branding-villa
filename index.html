@@ -2021,32 +2021,128 @@
     </div>
   </div>
 
-  <!-- GOOGLE ACCOUNT SELECTOR / GMAIL LOGIN MODAL -->
+  <!-- OFFICIAL GOOGLE ACCOUNTS OAUTH LOGIN DIALOG -->
   <div class="modal-overlay" id="googleAuthModal">
-    <div class="modal-content" style="max-width: 440px; padding: 2.2rem 2rem; background: #FFFFFF; color: #1F2937; border-radius: 16px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
-      <button class="modal-close" id="closeGoogleAuthBtn" style="color: #6B7280; font-size: 1.2rem;"><i class="fa-solid fa-xmark"></i></button>
+    <div class="modal-content" style="max-width: 440px; padding: 2.5rem 2rem; background: #FFFFFF; color: #1F2937; border-radius: 20px; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,0.3); border: 1px solid #E5E7EB; position: relative;">
+      <button class="modal-close" id="closeGoogleAuthBtn" style="color: #6B7280; font-size: 1.2rem; top: 16px; right: 16px;"><i class="fa-solid fa-xmark"></i></button>
       
-      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style="width: 44px; height: 44px; margin: 0 auto 1rem;">
-      <h3 style="font-family: system-ui, -apple-system, sans-serif; font-size: 1.4rem; font-weight: 600; color: #111827; margin-bottom: 0.3rem;">Đăng nhập bằng Google</h3>
-      <p style="font-size: 0.88rem; color: #6B7280; margin-bottom: 1.8rem; line-height: 1.5;">Nhập địa chỉ Gmail cá nhân của bạn để tiếp tục dịch vụ tại <strong>LeeKhoa Villas</strong></p>
+      <!-- Google Brand Header -->
+      <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 1.2rem;">
+        <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        <span style="font-family: system-ui, -apple-system, sans-serif; font-size: 1.15rem; font-weight: 500; color: #5F6368;">Google Accounts</span>
+      </div>
 
-      <form id="customGoogleForm" style="display: flex; flex-direction: column; gap: 1rem; text-align: left;">
-        <div class="auth-input-group" style="margin-bottom: 0;">
-          <label style="display: block; font-size: 0.78rem; font-weight: 700; color: #374151; margin-bottom: 0.4rem; letter-spacing: 0.05em;">ĐỊA CHỈ GMAIL CỦA BẠN *</label>
-          <div class="input-with-icon" style="position: relative;">
-            <i class="fa-regular fa-envelope" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #9CA3AF;"></i>
-            <input type="email" id="customGoogleEmail" placeholder="nhap.email.cua.ban@gmail.com" required style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.6rem; border: 1.5px solid #D1D5DB; border-radius: 10px; font-size: 0.95rem; outline: none; color: #111827; transition: border-color 0.2s ease;">
+      <h3 style="font-family: system-ui, -apple-system, sans-serif; font-size: 1.45rem; font-weight: 600; color: #202124; margin-bottom: 0.4rem;">Sign in with Google</h3>
+      <p style="font-size: 0.9rem; color: #5F6368; margin-bottom: 1.8rem; line-height: 1.45;">to continue to <strong style="color: #0F2E23;">LeeKhoa Villas Platform</strong></p>
+
+      <form id="customGoogleForm" style="display: flex; flex-direction: column; gap: 1.2rem; text-align: left;">
+        <div style="position: relative;">
+          <label style="display: block; font-size: 0.78rem; font-weight: 700; color: #3C4043; margin-bottom: 0.4rem; letter-spacing: 0.04em;">GMAIL ADDRESS / SỐ ĐIỆN THOẠI *</label>
+          <div style="position: relative;">
+            <i class="fa-regular fa-envelope" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #4285F4; font-size: 1rem;"></i>
+            <input type="email" id="customGoogleEmail" value="leekhoa1501@gmail.com" placeholder="email.ca.nhan@gmail.com" required style="width: 100%; padding: 0.8rem 1rem 0.8rem 2.6rem; border: 1.5px solid #DADCE0; border-radius: 10px; font-size: 0.95rem; outline: none; color: #202124; transition: border-color 0.2s ease;">
           </div>
         </div>
 
-        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; height: 46px; font-size: 0.95rem; font-weight: 600; border-radius: 10px; background: linear-gradient(135deg, #0F2E23, #16A34A);">
-          <i class="fa-solid fa-arrow-right-to-bracket"></i> Đăng Nhập Bằng Gmail
-        </button>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.6rem;">
+          <a href="#" style="font-size: 0.86rem; color: #1A73E8; font-weight: 500; text-decoration: none;">Forgot email?</a>
+          <button type="submit" class="btn-primary" style="padding: 0.7rem 1.6rem; font-size: 0.95rem; font-weight: 600; border-radius: 9999px; background: #1A73E8; color: #FFFFFF; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);">
+            Next <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
       </form>
 
-      <p style="font-size: 0.75rem; color: #9CA3AF; margin-top: 1.4rem; line-height: 1.4;">
-        Bằng cách tiếp tục, Google sẽ chia sẻ địa chỉ email và thông tin tài khoản cá nhân của bạn với hệ thống LeeKhoa Villas.
-      </p>
+      <div style="border-top: 1px solid #F1F3F4; margin-top: 1.8rem; padding-top: 1.2rem; display: flex; justify-content: space-between; font-size: 0.75rem; color: #70757A;">
+        <span>English (United States)</span>
+        <div style="display: flex; gap: 12px;">
+          <a href="#" style="color: #70757A; text-decoration: none;">Help</a>
+          <a href="#" style="color: #70757A; text-decoration: none;">Privacy</a>
+          <a href="#" style="color: #70757A; text-decoration: none;">Terms</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONAL VILLA MEMBER WORKSPACE / PROFILE DASHBOARD MODAL -->
+  <div class="modal-overlay" id="personalProfileModal">
+    <div class="modal-content" style="max-width: 680px; padding: 0; overflow: hidden; border-radius: var(--radius-lg); background: #FFFFFF;">
+      <!-- Header Banner -->
+      <div style="background: linear-gradient(135deg, #0F2E23, #16A34A); padding: 1.8rem 2rem 1.4rem; color: #FFFFFF; position: relative;">
+        <button class="modal-close modal-close-light" id="closePersonalProfileBtn" style="position: absolute; top: 16px; right: 16px;"><i class="fa-solid fa-xmark"></i></button>
+        
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.6rem;">
+          <div style="width: 54px; height: 54px; border-radius: 50%; background: #FEF08A; color: #0F2E23; font-weight: 800; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; border: 2.5px solid #FFFFFF; box-shadow: var(--shadow-sm);" id="profileUserAvatar">
+            L
+          </div>
+          <div>
+            <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin: 0; color: #FFFFFF;" id="profileUserName">Lee Khoa</h3>
+            <span style="font-size: 0.84rem; color: #FEF08A; font-weight: 600;" id="profileUserEmail">leekhoa1501@gmail.com</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.8rem;">
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: var(--radius-pill);"><i class="fa-solid fa-crown" style="color: #FDE047;"></i> VIP Diamond Member</span>
+          <span style="background: rgba(255,255,255,0.2); padding: 4px 12px; border-radius: var(--radius-pill);"><i class="fa-brands fa-google"></i> Gmail Connected</span>
+        </div>
+      </div>
+
+      <!-- Dashboard Body -->
+      <div style="padding: 1.6rem 2rem 2rem;">
+        
+        <!-- Navigation Tabs -->
+        <div style="display: flex; gap: 0.6rem; border-bottom: 1.5px solid var(--border-glass); padding-bottom: 0.8rem; margin-bottom: 1.4rem;">
+          <button class="profile-tab-btn active" id="profTabTrips" style="padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.88rem; background: var(--primary-emerald); color: #FFFFFF; border: none; cursor: pointer;">
+            <i class="fa-solid fa-suitcase"></i> Đơn Đặt Cá Nhân (<span id="profTripCount">3</span>)
+          </button>
+          <button class="profile-tab-btn" id="profTabWishlist" style="padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 600; font-size: 0.88rem; background: var(--bg-light); color: var(--text-muted); border: 1px solid var(--border-glass); cursor: pointer;">
+            <i class="fa-solid fa-heart"></i> Yêu Thích (<span id="profWishCount">3</span>)
+          </button>
+          <button class="profile-tab-btn" id="profTabSettings" style="padding: 6px 14px; border-radius: var(--radius-pill); font-weight: 600; font-size: 0.88rem; background: var(--bg-light); color: var(--text-muted); border: 1px solid var(--border-glass); cursor: pointer;">
+            <i class="fa-solid fa-sliders"></i> Tùy Chỉnh Cá Nhân
+          </button>
+        </div>
+
+        <!-- Tab 1 View: Personal Bookings List -->
+        <div id="profViewTrips">
+          <div id="profTripsListContainer" style="max-height: 340px; overflow-y: auto; padding-right: 4px;">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Tab 2 View: Personal Wishlist -->
+        <div id="profViewWishlist" style="display: none;">
+          <div id="profWishlistContainer" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-height: 340px; overflow-y: auto;">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+        <!-- Tab 3 View: Personal Settings -->
+        <div id="profViewSettings" style="display: none; font-size: 0.88rem;">
+          <div style="background: var(--bg-light); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 1.2rem; display: flex; flex-direction: column; gap: 0.8rem;">
+            <div>
+              <label style="font-weight: 700; color: var(--text-main); display: block; margin-bottom: 0.3rem;">SỐ ĐIỆN THOẠI / ZALO CÁ NHÂN</label>
+              <input type="tel" value="+84 901 234 567" id="profPhoneInput" style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm);">
+            </div>
+            <div>
+              <label style="font-weight: 700; color: var(--text-main); display: block; margin-bottom: 0.3rem;">ĐỊA DANH BIỆT THỰ YÊU THÍCH KHI ĐẶT</label>
+              <select id="profFavDest" style="width: 100%; padding: 0.6rem 0.8rem; border: 1px solid var(--border-glass); border-radius: var(--radius-sm);">
+                <option value="Hồ Tràm">Biển Hồ Tràm (Luxury Infinity Pool)</option>
+                <option value="Vũng Tàu">Biển Vũng Tàu (Beachfront Villa)</option>
+                <option value="Đà Lạt">Đồi Thông Đà Lạt (Pine Forest Chalet)</option>
+                <option value="Phú Quốc">Đảo Ngọc Phú Quốc (Sunset Beach Resort)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sign Out Footer Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-glass);">
+          <span style="font-size: 0.78rem; color: var(--text-muted);"><i class="fa-solid fa-shield-halved"></i> Bảo mật Gmail 256-bit SSL</span>
+          <button class="btn-outline" id="btnPersonalLogout" style="border-color: #DC2626; color: #DC2626; padding: 6px 16px; font-size: 0.85rem;">
+            <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất Gmail
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
