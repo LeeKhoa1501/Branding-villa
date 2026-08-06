@@ -23,11 +23,30 @@
   --color-success: #166534;
   --color-error: #DC2626;
 
-  /* Fonts */
+  /* Fonts (Primary: Roboto, Small Accent: Roboto Serif, Numbers: Roboto Mono) */
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Roboto Serif', Georgia, serif;
-  --font-sans: 'Outfit', 'Manrope', -apple-system, sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
 
-  /* Radii */
+  /* Even Sizes Scale (Divisible by 2) */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Radii (Divisible by 2) */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -38,7 +57,24 @@
   --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
   --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.14);
 
-  --transition-smooth: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-smooth: 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Number & Currency Font Specification (Roboto Mono) */
+.price, 
+.recent-price, 
+.preview-price, 
+.stat-number, 
+.badge-count-sm, 
+.modal-price-tag, 
+.exp-price, 
+.receipt-val, 
+.rating-score, 
+.dest-weather,
+#expSummaryPriceTotal, 
+#expTotalCost {
+  font-family: var(--font-mono) !important;
+  letter-spacing: -0.02em;
 }
 
 /* RESET & BASE STYLES */
@@ -543,7 +579,7 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 14px;
   flex-shrink: 0;
 }
 
@@ -551,8 +587,8 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 .header-actions-divider {
   width: 1px;
   height: 22px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 0 0.2rem;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 4px;
 }
 
 .site-header.scrolled .header-actions-divider { background: var(--border-glass); }
@@ -647,8 +683,31 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   border: 1.5px solid #FFFFFF;
 }
 
-.nav-action-link { font-size: 0.85rem; font-weight: 600; color: #FFFFFF; }
-.site-header.scrolled .nav-action-link { color: var(--text-main); }
+.nav-action-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  transition: var(--transition-smooth);
+}
+
+.site-header.scrolled .nav-action-link {
+  color: var(--text-main);
+  background: var(--surface-secondary);
+  border-color: var(--border-glass);
+}
+
+.nav-action-link:hover {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--primary-emerald);
+}
 
 .btn-signin-pill {
   background: var(--primary-emerald);
@@ -3820,6 +3879,98 @@ button.disabled,
   }
 
   .auth-right-panel { display: none; }
+
+  /* Screenshot 1 Fix: Header logo subtitle overlap & VIP button collision on mobile */
+  .brand-logo .logo-subtitle {
+    display: none !important;
+  }
+
+  .header-actions .btn-vip-callback {
+    display: inline-flex !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Screenshot 2 Fix: Concierge service counter pill vertical squish */
+  .exp-grid-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .exp-summary-counter {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    border-radius: var(--radius-pill) !important;
+  }
+
+  /* Screenshot 3 Fix: Interactive map header breakdown */
+  .google-map-section .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .google-map-section .section-header > div:first-child {
+    width: 100% !important;
+  }
+
+  .google-map-section .section-title {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+    word-break: normal !important;
+  }
+
+  .map-location-selector {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+  }
+
+  .map-loc-btn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* Screenshot 4 Fix: Footer grid compression & Floating button stack overlap */
+  .site-footer {
+    padding-bottom: 84px !important;
+  }
+
+  .site-footer .footer-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .footer-col {
+    width: 100% !important;
+  }
+
+  .footer-bottom-container {
+    padding: 0 16px !important;
+  }
+
+  .floating-contact-stack {
+    bottom: 16px !important;
+    left: 16px !important;
+    z-index: 4000 !important;
+  }
 }
 
 /* 5. SMALL MOBILE PHONES (<= 480px) */
