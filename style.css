@@ -4268,33 +4268,62 @@ button.disabled,
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
+    justify-content: flex-start !important;
     text-align: left !important;
     padding: 12px 14px !important;
     gap: 12px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border-radius: 12px !important;
+    overflow: hidden !important;
   }
 
   .pay-tab-btn i {
     font-size: 22px !important;
-    margin-bottom: 0 !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     flex-shrink: 0 !important;
+    margin: 0 !important;
     color: var(--primary-emerald) !important;
   }
 
+  .pay-tab-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .pay-tab-text strong,
   .pay-tab-btn strong {
     font-size: 13px !important;
     line-height: 17px !important;
     display: block !important;
     color: var(--text-main) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: left !important;
   }
 
+  .pay-tab-text span,
   .pay-tab-btn span {
     font-size: 11px !important;
     line-height: 15px !important;
     display: block !important;
     color: var(--text-muted) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: left !important;
   }
 
   .pay-method-view {
