@@ -3873,21 +3873,102 @@ button.disabled,
 
   .stat-divider { display: none !important; }
 
-  /* Filters Sidebar Mobile */
-  .filters-sidebar {
-    grid-template-columns: 1fr;
+  /* Section Header & Category Pills Mobile (Fix Screenshot 1) */
+  .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
   }
 
-  .villas-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .section-header > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .category-pills-wrapper {
+    width: 100% !important;
+    overflow-x: auto !important;
+    display: flex !important;
+    gap: 8px !important;
+    padding-bottom: 8px !important;
+    margin-top: 8px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cat-pill {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Filters Sidebar Mobile */
+  .filters-sidebar {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+
+  /* Villa Cards Grid 100% Full Width Mobile (Fix Screenshot 2) */
+  .villas-layout-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 20px !important;
+  }
+
+  .villas-main-content {
+    width: 100% !important;
+  }
+
+  .villa-grid, #villaGridContainer, .villas-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 24px !important;
+  }
+
+  .villa-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  .villa-card-content {
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .villa-card-title {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .villa-card-footer, .villa-card-price-action {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 12px !important;
+    margin-top: 12px !important;
+  }
+
+  .price {
+    font-size: 18px !important;
+    font-family: var(--font-mono) !important;
+    line-height: 22px !important;
   }
 
   .destinations-grid {
-    grid-template-columns: 1fr;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
   }
 
-  /* Concierge Addons Mobile (Fix Screenshots 3 & 4) */
+  /* Concierge Addons Mobile */
   .exp-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
@@ -3916,21 +3997,76 @@ button.disabled,
     border-radius: 9999px !important;
   }
 
+  /* Specialist Help Banner 1-Column Stack Mobile (Fix Screenshot 3) */
+  .specialist-banner {
+    padding: 2rem 0 !important;
+  }
+
   .specialist-box {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    text-align: center;
-    padding: 1.8rem;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 24px 16px !important;
+    gap: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .specialist-left {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .specialist-left h2 {
+    font-size: 22px !important;
+    line-height: 28px !important;
+    margin: 12px 0 8px 0 !important;
+  }
+
+  .specialist-left p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .badge-accent {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    white-space: normal !important;
+    border-radius: 9999px !important;
   }
 
   .specialist-right {
-    flex-direction: column;
-    width: 100%;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
   }
 
   .btn-zalo, .btn-phone {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    max-width: 320px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .support-sub {
+    font-size: 12px !important;
+    text-align: center !important;
   }
 
   .about-hero-title,
