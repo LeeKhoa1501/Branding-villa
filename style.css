@@ -3750,8 +3750,9 @@ button.disabled,
     margin-bottom: 1.5rem;
   }
 
-  .hero-floating-chip { display: none; }
-  .hero-arrow { display: none; }
+  .hero-tag-pill { display: none !important; }
+  .hero-floating-chip { display: none !important; }
+  .hero-arrow { display: none !important; }
 
   /* Dedicated Villas Page Mobile Responsive */
   .villas-hero-banner {
