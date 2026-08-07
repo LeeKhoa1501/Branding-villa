@@ -1,0 +1,122 @@
+<!-- ==========================================================================
+     HERO SLIDER & FLOATING SEARCH BAR (COMPONENTS/HERO.HTML)
+     ========================================================================== -->
+<section class="hero-section">
+  <!-- Slider Track -->
+  <div class="hero-slider-track" id="heroSliderTrack">
+    <div class="hero-slide active">
+      <img src="./assets/hero_slide_1.jpg" alt="Villa Resort Infinity Pool Sunset">
+    </div>
+    <div class="hero-slide">
+      <img src="./assets/hero_slide_2.jpg" alt="Cliffside Luxury Ocean Villa">
+    </div>
+    <div class="hero-slide">
+      <img src="./assets/hero_slide_3.jpg" alt="Da Lat Pine Mountain Villa">
+    </div>
+  </div>
+
+  <div class="hero-bg-overlay"></div>
+
+  <!-- Navigation Arrows -->
+  <button class="hero-arrow arrow-prev" id="slidePrevBtn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="hero-arrow arrow-next" id="slideNextBtn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+  
+  <!-- Slider Navigation Dots -->
+  <div class="hero-slider-dots" id="heroSliderDots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+  </div>
+
+  <!-- Floating Feature Chips -->
+  <div class="hero-floating-chip chip-left">
+    <div class="chip-icon"><i class="fa-solid fa-water"></i></div>
+    <div class="chip-text">
+      <strong>Private Infinity Pools</strong>
+      <span>Oceanfront view</span>
+    </div>
+  </div>
+
+  <div class="hero-floating-chip chip-right">
+    <div class="chip-icon"><i class="fa-solid fa-hot-tub-person"></i></div>
+    <div class="chip-text">
+      <strong>Onsen & Mineral Baths</strong>
+      <span>Wellness therapy</span>
+    </div>
+  </div>
+
+  <!-- Hero Text & Search Widget -->
+  <div class="hero-content">
+    <div class="hero-tag-pill">
+      <span class="sparkle">✦</span> <span>PRIVATE STAYS, BEAUTIFULLY CURATED</span>
+    </div>
+    <h1 class="hero-title">Discover a private stay <br><i>worth remembering</i></h1>
+    <p class="hero-subtext">A curated collection of premium private villas for families, friends, and unforgettable escapes across Vietnam.</p>
+
+    <div class="search-widget-card" id="searchWidget">
+      <div class="search-field">
+        <label><i class="fa-solid fa-location-dot"></i> Destination</label>
+        <select id="searchDestination">
+          <option value="all">Tất cả địa danh Việt Nam</option>
+          <option value="Vũng Tàu" selected>Vũng Tàu</option>
+          <option value="Hồ Tràm">Hồ Tràm</option>
+          <option value="Long Hải">Long Hải</option>
+          <option value="Đà Lạt">Đà Lạt</option>
+          <option value="Phú Quốc">Phú Quốc</option>
+          <option value="Nha Trang">Nha Trang</option>
+        </select>
+      </div>
+
+      <div class="search-divider"></div>
+
+      <div class="search-field">
+        <label><i class="fa-regular fa-calendar"></i> Check-in</label>
+        <input type="date" id="searchCheckIn" value="2026-08-12">
+      </div>
+
+      <div class="search-divider"></div>
+
+      <div class="search-field">
+        <label><i class="fa-regular fa-calendar-check"></i> Check-out</label>
+        <input type="date" id="searchCheckOut" value="2026-08-14">
+      </div>
+
+      <div class="search-divider"></div>
+
+      <div class="search-field">
+        <label><i class="fa-solid fa-user-group"></i> Guests & rooms</label>
+        <input type="text" id="searchGuests" value="10 guests, 5 rooms" readonly>
+      </div>
+
+      <button class="btn-search" id="btnExecuteSearch">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>Search villas</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Trust Strip -->
+<section class="stats-strip">
+  <div class="stats-container">
+    <div class="stat-item">
+      <span class="stat-number">248+</span>
+      <span class="stat-label">Premium villas</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number">7</span>
+      <span class="stat-label">Địa danh Việt Nam</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number">4.9 ★</span>
+      <span class="stat-label">Average rating</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-number">15 min</span>
+      <span class="stat-label">Confirmation time</span>
+    </div>
+  </div>
+</section>

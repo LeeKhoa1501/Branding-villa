@@ -1,0 +1,152 @@
+<!-- ==========================================================================
+     GLOBAL NAVIGATION BAR & MEGA MENUS (COMPONENTS/NAVBAR.HTML)
+     ========================================================================== -->
+<!-- Brand Logo -->
+<a href="#" class="brand-logo btn-nav-route" data-route="home">
+  <span class="logo-mark-sq">L</span>
+  <div class="logo-text-wrapper">
+    <span class="logo-text">LeeKhoa Villas</span>
+    <span class="logo-subtitle">LUXURY STAYS & RESORTS</span>
+  </div>
+</a>
+
+<!-- Main Navigation Items -->
+<nav class="main-nav">
+  <!-- 1. VILLAS MEGA MENU LINK -->
+  <div class="nav-item-dropdown">
+    <a href="#villas" class="nav-link btn-nav-route" data-route="villas" id="navVillas">
+      Villas <i class="fa-solid fa-chevron-down nav-arrow"></i>
+    </a>
+    
+    <!-- Villas Mega Menu Dropdown Card -->
+    <div class="mega-menu-card mega-villas">
+      <div class="mega-grid-3col">
+        <div class="mega-col">
+          <span class="mega-col-title">BY CATEGORY</span>
+          <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="beachfront">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <div>
+              <strong>Beachfront Estates</strong>
+              <span>Dinh thự biệt thự sát biển</span>
+            </div>
+          </a>
+          <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="pool">
+            <i class="fa-solid fa-water"></i>
+            <div>
+              <strong>Private Pool Villas</strong>
+              <span>Hồ bơi vô cực ngắm đại dương</span>
+            </div>
+          </a>
+          <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="families">
+            <i class="fa-solid fa-house-user"></i>
+            <div>
+              <strong>Family & Group Escapes</strong>
+              <span>Dành cho gia đình 6-16 người</span>
+            </div>
+          </a>
+          <a href="#villas" class="mega-item-link btn-mega-filter" data-cat="quiet">
+            <i class="fa-solid fa-tree"></i>
+            <div>
+              <strong>Mountain Retreats</strong>
+              <span>Biệt thự đồi thông Đà Lạt</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mega-col">
+          <span class="mega-col-title">MINIMUM BEDROOMS</span>
+          <div class="mega-beds-pills">
+            <button class="bed-pill active btn-mega-bed" data-beds="0">Tất cả</button>
+            <button class="bed-pill btn-mega-bed" data-beds="3">3+ Phòng</button>
+            <button class="bed-pill btn-mega-bed" data-beds="5">5+ Phòng</button>
+            <button class="bed-pill btn-mega-bed" data-beds="8">8+ Phòng</button>
+          </div>
+          <hr class="mega-hr">
+          <span class="mega-col-title">BOOKING FEATURES</span>
+          <div class="mega-badge-list">
+            <span class="badge-instant"><i class="fa-solid fa-bolt"></i> Instant Booking</span>
+            <span class="badge-freecancel"><i class="fa-solid fa-shield-halved"></i> Free Cancellation</span>
+          </div>
+        </div>
+
+        <!-- Quick Featured Villa Preview Card -->
+        <div class="mega-col mega-preview-box">
+          <span class="mega-col-title">FEATURED OF THE MONTH</span>
+          <div class="mega-preview-card">
+            <img src="./assets/villa_azure_img_1785398933026.jpg" alt="Villa Azure">
+            <div class="preview-card-info">
+              <h4>Villa Azure Vũng Tàu</h4>
+              <p>★ 4.9 (32) · 5 Bedrooms · Oceanview</p>
+              <span class="preview-price">7.500.000 ₫ <span>/đêm</span></span>
+              <button class="btn-primary-small btn-mega-book-preview" data-id="azure">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. DESTINATIONS MEGA MENU LINK -->
+  <div class="nav-item-dropdown">
+    <a href="#destinations" class="nav-link btn-nav-route" data-route="home" id="navDestinations">
+      Destinations <i class="fa-solid fa-chevron-down nav-arrow"></i>
+    </a>
+
+    <!-- Destinations Mega Menu -->
+    <div class="mega-menu-card mega-destinations">
+      <div class="mega-dest-grid">
+        <div class="dest-item-chip" data-location="Vũng Tàu">
+          <span class="dest-weather">☀️ 27°C</span>
+          <h4>Vũng Tàu</h4>
+          <p>48 Villas · Cách TP.HCM 2h</p>
+        </div>
+
+        <div class="dest-item-chip" data-location="Hồ Tràm">
+          <span class="dest-weather">🏖️ 29°C</span>
+          <h4>Hồ Tràm</h4>
+          <p>23 Villas · Bãi biển riêng tư</p>
+        </div>
+
+        <div class="dest-item-chip" data-location="Đà Lạt">
+          <span class="dest-weather">🌲 18°C</span>
+          <h4>Đà Lạt</h4>
+          <p>31 Villas · View đồi thông sương mù</p>
+        </div>
+
+        <div class="dest-item-chip" data-location="Phú Quốc">
+          <span class="dest-weather">🌅 30°C</span>
+          <h4>Phú Quốc</h4>
+          <p>42 Villas · Hoàng hôn đảo ngọc</p>
+        </div>
+
+        <div class="dest-item-chip" data-location="Nha Trang">
+          <span class="dest-weather">⛵ 28°C</span>
+          <h4>Nha Trang</h4>
+          <p>19 Villas · Vịnh biển 6 sao</p>
+        </div>
+
+        <div class="dest-item-chip" data-location="Long Hải">
+          <span class="dest-weather">🌊 27°C</span>
+          <h4>Long Hải</h4>
+          <p>15 Villas · Yên bình & nguyên sơ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. AMENITIES -->
+  <span class="nav-sep"></span>
+  <a href="#resortAmenities" class="nav-link btn-nav-route" data-route="home">Amenities</a>
+
+  <!-- 4. OUR STORY -->
+  <span class="nav-sep"></span>
+  <a href="#about" class="nav-link btn-nav-route" data-route="about" id="navStory">Our Story</a>
+
+  <!-- 5. JOURNAL -->
+  <span class="nav-sep"></span>
+  <a href="#blog" class="nav-link btn-nav-route" data-route="blog" id="navJournal">Journal</a>
+
+  <!-- 6. EXPERIENCES -->
+  <span class="nav-sep"></span>
+  <a href="#experiences" class="nav-link btn-nav-route" data-route="home">Experiences</a>
+</nav>

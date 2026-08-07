@@ -1,0 +1,110 @@
+<!-- ==========================================================================
+     BESPOKE CONCIERGE & BUTLER ADDON CALCULATOR (COMPONENTS/CONCIERGE.HTML)
+     ========================================================================== -->
+<section class="experiences-section" id="experiences">
+  <div class="section-container">
+    <div class="experiences-wrapper">
+
+      <!-- LEFT: Summary & Action Card -->
+      <div class="exp-left">
+        <span class="section-eyebrow">Bespoke experiences</span>
+        <h2 class="section-title">Cá nhân hóa từng <br>chi tiết kỳ nghỉ của bạn</h2>
+        <p class="section-desc">Đội ngũ Quản Gia Concierge của LeeKhoa Villas sẽ chuẩn bị mọi thứ trước khi bạn đến — từ bữa tiệc BBQ hải sản sát biển, trang trí sinh nhật, đến lịch trình khám phá địa phương riêng tư.</p>
+
+        <!-- Live Selection Summary Box -->
+        <div class="exp-summary-box" id="expSummaryBox">
+          <div class="exp-summary-row">
+            <span>Dịch vụ đã chọn:</span>
+            <strong id="expSelectedCount">0 dịch vụ</strong>
+          </div>
+          <div class="exp-summary-row" id="expTotalRow">
+            <span>Tổng phí add-on ước tính:</span>
+            <strong id="expTotalCost">0 ₫</strong>
+          </div>
+          <div id="expSelectedTagsRow"></div>
+        </div>
+
+        <div class="exp-action-group">
+          <button class="btn-exp-confirm" id="btnPersonalizeStay">
+            <i class="fa-solid fa-concierge-bell"></i>
+            Gửi Yêu Cầu Concierge
+          </button>
+          <div class="exp-response-badge">
+            <i class="fa-solid fa-clock"></i>
+            <span>Phản hồi trong 15 phút</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Interactive Service Addon Grid with Live Sync -->
+      <div class="exp-right">
+        <div class="exp-grid-header">
+          <span>Chọn dịch vụ bổ sung mong muốn</span>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <span class="exp-summary-counter">
+              Đã chọn: <span id="expSummaryCount">0 dịch vụ</span> (<span id="expSummaryPriceTotal">+0 ₫</span>)
+            </span>
+            <button class="exp-clear-btn" id="btnClearExpSelections">Bỏ chọn tất cả</button>
+          </div>
+        </div>
+        <div class="exp-grid" id="expAddonGrid">
+          <div class="exp-item" data-addon="Private Chef" data-price="1500000">
+            <span class="exp-emoji">👨‍🍳</span>
+            <span class="exp-name">Đầu Bếp Riêng</span>
+            <span class="exp-price">+1.500.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Villa Concierge" data-price="500000">
+            <span class="exp-emoji">🛎️</span>
+            <span class="exp-name">Quản Gia 24/7</span>
+            <span class="exp-price">+500.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Airport Transfer" data-price="800000">
+            <span class="exp-emoji">🚗</span>
+            <span class="exp-name">Đón Sân Bay</span>
+            <span class="exp-price">+800.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="BBQ Service" data-price="1200000">
+            <span class="exp-emoji">🔥</span>
+            <span class="exp-name">Tiệc Nướng BBQ</span>
+            <span class="exp-price">+1.200.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Birthday Setup" data-price="1800000">
+            <span class="exp-emoji">🎂</span>
+            <span class="exp-name">Sinh Nhật VIP</span>
+            <span class="exp-price">+1.800.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Event Decoration" data-price="2000000">
+            <span class="exp-emoji">🎊</span>
+            <span class="exp-name">Trang Trí Tiệc</span>
+            <span class="exp-price">+2.000.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Early Check-in" data-price="300000">
+            <span class="exp-emoji">🌅</span>
+            <span class="exp-name">Check-in Sớm</span>
+            <span class="exp-price">+300.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Late Check-out" data-price="300000">
+            <span class="exp-emoji">🌙</span>
+            <span class="exp-name">Check-out Muộn</span>
+            <span class="exp-price">+300.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+          <div class="exp-item" data-addon="Personal Itinerary" data-price="700000">
+            <span class="exp-emoji">🗺️</span>
+            <span class="exp-name">Lịch Trình Riêng</span>
+            <span class="exp-price">+700.000 ₫</span>
+            <span class="exp-check-icon"><i class="fa-solid fa-check"></i></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
