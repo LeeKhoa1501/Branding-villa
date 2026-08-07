@@ -2273,13 +2273,7 @@ button.disabled,
 }
 
 .modal-villa-hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(to top, #FFFFFF 0%, transparent 100%);
+  display: none !important;
 }
 
 /* Villa Detail 2-column grid */
@@ -4068,14 +4062,13 @@ button.disabled,
   }
 
   /* Modals Mobile Reset & Screenshot 4 Fix: Modal Invoice & Action Buttons Overflow */
-  /* Full-Screen Edge-to-Edge Overlay Backdrop (Zero Gaps / Zero Margins) */
+  /* Full Screen Overlay Backdrop & Mobile Sheet Reset (Zero Top Gaps) */
   .modal-overlay {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
-    inset: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
     height: 100dvh !important;
@@ -4083,18 +4076,24 @@ button.disabled,
     margin: 0 !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    background: rgba(15, 23, 42, 0.78) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    box-sizing: border-box !important;
+    background: rgba(11, 19, 43, 0.82) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    z-index: 9999 !important;
   }
 
-  .modal-content {
+  .modal-content,
+  .modal-content-checkout,
+  .modal-content-sm,
+  .modal-content-login,
+  .modal-content-tour,
+  .modal-content-success {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 !important;
+    height: auto !important;
     max-height: 90vh !important;
     max-height: 90dvh !important;
+    margin: 0 !important;
     border-radius: 20px 20px 0 0 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
