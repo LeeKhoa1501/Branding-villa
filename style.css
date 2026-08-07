@@ -1076,16 +1076,27 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   flex-shrink: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .minera-img-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.8s var(--transition-smooth);
+  display: block;
+  will-change: transform;
+  transform: scale(1) translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.minera-showcase-row:hover .minera-img-frame img { transform: scale(1.04); }
+.minera-showcase-row:hover .minera-img-frame img {
+  transform: scale(1.045) translateZ(0);
+}
 
 .minera-overlay-card {
   width: 44%;
@@ -1578,13 +1589,14 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 .villa-img-wrapper,
 .dest-card,
 .blog-img-box,
-.minera-img-frame,
 .recent-card-img,
 .mega-preview-card,
 .founder-image-frame,
 .modal-villa-hero {
   position: relative;
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .villa-img-wrapper { aspect-ratio: 4 / 3; }
@@ -1592,7 +1604,6 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 .villa-img-wrapper img,
 .dest-card img,
 .blog-img-box img,
-.minera-img-frame img,
 .recent-card-img img,
 .mega-preview-card img,
 .founder-image-frame img,
@@ -1602,42 +1613,39 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   object-fit: cover;
   display: block;
   backface-visibility: hidden;
-  transform-origin: center center;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  transform: scale(1) translateZ(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Light-beam Shimmer Glare Overlay Effect */
 .villa-img-wrapper::after,
 .dest-card::after,
 .blog-img-box::after,
-.minera-img-frame::after,
 .recent-card-img::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.3) 50%, transparent 65%);
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.25) 50%, transparent 65%);
   transform: translateX(-120%);
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.6s ease-in-out;
   pointer-events: none;
   z-index: 2;
 }
 
-/* Hover Scale & Shimmer Brightness (Desktop) */
+/* Instant 60FPS Hover Scale & Shimmer Brightness (Desktop) */
 @media (hover: hover) and (pointer: fine) {
   .villa-card:hover .villa-img-wrapper img,
   .dest-card:hover img,
   .blog-card:hover .blog-img-box img,
-  .minera-showcase-row:hover .minera-img-frame img,
   .recent-card-item:hover .recent-card-img img,
   .mega-preview-card:hover img {
-    transform: scale(1.08);
-    filter: brightness(1.05) saturate(1.08);
+    transform: scale(1.06) translateZ(0);
   }
 
   .villa-card:hover .villa-img-wrapper::after,
   .dest-card:hover::after,
   .blog-card:hover .blog-img-box::after,
-  .minera-showcase-row:hover .minera-img-frame::after,
   .recent-card-item:hover .recent-card-img::after {
     transform: translateX(120%);
   }
@@ -1648,11 +1656,9 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   .villa-card:active .villa-img-wrapper img,
   .dest-card:active img,
   .blog-card:active .blog-img-box img,
-  .minera-showcase-row:active .minera-img-frame img,
   .recent-card-item:active .recent-card-img img {
-    transform: scale(1.06);
-    filter: brightness(1.06);
-    transition: transform 0.3s ease;
+    transform: scale(1.05) translateZ(0);
+    transition: transform 0.25s ease;
   }
 
   .villa-card:active,
