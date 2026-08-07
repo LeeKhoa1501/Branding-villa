@@ -4144,74 +4144,118 @@ button.disabled,
     white-space: nowrap !important;
   }
 
-  /* MOBILE PAYMENT METHOD & CHECKOUT WIZARD RESPONSIVE RESET */
+  /* ==========================================================================
+     UNIVERSAL RESPONSIVE PAYMENT WIZARD SYSTEM (IPHONE 8 TO 17 PRO MAX, ANDROID & IPAD)
+     ========================================================================== */
   .modal-content-checkout {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
     overflow-y: auto !important;
+    box-sizing: border-box !important;
   }
 
   .checkout-wizard-header {
-    padding: 20px 16px 14px !important;
+    padding: 16px 14px 12px 14px !important;
     text-align: center !important;
+    box-sizing: border-box !important;
   }
 
   .checkout-wizard-header h2 {
-    font-size: 20px !important;
-    line-height: 26px !important;
-    margin-top: 6px !important;
+    font-size: 18px !important;
+    line-height: 24px !important;
+    margin-top: 4px !important;
+    color: #FFFFFF !important;
   }
 
   .checkout-step-indicator {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 8px 12px !important;
-    margin-top: 14px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+    margin-top: 12px !important;
     width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
   }
 
   .ck-step-node {
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
-    gap: 4px !important;
+    text-align: center !important;
+    gap: 3px !important;
+    opacity: 0.55 !important;
+    min-width: 0 !important;
   }
 
-  .ck-node-num {
-    width: 24px !important;
-    height: 24px !important;
+  .ck-step-node.active {
+    opacity: 1 !important;
+  }
+
+  .ck-step-node .ck-node-num {
+    width: 26px !important;
+    height: 26px !important;
     font-size: 11px !important;
+    font-weight: 700 !important;
   }
 
   .ck-step-node span {
-    font-size: 11px !important;
+    font-size: 10px !important;
+    line-height: 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    display: block !important;
   }
 
   .checkout-wizard-body {
-    padding: 16px !important;
+    padding: 16px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .ck-section-title {
-    font-size: 16px !important;
-    line-height: 22px !important;
+    font-size: 15px !important;
+    line-height: 20px !important;
     margin-bottom: 12px !important;
   }
 
-  .ck-form-grid {
+  .ck-villas-list-box {
+    max-height: 220px !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ck-villa-item {
     display: flex !important;
-    flex-direction: column !important;
-    gap: 12px !important;
-    width: 100% !important;
-    margin-bottom: 16px !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 10px !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
   }
 
-  .ck-form-group {
-    width: 100% !important;
+  .ck-villa-item img {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
   }
 
+  .ck-villa-details h4 {
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .ck-villa-details p {
+    font-size: 11px !important;
+    line-height: 15px !important;
+  }
+
+  /* PAYMENT STEP 3 RESPONSIVE TABS & CARDS */
   .payment-tabs-grid {
     display: flex !important;
     flex-direction: column !important;
@@ -4221,52 +4265,61 @@ button.disabled,
   }
 
   .pay-tab-btn {
-    width: 100% !important;
+    display: flex !important;
     flex-direction: row !important;
-    justify-content: flex-start !important;
     align-items: center !important;
+    text-align: left !important;
     padding: 12px 14px !important;
     gap: 12px !important;
-    text-align: left !important;
-    border-radius: 12px !important;
+    width: 100% !important;
     box-sizing: border-box !important;
+    border-radius: 12px !important;
   }
 
   .pay-tab-btn i {
-    font-size: 20px !important;
+    font-size: 22px !important;
     margin-bottom: 0 !important;
     flex-shrink: 0 !important;
-  }
-
-  .pay-tab-btn div {
-    display: flex !important;
-    flex-direction: column !important;
+    color: var(--primary-emerald) !important;
   }
 
   .pay-tab-btn strong {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    line-height: 17px !important;
+    display: block !important;
+    color: var(--text-main) !important;
   }
 
   .pay-tab-btn span {
     font-size: 11px !important;
+    line-height: 15px !important;
+    display: block !important;
+    color: var(--text-muted) !important;
   }
 
+  .pay-method-view {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* VIETQR & CASH & CARD RESPONSIVE BOXES */
   .vietqr-live-box {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    padding: 16px !important;
-    gap: 16px !important;
+    padding: 16px 12px !important;
+    gap: 14px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    border-radius: 14px !important;
+    border-radius: 12px !important;
   }
 
   .qr-code-img-box {
     width: 160px !important;
     height: 160px !important;
     margin: 0 auto !important;
+    position: relative !important;
     box-sizing: border-box !important;
   }
 
@@ -4279,28 +4332,28 @@ button.disabled,
   .qr-details {
     width: 100% !important;
     text-align: left !important;
+    font-size: 12px !important;
   }
 
   .qr-details h4 {
-    font-size: 16px !important;
-    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    margin-bottom: 6px !important;
   }
 
   .qr-details p {
-    font-size: 13px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    margin-bottom: 6px !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
     word-break: break-word !important;
+    margin-bottom: 6px !important;
   }
 
-  .deposit-info-card {
-    padding: 14px !important;
-    width: 100% !important;
+  .deposit-info-card,
+  .card-inputs-box {
+    padding: 14px 12px !important;
+    font-size: 12px !important;
     box-sizing: border-box !important;
-    font-size: 13px !important;
-    border-radius: 12px !important;
+    width: 100% !important;
   }
 
   .ck-actions-bar {
@@ -4308,7 +4361,7 @@ button.disabled,
     flex-direction: column-reverse !important;
     gap: 10px !important;
     width: 100% !important;
-    margin-top: 20px !important;
+    margin-top: 16px !important;
     padding-top: 14px !important;
   }
 
@@ -4317,35 +4370,23 @@ button.disabled,
     justify-content: center !important;
     padding: 12px 16px !important;
     font-size: 14px !important;
+    border-radius: 9999px !important;
   }
 
   .modal-content-sm,
   .modal-content-login,
   .modal-content-tour,
   .modal-content-success {
-    max-width: 100% !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+    max-width: 100%;
   }
 
   .success-card-body {
-    padding: 18px 14px !important;
+    padding: 1.8rem 1.2rem 1.5rem;
   }
 
   .receipt-row {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    padding: 8px 10px !important;
-    font-size: 12px !important;
-    gap: 8px !important;
-  }
-
-  .receipt-row span:last-child,
-  .receipt-row strong:last-child {
-    text-align: right !important;
-    max-width: 60% !important;
-    word-break: break-word !important;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
   }
 
   .auth-split-wrapper {
