@@ -28,6 +28,28 @@
   --font-serif: 'Roboto Serif', Georgia, serif;
   --font-mono: 'Roboto Mono', monospace;
 
+  /* Explicit Even Font Sizes Scale (Divisible by 2) */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 40px;
+  --font-size-6xl: 48px;
+
+  /* Line Heights (Divisible by 2) */
+  --lh-tight: 16px;
+  --lh-snug: 20px;
+  --lh-normal: 24px;
+  --lh-relaxed: 28px;
+  --lh-loose: 32px;
+  --lh-heading: 40px;
+  --lh-display: 56px;
+
   /* Even Sizes Scale (Divisible by 2) */
   --space-2: 2px;
   --space-4: 4px;
@@ -60,7 +82,7 @@
   --transition-smooth: 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Number & Currency Font Specification (Roboto Mono) */
+/* UNIVERSAL NUMBER & CURRENCY TYPOGRAPHY RULE (Roboto Mono) */
 .price, 
 .recent-price, 
 .preview-price, 
@@ -71,9 +93,28 @@
 .receipt-val, 
 .rating-score, 
 .dest-weather,
+.exp-summary-counter,
+.invoice-code,
+.bill-code,
+.trip-code,
+.phone-number,
+.guest-count,
+.date-text,
+.beds-count,
+.bed-pill,
 #expSummaryPriceTotal, 
-#expTotalCost {
+#expTotalCost,
+#invoiceBillCode,
+#tripsHeaderCount,
+#cartCount,
+#wishlistCount,
+#mobileCartCount,
+#mobileWishlistCount,
+#mobileTripsCount,
+#profTripCount,
+#profWishCount {
   font-family: var(--font-mono) !important;
+  font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
 
@@ -3633,12 +3674,12 @@ button.disabled,
 
   .header-actions .btn-vip-callback {
     display: inline-flex !important;
-    font-size: 11px !important;
+    font-size: 12px !important;
     padding: 4px 8px !important;
   }
 }
 
-/* 5. MOBILE PHONES (<= 768px) */
+/* 5. MOBILE PHONES & TABLETS (<= 768px) */
 @media (max-width: 768px) {
   .site-header-bar { height: 64px; }
   .site-header.scrolled .site-header-bar { height: 60px; }
@@ -3657,8 +3698,47 @@ button.disabled,
   /* Keep VIP Callback button visible on mobile header! */
   .header-actions .btn-vip-callback {
     display: inline-flex;
-    font-size: 0.72rem;
-    padding: 0.35rem 0.7rem;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* MOBILE UNIFIED TYPOGRAPHY SCALING (ALL EVEN NUMBERS) */
+  h1, .hero-title, .villas-hero-banner h1 {
+    font-size: 28px !important;
+    line-height: 34px !important;
+  }
+
+  h2, .section-title {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+
+  h3, .modal-title {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+
+  h4, .villa-card-title {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  body, p, .hero-subtext, .villas-hero-banner p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+
+  .btn-primary, .btn-secondary, .btn-vip-callback, .btn-signin-pill {
+    font-size: 12px !important;
+  }
+
+  .badge-instant, .badge-status-locked, .badge-count-sm {
+    font-size: 10px !important;
+  }
+
+  .price, .recent-price, .preview-price, .modal-price-tag {
+    font-size: 16px !important;
+    font-family: var(--font-mono) !important;
   }
 
   .hero-section {
@@ -3666,13 +3746,7 @@ button.disabled,
     padding: 6.5rem 0 3rem 0;
   }
 
-  .hero-title {
-    font-size: 2.1rem;
-    line-height: 1.22;
-  }
-
   .hero-subtext {
-    font-size: 0.88rem;
     margin-bottom: 1.5rem;
   }
 
