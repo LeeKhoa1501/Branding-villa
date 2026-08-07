@@ -3742,8 +3742,12 @@ button.disabled,
   }
 
   .hero-section {
-    min-height: auto;
-    padding: 6.5rem 0 3rem 0;
+    min-height: auto !important;
+    padding: 104px 0 3rem 0 !important;
+  }
+
+  .hero-content {
+    padding-top: 24px !important;
   }
 
   .hero-subtext {
@@ -3752,7 +3756,16 @@ button.disabled,
 
   .hero-floating-chip { display: none !important; }
   .hero-arrow { display: none !important; }
-  .hero-tag-pill { display: none !important; }
+  .hero-tag-pill,
+  .d-none-mobile {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
 
   /* Dedicated Villas Page Mobile Responsive */
   .villas-hero-banner {
