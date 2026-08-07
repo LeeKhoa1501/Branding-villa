@@ -2074,11 +2074,15 @@ function initOffersAndAddons() {
 }
 
 /* --------------------------------------------------------------------------
-   360 VIRTUAL TOUR MODAL
+   360 VIRTUAL TOUR MODAL LOGIC & PANORAMA CONTROLS
    -------------------------------------------------------------------------- */
+let current360Villa = null;
+
 function init360TourModalEvents() {
   const tourModal = document.getElementById("tour360Modal");
   const closeBtn = document.getElementById("closeTourBtn");
+  const viewportImg = document.getElementById("tourViewportImg");
+  const tourViewport = document.querySelector(".tour-viewport");
 
   if (closeBtn && tourModal) {
     closeBtn.addEventListener("click", () => tourModal.classList.remove("active"));
@@ -2086,14 +2090,108 @@ function init360TourModalEvents() {
       if (e.target === tourModal) tourModal.classList.remove("active");
     });
   }
+
+  // 360 Room Tab Switching Buttons (Living Room, Infinity Pool, Master Bedroom)
+  document.querySelectorAll("#tour360Modal .btn-tour-pill").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#tour360Modal .btn-tour-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const roomText = btn.textContent.trim();
+      if (!viewportImg) return;
+
+      if (roomText.includes("Living Room")) {
+        viewportImg.src = current360Villa?.image || "./assets/villa_azure_img_1785398933026.jpg";
+      } else if (roomText.includes("Infinity Pool")) {
+        viewportImg.src = "./assets/hero_slide_1.jpg";
+      } else if (roomText.includes("Master Bedroom")) {
+        viewportImg.src = "./assets/hero_slide_2.jpg";
+      }
+      viewportImg.style.transform = "scale(1.15) translateX(0px)";
+      showToastNotification(`Đã chuyển góc nhìn 360° Panorama: ${roomText}`, "360° Walkthrough", "info");
+    });
+  });
+
+  // Hotspots Click Handlers
+  document.querySelectorAll("#tour360Modal .tour-hotspot").forEach(spot => {
+    spot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const spotTitle = spot.getAttribute("title") || "Góc nhìn 360°";
+      showToastNotification(`Đang di chuyển vị trí góc nhìn 360° đến: ${spotTitle}`, "360° Hotspot", "info");
+    });
+  });
+
+  // Mouse Drag & Touch Pan 360 Panorama Effect
+  if (tourViewport && viewportImg) {
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+
+    tourViewport.style.cursor = "grab";
+
+    tourViewport.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX - currentX;
+      tourViewport.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      if (tourViewport) tourViewport.style.cursor = "grab";
+    });
+
+    tourViewport.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      currentX = e.clientX - startX;
+      viewportImg.style.transform = `scale(1.15) translateX(${currentX * 0.3}px)`;
+    });
+
+    // Touch support for mobile devices
+    tourViewport.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - currentX;
+      }
+    });
+
+    tourViewport.addEventListener("touchend", () => {
+      isDragging = false;
+    });
+
+    tourViewport.addEventListener("touchmove", (e) => {
+      if (!isDragging || e.touches.length !== 1) return;
+      currentX = e.touches[0].clientX - startX;
+      viewportImg.style.transform = `scale(1.15) translateX(${currentX * 0.3}px)`;
+    });
+  }
 }
 
-function open360TourModal(villaName) {
+function open360TourModal(villaName, villaId) {
   const modal = document.getElementById("tour360Modal");
   const titleEl = document.getElementById("tourVillaTitle");
+  const viewportImg = document.getElementById("tourViewportImg");
+
   if (!modal) return;
 
-  if (titleEl) titleEl.textContent = `${villaName} — 360° Virtual Walkthrough`;
+  const villa = VILLAS_DATA.find(v => v.id === villaId || v.name === villaName);
+  current360Villa = villa || {
+    name: villaName || "Villa Azure",
+    image: "./assets/villa_azure_img_1785398933026.jpg"
+  };
+
+  if (titleEl) titleEl.textContent = `${current360Villa.name} — 360° Virtual Walkthrough`;
+  if (viewportImg) {
+    viewportImg.src = current360Villa.image;
+    viewportImg.style.transform = "scale(1.15) translateX(0px)";
+  }
+
+  // Reset active room tab to Living Room
+  document.querySelectorAll("#tour360Modal .btn-tour-pill").forEach((b, idx) => {
+    if (idx === 0) b.classList.add("active");
+    else b.classList.remove("active");
+  });
+
   modal.classList.add("active");
 }
 
