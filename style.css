@@ -200,11 +200,12 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* FLOATING QUICK CONTACT BUTTONS */
+/* FLOATING QUICK CONTACT BUTTONS (Bottom-Right Position to prevent blocking left-column content & footer) */
 .floating-contact-stack {
   position: fixed;
   bottom: 28px;
-  left: 28px;
+  right: 28px;
+  left: auto;
   z-index: 4000;
   display: flex;
   flex-direction: column;
@@ -1428,13 +1429,59 @@ h1, h2, h3, h4, .hero-title, .section-title, .villa-name, .modal-villa-title {
 
 .btn-search:hover { background: var(--text-gold); transform: scale(1.02); }
 
-/* STATS STRIP */
-.stats-strip { background: var(--surface-white); border-y: 1px solid var(--border-glass); padding: 2rem 0; margin-top: 3rem; }
-.stats-container { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-around; }
-.stat-item { text-align: center; }
-.stat-number { display: block; font-family: var(--font-serif); font-size: 2.2rem; color: var(--accent-gold); font-weight: 600; }
-.stat-label { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
-.stat-divider { width: 1px; height: 36px; background: var(--border-glass); }
+/* STATS TRUST STRIP (Grid Layout to prevent vertical collision in Image 2) */
+.stats-strip {
+  background: var(--surface-white);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 24px 0;
+  margin-top: 32px;
+}
+
+.stats-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.stat-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-mono) !important;
+  font-size: 28px !important;
+  line-height: 32px !important;
+  color: var(--accent-gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.stat-label {
+  font-family: var(--font-sans);
+  font-size: 13px !important;
+  line-height: 18px !important;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+  word-break: normal;
+}
+
+.stat-divider { display: none; }
 
 /* CATEGORY PILLS SECTION */
 .category-section { padding: 2.5rem 0; }
@@ -4047,9 +4094,26 @@ button.disabled,
     font-size: 12px !important;
   }
 
-  /* Screenshot 4 Fix: Footer grid compression & Floating button stack overlap */
+  /* Stats Trust Strip Mobile 2x2 Grid Fix (Image 2) */
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px 12px !important;
+    padding: 0 12px !important;
+  }
+
+  .stat-number {
+    font-size: 24px !important;
+    line-height: 28px !important;
+  }
+
+  .stat-label {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  /* Footer Mobile Grid & Floating Contact Stack Bottom-Right Positioning (Images 3, 4 & 5) */
   .site-footer {
-    padding-bottom: 84px !important;
+    padding-bottom: 96px !important;
   }
 
   .site-footer .footer-container {
@@ -4068,8 +4132,9 @@ button.disabled,
   }
 
   .floating-contact-stack {
-    bottom: 16px !important;
-    left: 16px !important;
+    bottom: 20px !important;
+    right: 16px !important;
+    left: auto !important;
     z-index: 4000 !important;
   }
 }
