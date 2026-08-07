@@ -4067,26 +4067,50 @@ button.disabled,
     font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
   }
 
-  /* Modals Mobile Reset & Screenshot 4 Fix: Modal Invoice & Action Buttons Overflow */
+  /* Modals Mobile Bottom Sheet Reset — 100% Seamless Backdrop Anchoring */
   .modal-overlay {
-    padding: 12px;
-    align-items: flex-end;
-    min-height: 100vh;
-    min-height: 100dvh;
-    height: 100dvh;
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    padding: 0 !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    inset: 0 !important;
+    box-sizing: border-box !important;
   }
 
-  .modal-content {
+  .modal-content,
+  .modal-content-checkout,
+  .modal-content-sm,
+  .modal-content-login,
+  .modal-content-tour,
+  .modal-content-success {
     width: 100% !important;
     max-width: 100% !important;
-    max-height: 88vh;
-    max-height: 88dvh;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: max(1.2rem, env(safe-area-inset-bottom));
+    max-height: 92vh !important;
+    max-height: 92dvh !important;
+    border-radius: 20px 20px 0 0 !important;
+    margin: 0 !important;
+    padding: 0 0 max(24px, env(safe-area-inset-bottom)) 0 !important;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
     box-sizing: border-box !important;
+    background: #FFFFFF !important;
+  }
+
+  .modal-villa-hero {
+    height: 190px !important;
+    width: 100% !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .modal-villa-hero img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   .modal-villa-grid {
@@ -4094,6 +4118,8 @@ button.disabled,
     flex-direction: column !important;
     width: 100% !important;
     gap: 16px !important;
+    padding: 16px 16px 32px 16px !important;
+    box-sizing: border-box !important;
   }
 
   .modal-left,
