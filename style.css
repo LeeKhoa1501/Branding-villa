@@ -3873,99 +3873,62 @@ button.disabled,
 
   .stat-divider { display: none !important; }
 
-  /* Section Header & Category Pills Mobile (Fix Screenshot 1) */
+  /* Screenshot 1 Fix: Section Header Mobile Stack */
+  .villas-section .section-header,
   .section-header {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 12px !important;
+    gap: 16px !important;
     width: 100% !important;
-    margin-bottom: 20px !important;
   }
 
+  .villas-section .section-header > div,
   .section-header > div {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  .category-pills-wrapper {
-    width: 100% !important;
-    overflow-x: auto !important;
-    display: flex !important;
-    gap: 8px !important;
-    padding-bottom: 8px !important;
-    margin-top: 8px !important;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .cat-pill {
-    white-space: nowrap !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* Filters Sidebar Mobile */
-  .filters-sidebar {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    width: 100% !important;
-  }
-
-  /* Villa Cards Grid 100% Full Width Mobile (Fix Screenshot 2) */
+  /* Screenshot 2 Fix: Villa Card Grid Mobile Single Column Stack */
   .villas-layout-wrapper {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    gap: 20px !important;
   }
 
-  .villas-main-content {
-    width: 100% !important;
-  }
-
-  .villa-grid, #villaGridContainer, .villas-grid {
-    display: grid !important;
+  .filters-sidebar {
     grid-template-columns: 1fr !important;
     width: 100% !important;
-    gap: 24px !important;
+  }
+
+  .villas-grid,
+  .villa-grid,
+  #villaGridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
   }
 
   .villa-card {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    margin: 0 !important;
   }
 
-  .villa-card-content {
+  .villa-card-body {
     padding: 16px !important;
-    box-sizing: border-box !important;
   }
 
-  .villa-card-title {
-    font-size: 18px !important;
-    line-height: 24px !important;
-    margin-bottom: 6px !important;
-  }
-
-  .villa-card-footer, .villa-card-price-action {
+  .villa-card-meta {
     display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    gap: 12px !important;
-    margin-top: 12px !important;
-  }
-
-  .price {
-    font-size: 18px !important;
-    font-family: var(--font-mono) !important;
-    line-height: 22px !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    font-size: 12px !important;
   }
 
   .destinations-grid {
-    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
   }
 
   /* Concierge Addons Mobile */
@@ -3997,12 +3960,8 @@ button.disabled,
     border-radius: 9999px !important;
   }
 
-  /* Specialist Help Banner 1-Column Stack Mobile (Fix Screenshot 3) */
-  .specialist-banner {
-    padding: 2rem 0 !important;
-  }
-
-  .specialist-box {
+  /* Screenshot 3 Fix: Specialist Banner Center Stack & Pill Formatting */
+  .specialist-banner .specialist-box {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -4010,63 +3969,45 @@ button.disabled,
     padding: 24px 16px !important;
     gap: 20px !important;
     width: 100% !important;
-    box-sizing: border-box !important;
   }
 
   .specialist-left {
-    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
+    width: 100% !important;
   }
 
-  .specialist-left h2 {
-    font-size: 22px !important;
-    line-height: 28px !important;
-    margin: 12px 0 8px 0 !important;
-  }
-
-  .specialist-left p {
-    font-size: 14px !important;
-    line-height: 20px !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
-
-  .badge-accent {
+  .specialist-left .badge-accent {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
-    padding: 8px 14px !important;
-    font-size: 11px !important;
     white-space: normal !important;
+    text-align: center !important;
+    padding: 8px 16px !important;
+    font-size: 11px !important;
+    line-height: 15px !important;
     border-radius: 9999px !important;
+    max-width: 100% !important;
+    margin-bottom: 12px !important;
   }
 
   .specialist-right {
-    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    width: 100% !important;
     gap: 10px !important;
   }
 
   .btn-zalo, .btn-phone {
     width: 100% !important;
     max-width: 320px !important;
-    display: inline-flex !important;
-    align-items: center !important;
     justify-content: center !important;
-    padding: 12px 20px !important;
+    padding: 12px 16px !important;
     font-size: 14px !important;
-    box-sizing: border-box !important;
-  }
-
-  .support-sub {
-    font-size: 12px !important;
-    text-align: center !important;
+    border-radius: 9999px !important;
   }
 
   .about-hero-title,
@@ -4126,7 +4067,7 @@ button.disabled,
     font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
   }
 
-  /* Modals Mobile Reset */
+  /* Modals Mobile Reset & Screenshot 4 Fix: Modal Invoice & Action Buttons Overflow */
   .modal-overlay {
     padding: 12px;
     align-items: flex-end;
@@ -4137,14 +4078,70 @@ button.disabled,
   }
 
   .modal-content {
-    width: 100%;
-    max-width: 100%;
+    width: 100% !important;
+    max-width: 100% !important;
     max-height: 88vh;
     max-height: 88dvh;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: max(1.2rem, env(safe-area-inset-bottom));
+    box-sizing: border-box !important;
+  }
+
+  .modal-villa-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px !important;
+  }
+
+  .modal-left,
+  .modal-right {
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .modal-price-calc-box,
+  .ck-summary-box {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .modal-price-calc-box .calc-row,
+  .summary-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    font-size: 13px !important;
+  }
+
+  .modal-price-calc-box .calc-row span:last-child,
+  .summary-row span:last-child,
+  .summary-row strong:last-child {
+    text-align: right !important;
+    flex-shrink: 0 !important;
+    max-width: 60% !important;
+    word-break: break-word !important;
+  }
+
+  .modal-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 16px !important;
+  }
+
+  .modal-actions-row button {
+    flex: 1 !important;
+    padding: 10px 8px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
   }
 
   .modal-content-sm,
