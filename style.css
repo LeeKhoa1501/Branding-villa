@@ -536,7 +536,7 @@ p, span, label, select, input, textarea, button, a, li,
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 1.4rem;
   flex: 1;
   justify-content: center;
 }
@@ -552,27 +552,33 @@ p, span, label, select, input, textarea, button, a, li,
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 12px 10px;
+  padding: 8px 4px;
   white-space: nowrap;
   position: relative;
 }
 
-/* Underline hover indicator */
+/* Underline hover indicator - HIDDEN BY DEFAULT, SHOWS ONLY ON HOVER OR ACTIVE */
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 14px;
-  left: 1.1rem;
-  right: 1.1rem;
-  height: 2px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 2.5px;
   background: #FEF08A;
   border-radius: 2px;
   transform: scaleX(0);
-  transition: transform 0.25s ease;
+  opacity: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
   transform-origin: center;
+  pointer-events: none;
 }
 
-.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+.nav-link:hover::after, 
+.nav-link.active::after { 
+  transform: scaleX(1); 
+  opacity: 1;
+}
 
 .site-header.scrolled .nav-link { color: var(--text-muted); }
 .nav-arrow { font-size: 0.6rem; opacity: 0.7; transition: transform 0.3s ease; }
@@ -581,17 +587,10 @@ p, span, label, select, input, textarea, button, a, li,
 .site-header.scrolled .nav-link:hover, .site-header.scrolled .nav-link.active { color: var(--primary-emerald); }
 .site-header.scrolled .nav-link::after { background: var(--primary-emerald); }
 
-/* Nav separator dots */
+/* Hide all bugged navbar line separators */
 .nav-sep {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  flex-shrink: 0;
-  margin: 0 0.1rem;
+  display: none !important;
 }
-
-.site-header.scrolled .nav-sep { background: var(--border-glass); }
 
 /* MEGA MENU DROPDOWN CARDS */
 .mega-menu-card {
