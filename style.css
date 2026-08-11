@@ -23,10 +23,10 @@
   --color-success: #166534;
   --color-error: #DC2626;
 
-  /* Fonts (Primary: Roboto, Small Accent: Roboto Serif, Numbers: Roboto Mono) */
+  /* Soft Natural Organic Typography Tokens */
+  --font-serif: 'Roboto Serif', Georgia, 'Times New Roman', serif;
   --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif: 'Roboto Serif', Georgia, serif;
-  --font-mono: 'Roboto Mono', monospace;
+  --font-mono: 'Roboto Serif', 'Roboto Mono', monospace;
 
   /* Explicit Even Font Sizes Scale (Divisible by 2) */
   --font-size-xs: 10px;
@@ -82,7 +82,7 @@
   --transition-smooth: 0.36s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* UNIVERSAL NUMBER & CURRENCY TYPOGRAPHY RULE (Roboto Mono) */
+/* UNIVERSAL SOFT NATURAL NUMBERS RULE */
 .price, 
 .recent-price, 
 .preview-price, 
@@ -102,6 +102,10 @@
 .date-text,
 .beds-count,
 .bed-pill,
+.calc-row span:last-child,
+.summary-row span:last-child,
+.node-num,
+.ck-node-num,
 #expSummaryPriceTotal, 
 #expTotalCost,
 #invoiceBillCode,
@@ -113,9 +117,10 @@
 #mobileTripsCount,
 #profTripCount,
 #profWishCount {
-  font-family: var(--font-mono) !important;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  font-family: var(--font-serif) !important;
+  font-variant-numeric: proportional-nums lining-nums;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 /* RESET & BASE STYLES */
@@ -127,17 +132,20 @@
 
 html {
   font-family: var(--font-serif);
+  font-optical-sizing: auto;
   background-color: var(--bg-light);
   color: var(--text-main);
   scroll-behavior: smooth;
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   width: 100%;
 }
 
 body {
   font-family: var(--font-serif);
+  font-optical-sizing: auto;
   background-color: var(--bg-light);
   color: var(--text-main);
   overflow-x: hidden;
@@ -166,8 +174,8 @@ input, select, textarea {
 
 img { max-width: 100%; height: auto; display: block; }
 
-/* SYNCHRONIZED TYPOGRAPHY SYSTEM */
-/* Chữ lớn (Headings / Titles / Hero / Section headers): Roboto (Sans-serif) */
+/* UNIVERSAL SOFT NATURAL TYPOGRAPHY SYSTEM */
+/* Chữ lớn (Headings / Titles / Hero / Section headers): Soft Organic Roboto Serif */
 h1, h2, h3, h4, h5, h6,
 .hero-title,
 .section-title,
@@ -185,14 +193,18 @@ h1, h2, h3, h4, h5, h6,
 .founder-quote,
 .filter-group-title,
 .section-header-clean .section-title {
-  font-family: var(--font-sans) !important;
-  font-weight: 700;
+  font-family: var(--font-serif) !important;
+  font-weight: 600 !important;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
-/* Chữ nhỏ (Body paragraphs / Descriptions / Eyebrows / Captions): Roboto Serif ("chữ mềm mại") */
+/* Chữ nhỏ (Body paragraphs / Descriptions / Eyebrows / Captions): Roboto Serif ("chữ mềm mại & tự nhiên") */
 p, span, label, select, input, textarea, button, a, li,
 .section-desc, .hero-subtext, .section-eyebrow, .nav-action-link, .btn-primary, .btn-secondary, .btn-outline {
   font-family: var(--font-serif);
+  font-optical-sizing: auto;
 }
 
 /* SECTION CONTAINER (1540px EXPANDED FULL-WIDTH, NO EMPTY SIDE GAPS) */
@@ -211,7 +223,7 @@ p, span, label, select, input, textarea, button, a, li,
 }
 
 .section-header-clean .section-eyebrow { display: inline-block; margin-bottom: 0.4rem; font-family: var(--font-serif); }
-.section-header-clean .section-title { font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; font-family: var(--font-sans) !important; }
+.section-header-clean .section-title { font-size: 2.5rem; color: var(--text-main); margin-bottom: 0.5rem; font-family: var(--font-serif) !important; }
 .section-header-clean .section-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.5; font-family: var(--font-serif); }
 
 /* DYNAMIC PAGE VIEWS ROUTING SYSTEM */
