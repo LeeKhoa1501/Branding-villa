@@ -1,0 +1,252 @@
+/* ==========================================================================
+   1. BRAND DESIGN SYSTEM & DESIGN TOKENS (STYLES/VARIABLES.CSS)
+   ========================================================================== */
+:root {
+  /* Colors */
+  --primary-emerald: #0F2E23;
+  --primary-hover: #144B36;
+  --primary-pressed: #091F18;
+  
+  --bg-light: #F8FAFC;
+  --surface-white: #FFFFFF;
+  --surface-secondary: #F1F5F9;
+  
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-gold: #B69A6A;
+  --accent-gold: #D4AF37;
+  
+  --border-glass: #E2E8F0;
+  
+  --color-success: #166534;
+  --color-error: #DC2626;
+
+  /* Soft Natural Organic Typography Tokens */
+  --font-serif: 'Roboto Serif', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Roboto Serif', 'Roboto Mono', monospace;
+
+  /* Explicit Even Font Sizes Scale (Divisible by 2) */
+  --font-size-xs: 10px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 40px;
+  --font-size-6xl: 48px;
+
+  /* Line Heights (Divisible by 2) */
+  --lh-tight: 16px;
+  --lh-snug: 20px;
+  --lh-normal: 24px;
+  --lh-relaxed: 28px;
+  --lh-loose: 32px;
+  --lh-heading: 40px;
+  --lh-display: 56px;
+
+  /* Even Sizes Scale (Divisible by 2) */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* Soft Organic Radii (Divisible by 2) */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 9999px;
+
+  /* Soft Ambient Glass Shadows */
+  --shadow-sm: 0 4px 16px rgba(15, 46, 35, 0.04);
+  --shadow-md: 0 12px 32px rgba(15, 46, 35, 0.08);
+  --shadow-lg: 0 24px 60px rgba(15, 46, 35, 0.12);
+
+  --transition-smooth: 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* UNIVERSAL SOFT NATURAL NUMBERS RULE */
+.price, 
+.recent-price, 
+.preview-price, 
+.stat-number, 
+.badge-count-sm, 
+.modal-price-tag, 
+.exp-price, 
+.receipt-val, 
+.rating-score, 
+.dest-weather,
+.exp-summary-counter,
+.invoice-code,
+.bill-code,
+.trip-code,
+.phone-number,
+.guest-count,
+.date-text,
+.beds-count,
+.bed-pill,
+.calc-row span:last-child,
+.summary-row span:last-child,
+.node-num,
+.ck-node-num,
+#expSummaryPriceTotal, 
+#expTotalCost,
+#invoiceBillCode,
+#tripsHeaderCount,
+#cartCount,
+#wishlistCount,
+#mobileCartCount,
+#mobileWishlistCount,
+#mobileTripsCount,
+#profTripCount,
+#profWishCount {
+  font-family: var(--font-serif) !important;
+  font-variant-numeric: proportional-nums lining-nums;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* RESET & BASE STYLES */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+}
+
+a { color: inherit; text-decoration: none; font-family: inherit; }
+
+button {
+  font-family: var(--font-serif);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+input, select, textarea {
+  font-family: var(--font-serif);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* ==========================================================================
+   HARDCODED TYPOGRAPHY SYSTEM ("SET CỨNG")
+   - Chữ lớn (Headings / Titles / Card Titles / Buttons / Price Tags): Roboto 500
+   - Chữ nhỏ (Body text / Paragraphs / Descriptions / Subtitles / Eyebrows): Roboto Serif 400
+   ========================================================================== */
+
+/* CHỮ LỚN: ALL HEADINGS & TITLES = ROBOTO (MEDIUM SOFT WEIGHT 500) */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.section-title-sm,
+.villa-name,
+.villa-card-title,
+.modal-villa-title,
+.modal-title,
+.logo-text,
+.villas-hero-banner h1,
+.stat-number,
+.stat-label,
+.ck-section-title,
+.minera-title,
+.blog-title,
+.feature-title,
+.founder-quote,
+.filter-group-title,
+.section-header-clean .section-title,
+.dest-overlay h3,
+.price,
+.recent-price,
+.preview-price,
+.modal-price-tag,
+.calc-row span:last-child,
+.summary-row span:last-child,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-search,
+.btn-zalo,
+.btn-phone,
+.btn-exp-confirm,
+.cat-pill,
+.tab-btn,
+.bed-pill,
+.vip-perk-info strong,
+.testi-info strong,
+.footer-col h4 {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em;
+}
+
+/* CHỮ NHỎ: BODY PARAGRAPHS, DESCRIPTIONS & SUBTITLES = ROBOTO SERIF (WEIGHT 400 SOFT NATURAL) */
+p, 
+span:not(.price):not(.stat-number):not(.recent-price):not(.preview-price):not(.logo-text):not(.preview-price span), 
+label, 
+input, 
+select, 
+textarea, 
+li, 
+a:not(.logo-text),
+.section-desc, 
+.hero-subtext, 
+.section-eyebrow, 
+.nav-link, 
+.logo-subtitle, 
+.support-sub, 
+.minera-desc, 
+.dest-overlay p, 
+.recent-card-info p, 
+.blog-excerpt, 
+.testi-quote, 
+.testi-info span, 
+.vip-perk-info span, 
+.footer-col ul a {
+  font-family: 'Roboto Serif', serif !important;
+  font-weight: 400 !important;
+}

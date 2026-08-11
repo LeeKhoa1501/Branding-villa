@@ -1,0 +1,97 @@
+/* ==========================================================================
+   8. FOOTER & FLOATING SUPPORT BAR (STYLES/FOOTER.CSS)
+   ========================================================================== */
+.site-footer {
+  background: var(--surface-white);
+  border-top: 1px solid var(--border-glass);
+  padding: 2.8rem 0 0 0;
+}
+
+.footer-container {
+  max-width: 1540px;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0 24px 2.2rem 24px;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr 1.2fr;
+  gap: 28px;
+}
+
+.footer-col h4 {
+  font-family: var(--font-sans) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.footer-col ul a {
+  transition: color 0.2s ease;
+}
+
+.footer-col ul a:hover {
+  color: var(--primary-emerald);
+}
+
+.social-icon-pill {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface-secondary);
+  border: 1px solid var(--border-glass);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: var(--transition-smooth);
+}
+
+.social-icon-pill:hover {
+  background: var(--primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--primary-emerald);
+  transform: translateY(-2px);
+}
+
+.payment-badges { display: flex; gap: 6px; margin-bottom: 1.2rem; }
+.pay-badge { background: var(--surface-secondary); border: 1px solid var(--border-glass); font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); color: var(--text-main); }
+.lang-selector { display: flex; gap: 6px; }
+.lang-btn { background: var(--surface-secondary); border: 1px solid var(--border-glass); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.6rem; border-radius: var(--radius-pill); color: var(--text-main); }
+.lang-btn.active { background: var(--primary-emerald); color: #FFFFFF; border-color: var(--primary-emerald); }
+
+/* Centered Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid var(--border-glass);
+  padding: 1.8rem 0;
+  background: var(--bg-light);
+}
+
+.footer-bottom-container {
+  max-width: 1540px;
+  width: 96%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 auto;
+}

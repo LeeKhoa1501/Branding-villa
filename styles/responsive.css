@@ -1,0 +1,1242 @@
+/* ==========================================================================
+   9. COMPLETE MULTI-DEVICE RESPONSIVE DESIGN SYSTEM (STYLES/RESPONSIVE.CSS)
+   ========================================================================== */
+
+.blog-newsletter-card {
+  margin-top: 4rem;
+  background: linear-gradient(135deg, #0F2E23 0%, #0B132B 100%);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-lg);
+}
+
+.newsletter-content h3 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin: 0.5rem 0 0.8rem 0;
+}
+
+.newsletter-content p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 1.8rem auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.newsletter-form input::placeholder { color: rgba(255, 255, 255, 0.4); }
+
+.newsletter-form input:focus {
+  border-color: var(--accent-gold);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* 1. LARGE LAPTOPS & DESKTOPS (1200px - 1399px) */
+@media (max-width: 1399px) {
+  .header-container {
+    padding: 0 20px;
+    gap: 1.2rem;
+  }
+
+  .nav-link {
+    padding: 1.5rem 0.8rem;
+    font-size: 0.84rem;
+  }
+
+  .search-widget-card {
+    width: min(1140px, 98%);
+    padding: 0 1rem;
+  }
+
+  .villas-layout-wrapper {
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+  }
+
+  .villas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .experiences-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .mega-villas { width: 720px; }
+  .mega-destinations { width: 580px; }
+}
+
+/* 2. TABLETS LANDSCAPE & MEDIUM SCREENS (992px - 1199px) */
+@media (max-width: 1199px) {
+  .nav-sep { display: none; }
+  .nav-link { padding: 1.5rem 0.6rem; font-size: 0.82rem; }
+  
+  .search-widget-card {
+    grid-template-columns: 1fr 1px 1fr 1px 1fr auto;
+    height: auto;
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  .villas-layout-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .villas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .experiences-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .exp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .founder-card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-image-frame {
+    height: 320px;
+  }
+
+  .founder-quote-box {
+    padding: 2.5rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+  }
+
+  .press-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* 3. TABLETS PORTRAIT & SMALL TABLETS (769px - 991px) */
+@media (max-width: 991px) {
+  .section-container { padding: 0 24px; }
+  
+  .vip-perks-strip {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 24px;
+    gap: 10px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .villas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters-sidebar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .press-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .blog-grid-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-blog-card {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-villa-grid {
+    grid-template-columns: 1fr;
+    max-height: 82vh;
+    overflow-y: auto;
+  }
+
+  .modal-right {
+    border-left: none;
+    border-top: 1px solid var(--border-glass);
+    padding: 1.5rem;
+  }
+}
+
+/* 4. NAVBAR TABLET BREAKPOINT (<= 1100px) */
+@media (max-width: 1100px) {
+  .header-container {
+    padding: 0 16px !important;
+  }
+
+  .main-nav {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: flex !important;
+  }
+
+  .header-actions .currency-selector,
+  .header-actions-divider,
+  .header-actions .nav-action-link {
+    display: none !important;
+  }
+
+  .header-actions .btn-vip-callback {
+    display: inline-flex !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+}
+
+/* 5. MOBILE PHONES & TABLETS (<= 768px) */
+@media (max-width: 768px) {
+  .vip-perks-strip {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 0 16px !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+  }
+
+  .vip-perk-card {
+    padding: 0.7rem 0.75rem !important;
+    gap: 8px !important;
+  }
+
+  .vip-perk-icon {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .vip-perk-info strong {
+    font-size: 0.78rem !important;
+  }
+
+  .vip-perk-info span {
+    font-size: 0.65rem !important;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .site-header-bar { height: 64px; }
+  .site-header.scrolled .site-header-bar { height: 60px; }
+
+  .mobile-toggle { display: flex; }
+  .main-nav { display: none; }
+
+  .header-actions .btn-icon-action,
+  .header-actions .currency-selector,
+  .header-actions .nav-action-link,
+  .header-actions .btn-signin-pill,
+  .header-actions-divider {
+    display: none;
+  }
+
+  /* Keep VIP Callback button visible on mobile header! */
+  .header-actions .btn-vip-callback {
+    display: inline-flex;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+  }
+
+  /* MOBILE UNIFIED TYPOGRAPHY SCALING (ALL EVEN NUMBERS) */
+  h1, .hero-title, .villas-hero-banner h1 {
+    font-size: 28px !important;
+    line-height: 34px !important;
+  }
+
+  h2, .section-title {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+
+  h3, .modal-title {
+    font-size: 20px !important;
+    line-height: 26px !important;
+  }
+
+  h4, .villa-card-title {
+    font-size: 16px !important;
+    line-height: 22px !important;
+  }
+
+  body, p, .hero-subtext, .villas-hero-banner p {
+    font-size: 14px !important;
+    line-height: 20px !important;
+  }
+
+  .btn-primary, .btn-secondary, .btn-vip-callback, .btn-signin-pill {
+    font-size: 12px !important;
+  }
+
+  .badge-instant, .badge-status-locked, .badge-count-sm {
+    font-size: 10px !important;
+  }
+
+  .price, .recent-price, .preview-price, .modal-price-tag {
+    font-size: 16px !important;
+    font-family: var(--font-mono) !important;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+    padding: 104px 0 3rem 0 !important;
+  }
+
+  .hero-content {
+    padding-top: 24px !important;
+  }
+
+  .hero-subtext {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-floating-chip { display: none !important; }
+  .hero-arrow { display: none !important; }
+  .hero-tag-pill,
+  .d-none-mobile {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Dedicated Villas Page Mobile Responsive */
+  .villas-hero-banner {
+    padding: 3.2rem 1rem 2.2rem 1rem !important;
+  }
+
+  .villas-hero-banner h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .villas-hero-banner p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .villas-page-search-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 1rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .villas-page-search-bar > div {
+    min-width: 100% !important;
+  }
+
+  .villas-page-search-bar button {
+    width: 100% !important;
+    margin-top: 0.3rem !important;
+  }
+
+  .category-pills-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 0.5rem !important;
+    scrollbar-width: none !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .category-pills-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cat-pill {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  /* Search Widget Mobile Vertical Stack */
+  .search-widget-card {
+    width: 100%;
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 1.2rem;
+    gap: 0.8rem;
+    border-radius: var(--radius-md);
+  }
+
+  .search-field {
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed var(--border-glass);
+  }
+
+  .search-field:last-of-type { border-bottom: none; }
+
+  .search-divider { display: none; }
+
+  .btn-search {
+    width: 100%;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    justify-content: center;
+    margin-top: 0.4rem;
+  }
+
+  /* Stats Strip Mobile */
+  .stats-strip {
+    padding: 20px 16px !important;
+    background: var(--surface-white) !important;
+  }
+
+  .stats-container {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px 12px !important;
+    align-items: start !important;
+    justify-content: center !important;
+  }
+
+  .stat-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 4px !important;
+  }
+
+  .stat-number {
+    display: block !important;
+    font-family: var(--font-mono) !important;
+    font-size: 24px !important;
+    line-height: 28px !important;
+    font-weight: 700 !important;
+    color: var(--accent-gold) !important;
+    margin-bottom: 4px !important;
+  }
+
+  .stat-label {
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    color: var(--text-muted) !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    white-space: normal !important;
+  }
+
+  .stat-divider { display: none !important; }
+
+  /* Section Header Mobile Stack */
+  .villas-section .section-header,
+  .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    width: 100% !important;
+  }
+
+  .villas-section .section-header > div,
+  .section-header > div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .filter-tab-group {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
+    border-radius: 9999px !important;
+    scrollbar-width: none !important;
+  }
+
+  .filter-tab-group::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .tab-btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    padding: 8px 14px !important;
+    font-size: 12px !important;
+    border-radius: 9999px !important;
+  }
+
+  .villas-layout-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .filters-sidebar {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+  }
+
+  .villas-grid,
+  .villa-grid,
+  #villaGridContainer {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .villa-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .villa-card-body {
+    padding: 16px !important;
+  }
+
+  .villa-card-meta {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    font-size: 12px !important;
+  }
+
+  .destinations-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Concierge Addons Mobile */
+  .exp-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .exp-item {
+    padding: 10px 6px !important;
+    text-align: center !important;
+    border-radius: 10px !important;
+  }
+
+  .exp-emoji { font-size: 18px !important; margin-bottom: 4px !important; }
+  .exp-name { font-size: 12px !important; line-height: 16px !important; font-weight: 600 !important; }
+  .exp-price { font-size: 12px !important; line-height: 16px !important; font-family: var(--font-mono) !important; }
+
+  .exp-summary-counter {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    font-family: var(--font-mono) !important;
+    background: #FFFFFF !important;
+    color: #0F2E23 !important;
+    border-radius: 9999px !important;
+  }
+
+  .specialist-banner .specialist-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 24px 16px !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+
+  .specialist-left {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .specialist-left .badge-accent {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    text-align: center !important;
+    padding: 8px 16px !important;
+    font-size: 11px !important;
+    line-height: 15px !important;
+    border-radius: 9999px !important;
+    max-width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+
+  .specialist-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .btn-zalo, .btn-phone {
+    width: 100% !important;
+    max-width: 320px !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    border-radius: 9999px !important;
+  }
+
+  .about-hero-title,
+  .blog-hero-title {
+    font-size: 1.85rem;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .founder-quote-box {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .founder-quote-text {
+    font-size: 1.1rem;
+  }
+
+  .founder-image-frame {
+    height: 240px;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-newsletter-card {
+    padding: 2.2rem 1.2rem;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  /* iOS Safari & iPhone Specific Reset */
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  .modal-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    z-index: 5000 !important;
+    background: rgba(15, 23, 42, 0.8) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  .modal-content,
+  .modal-content-checkout,
+  .modal-content-sm,
+  .modal-content-login,
+  .modal-content-tour,
+  .modal-content-success {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding-bottom: max(28px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .date-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .date-row input[type="date"],
+  .booking-form-group input[type="date"],
+  .search-field input[type="date"] {
+    flex: 1 !important;
+    width: 50% !important;
+    min-width: 0 !important;
+    padding: 8px 4px !important;
+    font-size: 12px !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    outline: none !important;
+  }
+
+  .modal-villa-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px !important;
+  }
+
+  .modal-left,
+  .modal-right {
+    width: 100% !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+
+  .modal-price-calc-box,
+  .ck-summary-box {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    box-sizing: border-box !important;
+  }
+
+  .modal-price-calc-box .calc-row,
+  .summary-row {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    width: 100% !important;
+    font-size: 13px !important;
+  }
+
+  .modal-price-calc-box .calc-row span:last-child,
+  .summary-row span:last-child,
+  .summary-row strong:last-child {
+    text-align: right !important;
+    flex-shrink: 0 !important;
+    max-width: 60% !important;
+    word-break: break-word !important;
+  }
+
+  .modal-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 16px !important;
+  }
+
+  .modal-actions-row button {
+    flex: 1 !important;
+    padding: 10px 8px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+
+  .modal-content-checkout {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0 !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .checkout-wizard-header {
+    padding: 16px 14px 12px 14px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .checkout-wizard-header h2 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    margin-top: 4px !important;
+    color: #FFFFFF !important;
+  }
+
+  .checkout-step-indicator {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 4px !important;
+    margin-top: 12px !important;
+    width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .ck-step-node {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 3px !important;
+    opacity: 0.55 !important;
+    min-width: 0 !important;
+  }
+
+  .ck-step-node.active {
+    opacity: 1 !important;
+  }
+
+  .ck-step-node .ck-node-num {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+  }
+
+  .ck-step-node span {
+    font-size: 10px !important;
+    line-height: 12px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  .checkout-wizard-body {
+    padding: 16px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .ck-section-title {
+    font-size: 15px !important;
+    line-height: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ck-villas-list-box {
+    max-height: 220px !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .ck-villa-item {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 10px !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .ck-villa-item img {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .ck-villa-details h4 {
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+
+  .ck-villa-details p {
+    font-size: 11px !important;
+    line-height: 15px !important;
+  }
+
+  .payment-tabs-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 16px !important;
+  }
+
+  .pay-tab-btn {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding: 12px 14px !important;
+    gap: 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  .pay-tab-btn i {
+    font-size: 22px !important;
+    width: 28px !important;
+    height: 28px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    color: var(--primary-emerald) !important;
+  }
+
+  .pay-tab-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .pay-tab-text strong,
+  .pay-tab-btn strong {
+    font-size: 13px !important;
+    line-height: 17px !important;
+    display: block !important;
+    color: var(--text-main) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .pay-tab-text span,
+  .pay-tab-btn span {
+    font-size: 11px !important;
+    line-height: 15px !important;
+    display: block !important;
+    color: var(--text-muted) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  .pay-method-view {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .vietqr-live-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 16px 12px !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+  }
+
+  .qr-code-img-box {
+    width: 160px !important;
+    height: 160px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+  }
+
+  .qr-code-img-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .qr-details {
+    width: 100% !important;
+    text-align: left !important;
+    font-size: 12px !important;
+  }
+
+  .qr-details h4 {
+    font-size: 14px !important;
+    line-height: 18px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .qr-details p {
+    font-size: 12px !important;
+    line-height: 20px !important;
+    word-break: break-word !important;
+    margin-bottom: 6px !important;
+  }
+
+  .deposit-info-card,
+  .card-inputs-box {
+    padding: 14px 12px !important;
+    font-size: 12px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .ck-actions-bar {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-top: 16px !important;
+    padding-top: 14px !important;
+  }
+
+  .ck-actions-bar button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    border-radius: 9999px !important;
+  }
+
+  .modal-content-sm,
+  .modal-content-login,
+  .modal-content-tour,
+  .modal-content-success {
+    max-width: 100%;
+  }
+
+  .success-card-body {
+    padding: 1.8rem 1.2rem 1.5rem;
+  }
+
+  .receipt-row {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+  }
+
+  .auth-split-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-right-panel { display: none; }
+
+  .brand-logo .logo-subtitle {
+    display: none !important;
+  }
+
+  .header-actions .btn-vip-callback {
+    display: inline-flex !important;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+
+  .exp-grid-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  .exp-summary-counter {
+    display: inline-flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+    width: auto !important;
+    max-width: 100% !important;
+    border-radius: var(--radius-pill) !important;
+  }
+
+  .google-map-section .section-header {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .google-map-section .section-header > div:first-child {
+    width: 100% !important;
+  }
+
+  .google-map-section .section-title {
+    font-size: 24px !important;
+    line-height: 1.3 !important;
+    width: 100% !important;
+    word-break: normal !important;
+  }
+
+  .map-location-selector {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-top: 8px !important;
+  }
+
+  .map-loc-btn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .site-footer {
+    padding-bottom: 110px !important;
+  }
+
+  .site-footer .footer-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .footer-col {
+    width: 100% !important;
+  }
+
+  .footer-bottom-container {
+    padding: 0 16px !important;
+  }
+
+  .floating-contact-stack {
+    bottom: 12px !important;
+    left: 10px !important;
+    gap: 6px !important;
+    z-index: 990 !important;
+  }
+
+  .float-btn {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+  }
+
+  .zalo-text {
+    font-size: 10px !important;
+  }
+}
+
+/* 5. SMALL MOBILE PHONES (<= 480px) */
+@media (max-width: 480px) {
+  .section-container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+
+  .section-title {
+    font-size: 22px !important;
+    line-height: 28px !important;
+  }
+
+  .exp-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .about-stats-badge-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .about-stat-box {
+    padding: 0.8rem;
+  }
+
+  .about-stat-box .stat-number {
+    font-size: 20px !important;
+    font-family: var(--font-mono) !important;
+  }
+
+  .floating-contact-stack {
+    bottom: 12px !important;
+    left: 10px !important;
+    gap: 6px !important;
+  }
+
+  .float-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+  }
+
+  .toast-card {
+    min-width: calc(100vw - 32px);
+    max-width: calc(100vw - 32px);
+    right: 16px;
+  }
+}
