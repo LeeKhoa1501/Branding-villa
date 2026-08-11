@@ -174,17 +174,24 @@ input, select, textarea {
 
 img { max-width: 100%; height: auto; display: block; }
 
-/* UNIVERSAL SOFT NATURAL TYPOGRAPHY SYSTEM */
-/* Chữ lớn (Headings / Titles / Hero / Section headers): Soft Organic Roboto Serif */
+/* ==========================================================================
+   HARDCODED TYPOGRAPHY SYSTEM ("SET CỨNG")
+   - Chữ lớn (Headings / Titles / Card Titles / Buttons / Price Tags): Roboto (Sans-serif)
+   - Chữ nhỏ (Body text / Paragraphs / Descriptions / Subtitles / Eyebrows): Roboto Serif
+   ========================================================================== */
+
+/* CHỮ LỚN: ALL HEADINGS & TITLES = ROBOTO (SANS-SERIF) */
 h1, h2, h3, h4, h5, h6,
 .hero-title,
 .section-title,
+.section-title-sm,
 .villa-name,
 .villa-card-title,
 .modal-villa-title,
 .modal-title,
 .logo-text,
 .villas-hero-banner h1,
+.stat-number,
 .stat-label,
 .ck-section-title,
 .minera-title,
@@ -192,19 +199,53 @@ h1, h2, h3, h4, h5, h6,
 .feature-title,
 .founder-quote,
 .filter-group-title,
-.section-header-clean .section-title {
-  font-family: var(--font-serif) !important;
-  font-weight: 600 !important;
-  font-optical-sizing: auto;
-  letter-spacing: -0.015em;
-  line-height: 1.25;
+.section-header-clean .section-title,
+.dest-overlay h3,
+.price,
+.recent-price,
+.preview-price,
+.modal-price-tag,
+.calc-row span:last-child,
+.summary-row span:last-child,
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-search,
+.btn-zalo,
+.btn-phone,
+.btn-exp-confirm,
+.cat-pill,
+.tab-btn,
+.bed-pill {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 700 !important;
 }
 
-/* Chữ nhỏ (Body paragraphs / Descriptions / Eyebrows / Captions): Roboto Serif ("chữ mềm mại & tự nhiên") */
-p, span, label, select, input, textarea, button, a, li,
-.section-desc, .hero-subtext, .section-eyebrow, .nav-action-link, .btn-primary, .btn-secondary, .btn-outline {
-  font-family: var(--font-serif);
-  font-optical-sizing: auto;
+/* CHỮ NHỎ: BODY PARAGRAPHS, DESCRIPTIONS & SUBTITLES = ROBOTO SERIF */
+p, 
+span:not(.price):not(.stat-number):not(.recent-price):not(.preview-price):not(.logo-text):not(.preview-price span), 
+label, 
+input, 
+select, 
+textarea, 
+li, 
+a:not(.logo-text),
+.section-desc, 
+.hero-subtext, 
+.section-eyebrow, 
+.nav-link, 
+.logo-subtitle, 
+.support-sub, 
+.minera-desc, 
+.dest-overlay p, 
+.recent-card-info p, 
+.blog-excerpt, 
+.testi-quote, 
+.testi-info span, 
+.vip-perk-info span, 
+.footer-col ul a {
+  font-family: 'Roboto Serif', serif !important;
 }
 
 /* SECTION CONTAINER (1540px EXPANDED FULL-WIDTH, NO EMPTY SIDE GAPS) */
