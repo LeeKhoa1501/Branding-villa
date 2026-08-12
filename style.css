@@ -5102,3 +5102,106 @@ button.disabled,
     right: 16px;
   }
 }
+
+/* ==========================================================================
+   MODERN FLOATING LUXURY AMBIENT MOTION & SHIMMER EFFECTS ("BAY BAY ẢO ẢO")
+   ========================================================================== */
+
+/* Background Floating Ambient Light Orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  will-change: transform;
+  animation: floatOrb 14s ease-in-out infinite alternate;
+}
+
+.ambient-orb-gold {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0) 70%);
+  top: 10%;
+  right: -5%;
+  animation-duration: 16s;
+}
+
+.ambient-orb-emerald {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(15, 46, 35, 0.3) 0%, rgba(15, 46, 35, 0) 70%);
+  bottom: 15%;
+  left: -8%;
+  animation-duration: 18s;
+  animation-delay: -5s;
+}
+
+@keyframes floatOrb {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(35px, -45px) scale(1.1); }
+  100% { transform: translate(-30px, 35px) scale(0.95); }
+}
+
+/* Glass Card Shimmer Ray Sweep on Hover */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+}
+
+.shimmer-card:hover::before {
+  left: 140%;
+  opacity: 1;
+}
+
+/* Glowing Sparkle Rotation for Section Eyebrows */
+.section-eyebrow span, .section-eyebrow i {
+  display: inline-block;
+  animation: pulseSparkle 3s ease-in-out infinite;
+}
+
+@keyframes pulseSparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.5)); }
+  50% { transform: scale(1.25) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.9)); }
+}
+
+/* Floating Breathing Pulse Badge */
+.pulse-glow-badge {
+  animation: breathingGlow 3s ease-in-out infinite;
+}
+
+@keyframes breathingGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+}
+
+/* Smooth Floating Lift for Destination Cards & VIP Perks */
+.vip-perk-card, .dest-card, .testimonial-card, .villa-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.vip-perk-card:hover, .testimonial-card:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 20px 40px rgba(15, 46, 35, 0.1);
+}
