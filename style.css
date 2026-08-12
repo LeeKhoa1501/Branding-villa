@@ -2,25 +2,27 @@
    LeeKhoa Villas — DEDICATED MULTI-PAGE SPA DESIGN SYSTEM (STYLE.CSS)
    ========================================================================== */
 
-/* 1. BRAND DESIGN SYSTEM & DESIGN TOKENS */
+/* 1. BRAND DESIGN SYSTEM & VIBRANT LUXURY RESORT DESIGN TOKENS */
 :root {
-  /* Colors */
-  --primary-emerald: #0F2E23;
-  --primary-hover: #144B36;
-  --primary-pressed: #091F18;
+  /* Rich Deep Emerald & Vibrant Tropical Gold */
+  --primary-emerald: #0A3C2F;
+  --primary-hover: #0E4F3E;
+  --primary-pressed: #06281F;
   
-  --bg-light: #F8FAFC;
+  /* Fresh Warm Ivory & Natural Resort Surface Tones */
+  --bg-light: #FAFAF7;
   --surface-white: #FFFFFF;
-  --surface-secondary: #F1F5F9;
+  --surface-secondary: #F4F5F0;
   
-  --text-main: #0F172A;
-  --text-muted: #64748B;
-  --text-gold: #B69A6A;
-  --accent-gold: #D4AF37;
+  --text-main: #0B132B;
+  --text-muted: #4A5568;
+  --text-gold: #D97706;
+  --accent-gold: #E5A93C;
+  --accent-amber: #F59E0B;
   
-  --border-glass: #E2E8F0;
+  --border-glass: rgba(226, 232, 240, 0.9);
   
-  --color-success: #166534;
+  --color-success: #15803D;
   --color-error: #DC2626;
 
   /* Soft Natural Organic Typography Tokens */
@@ -174,7 +176,20 @@ input, select, textarea {
   font-family: var(--font-serif);
 }
 
-img { max-width: 100%; height: auto; display: block; }
+img { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+  filter: contrast(1.03) saturate(1.08);
+  transition: filter 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
+}
+
+.villa-card:hover img, 
+.dest-card:hover img, 
+.minera-img-frame:hover img, 
+.timeline-left:hover img {
+  filter: contrast(1.06) saturate(1.14);
+}
 
 /* ==========================================================================
    HARDCODED TYPOGRAPHY SYSTEM ("SET CỨNG")
