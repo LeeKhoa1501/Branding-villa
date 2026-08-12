@@ -4,24 +4,24 @@
 
 /* 1. BRAND DESIGN SYSTEM & DESIGN TOKENS */
 :root {
-  /* Colors */
-  --primary-emerald: #0F2E23;
-  --primary-hover: #144B36;
-  --primary-pressed: #091F18;
+  /* Vibrant Fresh Organic Luxury Palette */
+  --primary-emerald: #0A6C44;
+  --primary-hover: #0E8554;
+  --primary-pressed: #064B2F;
   
-  --bg-light: #F8FAFC;
+  --bg-light: #FAF8F5;
   --surface-white: #FFFFFF;
-  --surface-secondary: #F1F5F9;
+  --surface-secondary: #F4EFEA;
   
-  --text-main: #0F172A;
-  --text-muted: #64748B;
-  --text-gold: #B69A6A;
-  --accent-gold: #D4AF37;
+  --text-main: #111927;
+  --text-muted: #4B5563;
+  --text-gold: #D97706;
+  --accent-gold: #EAB308;
   
   --border-glass: #E2E8F0;
   
-  --color-success: #166534;
-  --color-error: #DC2626;
+  --color-success: #10B981;
+  --color-error: #EF4444;
 
   /* Soft Natural Organic Typography Tokens */
   --font-serif: 'Roboto Serif', Georgia, 'Times New Roman', serif;
@@ -376,7 +376,7 @@ a:not(.logo-text),
   content: '';
   display: block;
   height: 3px;
-  background: linear-gradient(90deg, #0F2E23 0%, #16A34A 40%, #D4AF37 100%);
+  background: linear-gradient(90deg, #0A6C44 0%, #10B981 40%, #EAB308 100%);
   transition: opacity 0.3s ease;
 }
 
@@ -954,7 +954,7 @@ a:not(.logo-text),
 
 .about-pillars-section {
   padding: 3rem 0;
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(241, 245, 249, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.6) 0%, rgba(244, 239, 234, 0.85) 50%, rgba(236, 253, 245, 0.6) 100%);
 }
 
 .pillars-grid {
@@ -1707,7 +1707,7 @@ a:not(.logo-text),
 /* LUXURY GUEST TESTIMONIALS SECTION */
 .testimonials-section {
   padding: 2.2rem 0;
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(241, 245, 249, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(250, 248, 245, 0.6) 0%, rgba(244, 239, 234, 0.85) 50%, rgba(236, 253, 245, 0.6) 100%);
   border-top: 1px solid var(--border-glass);
 }
 
