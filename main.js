@@ -2,7 +2,7 @@
    LeeKhoa Villas — COMPLETE APPLICATION LOGIC & SPA ROUTER (MAIN.JS)
    ========================================================================== */
 
-// Expanded Real Vietnam Luxury Villa Catalog Dataset
+// Expanded Vietnam Luxury Resort & Villa Dataset (Real 5-6 Star High Definition Imagery)
 const VILLAS_DATA = [
   {
     id: "azure",
@@ -19,7 +19,7 @@ const VILLAS_DATA = [
     instant: true,
     freeCancel: true,
     luxury: false,
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=85",
     description: "Biệt thự sát biển Bãi Sau với hồ bơi vô cực ngắm trọn đại dương. Không gian kiến trúc hiện đại, đầy đủ tiện nghi chuẩn 5 sao.",
     amenities: ["Hồ bơi vô cực", "Sát biển 200m", "Dịch vụ BBQ", "Karaoke & Sound", "Bãi đỗ xe 4 ô tô", "Quản gia riêng"]
   },
@@ -38,7 +38,7 @@ const VILLAS_DATA = [
     instant: false,
     freeCancel: true,
     luxury: true,
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85",
     description: "Khu biệt thự nghỉ dưỡng riêng tư bên bãi biển Hồ Tràm với khuôn viên xanh rộng 1200m². Lý tưởng cho đoàn đông và gia đình đa thế hệ.",
     amenities: ["Bãi biển riêng", "Bể bơi 100m²", "Bàn bida & Foosball", "Dụng cụ BBQ ngoài trời", "Bếp Chef chuyên nghiệp", "Sân vườn tổ chức tiệc"]
   },
@@ -57,7 +57,7 @@ const VILLAS_DATA = [
     instant: true,
     freeCancel: false,
     luxury: false,
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85",
     description: "Villa phong cách Địa Trung Hải tối giản, không gian thanh bình tại Long Hải. Tận hưởng khí trời dịu mát và hồ bơi xanh ngọc.",
     amenities: ["Hồ bơi nước mặn", "Sân BBQ ngoài trời", "Smart TV 75 inch", "Bếp gia đình", "Wifi tốc độ cao", "Hỗ trợ mua hải sản"]
   },
@@ -76,7 +76,7 @@ const VILLAS_DATA = [
     instant: true,
     freeCancel: true,
     luxury: true,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85",
     description: "Biệt thự đồi thông Đà Lạt với tường kính panorama ôm trọn thung lũng sương mù. Có lò sưởi ấm cúng và khu vườn nướng BBQ chill đêm.",
     amenities: ["View thung lũng thông", "Lò sưởi phòng khách", "Bồn tắm ngâm thảo mộc", "Vườn tiệc nướng", "Dịch vụ pha Coffee & Tea", "Lửa trại ngoài trời"]
   },
@@ -95,7 +95,7 @@ const VILLAS_DATA = [
     instant: false,
     freeCancel: true,
     luxury: true,
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85",
     description: "Đại dinh thự biển siêu sang tại đảo ngọc Phú Quốc. Hồ bơi nối dài ra bãi cát trắng, đầy đủ dịch vụ đầu bếp riêng và quản gia 24/7.",
     amenities: ["Đầu bếp riêng", "Quản gia 24/7", "Bãi biển ngắm hoàng hôn", "Xe đón tiễn sân bay", "Thuyền Kayak & Sup", "Phòng Sauna & Spa"]
   },
@@ -114,7 +114,7 @@ const VILLAS_DATA = [
     instant: true,
     freeCancel: true,
     luxury: true,
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=85",
     description: "Biệt thự biển ngắm hoàng hôn tuyệt đẹp tại bãi Dài Nha Trang. Kiến trúc giật cấp ấn tượng với hồ bơi vô cực tràn viền.",
     amenities: ["View vịnh Nha Trang", "Hồ bơi tràn bờ 120m²", "Phòng chiếu phim gia đình", "Bãi biển riêng", "Rượu vang chào mừng", "Quản gia 24/7"]
   },
@@ -133,7 +133,7 @@ const VILLAS_DATA = [
     instant: true,
     freeCancel: true,
     luxury: false,
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=85",
     description: "Villa sang trọng tọa lạc tại lưng chừng đồi Bãi Trước Vũng Tàu, view ngắm biển và thành phố về đêm cực kỳ lãng mạn.",
     amenities: ["Hồ bơi sân thượng", "View biển & Thành phố", "Dàn Karaoke hiện đại", "Bàn bida lỗ", "Bếp nướng BBQ", "Đậu xe 3 ô tô"]
   }

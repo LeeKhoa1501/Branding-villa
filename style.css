@@ -180,7 +180,7 @@ img {
   max-width: 100%; 
   height: auto; 
   display: block; 
-  filter: contrast(1.03) saturate(1.08);
+  filter: brightness(1.01) saturate(1.04);
   transition: filter 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
 }
 
@@ -188,7 +188,7 @@ img {
 .dest-card:hover img, 
 .minera-img-frame:hover img, 
 .timeline-left:hover img {
-  filter: contrast(1.06) saturate(1.14);
+  filter: brightness(1.03) saturate(1.06);
 }
 
 /* ==========================================================================
