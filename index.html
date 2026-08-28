@@ -1690,10 +1690,12 @@
 
             <button class="pay-tab-btn shimmer-card" data-paymethod="qr">
               <span class="pay-tab-badge"><i class="fa-solid fa-check"></i></span>
-              <div class="pay-icon-box"><i class="fa-solid fa-qrcode"></i></div>
+              <div class="pay-icon-box" style="background: rgba(0, 104, 255, 0.1); color: #0068FF;">
+                <i class="fa-solid fa-comments"></i>
+              </div>
               <div class="pay-tab-text">
-                <strong>2. Chuyển Khoản QR Code</strong>
-                <span>Quét VietQR / Napas 24/7 tự động</span>
+                <strong>2. Tư Vấn Zalo &amp; Hotline VIP</strong>
+                <span>Nhắn Zalo / Gọi Hotline giữ chỗ 24/7</span>
               </div>
             </button>
 
@@ -1715,7 +1717,7 @@
                   <i class="fa-solid fa-hand-holding-dollar"></i>
                 </div>
                 <div>
-                  <h4 style="font-family: var(--font-serif); font-size: 1.1rem; color: #14532D; margin: 0;">Thanh Toán Tiền Mặt Tận Nơi (Pay Cash at Villa)</h4>
+                  <h4 style="font-family: 'Roboto', sans-serif !important; font-weight: 500 !important; font-size: 1.1rem; color: #14532D; margin: 0;">Thanh Toán Tiền Mặt Tận Nơi (Pay Cash at Villa)</h4>
                   <span style="font-size: 0.84rem; color: #166534;">Không cần đặt cọc trước — Thanh toán 100% tiền mặt khi check-in</span>
                 </div>
               </div>
@@ -1727,21 +1729,56 @@
             </div>
           </div>
 
-          <!-- PAY METHOD 2: VIETQR BOX -->
+          <!-- PAY METHOD 2: ZALO & HOTLINE CONSULTATION BOX -->
           <div class="pay-method-view" id="payViewQr" style="display: none;">
-            <div class="vietqr-live-box">
-              <div class="qr-code-img-box">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=LEEKHOAVILLAS_CART_84920" alt="VietQR Code">
-                <span class="qr-pulse-badge">Live Scan</span>
+            <div class="zalo-hotline-live-box" style="background: linear-gradient(135deg, #F0F7FF 0%, #E6F0FA 100%); border: 1.5px solid #BAE6FD; border-radius: var(--radius-lg); padding: 1.5rem; text-align: left;">
+              
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-bottom: 1px dashed #93C5FD; padding-bottom: 1.2rem; margin-bottom: 1.2rem;">
+                <div style="display: flex; align-items: center; gap: 0.9rem;">
+                  <div style="width: 50px; height: 50px; border-radius: 50%; background: #0068FF; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-shadow: 0 6px 16px rgba(0, 104, 255, 0.25);">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div>
+                    <h4 style="font-family: 'Roboto', sans-serif !important; font-weight: 500 !important; font-size: 1.1rem; color: #0369A1; margin: 0 0 0.2rem 0;">Tổng Đài Zalo &amp; Hotline Giữ Chỗ 24/7</h4>
+                    <span style="font-size: 0.84rem; color: #0284C7;"><i class="fa-solid fa-circle-check" style="color: #0284C7;"></i> Quản gia LeeKhoa Villas sẵn sàng phản hồi và giữ phòng trong <strong>1 phút</strong></span>
+                  </div>
+                </div>
+                
+                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                  <a href="https://zalo.me/0901234567" target="_blank" rel="noopener noreferrer" class="btn-zalo-direct" style="background: #0068FF; color: #FFFFFF; font-weight: 600; font-size: 0.88rem; padding: 0.65rem 1.2rem; border-radius: var(--radius-pill); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(0, 104, 255, 0.3); transition: var(--transition-smooth);">
+                    <i class="fa-solid fa-comment-dots"></i> Nhắn Zalo Ngay
+                  </a>
+                  <a href="tel:0901234567" class="btn-phone-direct" style="background: #0D9488; color: #FFFFFF; font-weight: 600; font-size: 0.88rem; padding: 0.65rem 1.2rem; border-radius: var(--radius-pill); display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3); transition: var(--transition-smooth);">
+                    <i class="fa-solid fa-phone-volume"></i> Gọi Hotline VIP
+                  </a>
+                </div>
               </div>
-              <div class="qr-details">
-                <span class="badge-instant"><i class="fa-solid fa-bolt"></i> Tự động xác nhận sau khi chuyển</span>
-                <h4>Ngân hàng MBBank (Quân Đội)</h4>
-                <p>Số tài khoản: <strong id="qrAccNum" class="price">0901 234 567</strong> <button class="btn-copy" id="btnCopyAcc">Copy</button></p>
-                <p>Chủ tài khoản: <strong>CONG TY CO PHAN LEEKHOA VILLAS</strong></p>
-                <p>Nội dung chuyển khoản: <strong id="qrMemo" style="color: var(--primary-emerald); font-family: var(--font-mono);">LEEKHOACART84920</strong> <button class="btn-copy" id="btnCopyMemo">Copy</button></p>
-                <p>Số tiền chuyển: <strong id="qrAmountVal" class="price" style="color: var(--accent-gold); font-size: 1.2rem;">0 ₫</strong></p>
+
+              <!-- HOTLINE & ZALO INFO DETAILS GRID -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: #FFFFFF; border: 1px solid #E0F2FE; border-radius: var(--radius-md); padding: 1.2rem; margin-bottom: 1rem;">
+                <div>
+                  <span style="font-size: 0.74rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.3rem;">SỐ ZALO / TELEPHONE CÁ NHÂN</span>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <strong style="font-family: 'Roboto Serif', serif !important; font-size: 1.2rem; color: #0068FF; font-weight: 500;" id="qrAccNum">0901 234 567</strong>
+                    <button class="btn-copy" id="btnCopyAcc" style="background: #E0F2FE; color: #0369A1; border: none; padding: 0.25rem 0.6rem; border-radius: var(--radius-pill); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Sao Chép</button>
+                  </div>
+                </div>
+
+                <div>
+                  <span style="font-size: 0.74rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.3rem;">MÃ ĐƠN HÀNG CẦN GỬI QUA ZALO</span>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <strong style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--primary-emerald);" id="qrMemo">LEEKHOACART84920</strong>
+                    <button class="btn-copy" id="btnCopyMemo" style="background: #E0F2FE; color: #0369A1; border: none; padding: 0.25rem 0.6rem; border-radius: var(--radius-pill); font-size: 0.78rem; font-weight: 600; cursor: pointer;">Sao Chép</button>
+                  </div>
+                </div>
               </div>
+
+              <!-- 3-STEP GUIDE -->
+              <div style="font-size: 0.84rem; color: #334155; line-height: 1.55;">
+                <strong style="color: #0369A1;"><i class="fa-solid fa-circle-info"></i> Hướng dẫn giữ chỗ qua Zalo:</strong>
+                <span>Nhấn nút <strong>Nhắn Zalo Ngay</strong> (hoặc kết bạn SĐT <strong>0901 234 567</strong>), gửi <strong>Mã đơn hàng</strong> cho Quản Gia. Hệ thống LeeKhoa Villas sẽ lập tức xác nhận giữ biệt thự và gửi lại Hóa đơn Bill giữ chỗ chính thức qua Zalo cho bạn.</span>
+              </div>
+
             </div>
           </div>
 
